@@ -30,6 +30,7 @@
     --text-color-grey: #838383;
     --text-color-light-grey: #B1B5BA;
     --text-color-basket-grey: #989FA8;
+    --indicator-color-green: #B1DE32;
   }
 /*----------------------------------------------------------------------*/
 * {
@@ -77,6 +78,7 @@ a:active {
     align-items: center;
     color: #FFFFFF;
     justify-content: space-between;
+    position: relative;
 }
 .burgerMenu {
     display: block;
@@ -142,34 +144,152 @@ a:active {
 /*-------------------MAIN---------------------------------------------*/
 .menu__mobile_nav {
     height: 75px;
+    position: absolute;
+    background-color: var(--text-color-white);
+    background-color: rgb(255, 255, 255, 0.7);
 }
+
+.menu__mobile_nav {
+    display:flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    flex-wrap: nowrap;
+}
+
+.nav__li {
+    display: flex;
+    list-style-type: none;
+    flex-grow: 1;
+    align-items: center;
+    padding: 5px;
+}
+.menu:target .menu__mobile_nav {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.nav__input {
+    display: none;
+}
+
+.nav__label {
+    display: flex;
+    white-space:nowrap;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    align-self: center;
+}
+.nav__label:hover,
+.nav__label:active {
+    background-color: var(--color-bordeaux);
+    border-radius: 10px;
+    color: var(--text-color-white);
+}
+
+
+
 
 .menu {
     background-color: var(--color-milky);
     padding-right: 19px;
     padding-left: 19px;
     display: flex;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 75px);
     flex-direction: column;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    padding-bottom: 35px;
+}
+.menu__h2 {
+    margin-top: 75px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
 }
 .menu__list {
     display: flex;
+    margin-right: auto;
+    margin-left: auto;
     flex-direction: column;
-
+    justify-content: space-around;
+    column-gap: 15px;
+    row-gap: 30px;
 }
 .menu__card {
+    display: flex;
+    flex-direction: column;
     justify-self: center;
+    width: 350px;
+    border-radius: 10px;
+    background-color: var(--text-color-white);
+    justify-content: space-between;
 }
 .card__img {
-    width: 353px;
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
 }
-.card__name {
+.card_desc {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    column-gap: 4px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.card {
+    display: flex;
+    column-gap: 3px;
+    align-self: flex-end;
+}
+.card__desc_name {
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;  
     overflow: hidden;
+    align-self: flex-end;
+    font-size: 15px;
+    font-weight: 500;
+    color: #000000;
+}
+
+.card__desc_weight {
+    align-self: flex-end;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+    color: var(--text-color-light-grey);
+    padding-bottom: 1px;
+}
+.card__desc_price {
+    white-space: nowrap;
+    display: flex;
+    flex-grow: 1;
+    justify-content: end;
+    align-items: center;
+    font-size: 24px;
+    color: var(--text-color-grey);
+}
+.card__button {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-bordeaux-light);
+    border-radius: 0 0 10px 10px;
+    color: var(--text-color-white);
+    font-size: 15px;
+    font-weight: 700;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .aboutUs {
     padding-top: 40px;
@@ -180,11 +300,13 @@ a:active {
     flex-direction: column;
     row-gap: 40px;
 }
-
 .aboutUs__buttons {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+}
+.aboutUs__map {
+    overflow: hidden;
 }
 /*--------------------------------------------------------------------*/
 /*-------------------FOOTER-------------------------------------------*/
