@@ -1,1 +1,6 @@
-//str = str.substr(0,127) + '...' - для многоточия
+let menu = document.querySelector(".menu");
+
+menu.addEventListener('scroll', function(e) {
+    console.log(e.target);
+    document.querySelector('.menu__mobile_nav').backgroundColor = "rgb(255, 255, 255, 0.7)";
+  });

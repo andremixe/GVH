@@ -70,6 +70,7 @@ a:active {
 
 /*-------------------HEADER----------------------------------*/
 .header {
+    position: relative;
     height: 74px;
     padding-left: 20px;
     padding-right: 20px;
@@ -78,7 +79,6 @@ a:active {
     align-items: center;
     color: #FFFFFF;
     justify-content: space-between;
-    position: relative;
 }
 .burgerMenu {
     display: block;
@@ -146,7 +146,6 @@ a:active {
     height: 75px;
     position: absolute;
     background-color: var(--text-color-white);
-    background-color: rgb(255, 255, 255, 0.7);
 }
 
 .menu__mobile_nav {
@@ -202,7 +201,7 @@ a:active {
     display: flex;
     height: calc(100vh - 75px);
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     scroll-behavior: smooth;
     padding-bottom: 35px;
 }
@@ -300,13 +299,62 @@ a:active {
     flex-direction: column;
     row-gap: 40px;
 }
+.indicator{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--indicator-color-green);
+}
+.address {
+    padding-top: 25px;
+    font-style: normal;
+    padding-bottom: 25px;
+}
+.workTime {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+}
+.workTime__span,
+.workTime__span_now,
+.address{
+    font-family: "FF Good Pro";
+    font-size: 20px;
+    font-weight: 450;
+}
 .aboutUs__buttons {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+.aboutUs__button {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--color-bordeaux);
+    color: var(--text-color-white);
+    
+}
+.aboutUs__span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 100%;
+    align-self: center;
+    height: 100%;
+    border: 1px solid var(--text-color-white);
+    font-size: 15px;
+    font-weight: 700;
 }
 .aboutUs__map {
     overflow: hidden;
+    max-height: 370px;
+    border-radius: 10px;
 }
 /*--------------------------------------------------------------------*/
 /*-------------------FOOTER-------------------------------------------*/
