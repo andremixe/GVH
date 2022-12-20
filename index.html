@@ -8,7 +8,7 @@
     <title>GRILL VINO &AMP; ХАЧАПУРИ</title>
   </head>
   <body>
-    <header class="header">
+    <header class="header wrapper">
       <div class="auxiliary"></div>
       <div class="logo">
         <picture>
@@ -46,11 +46,8 @@
 
     <aside class="mobile">
         <div class="mobile__header">
-            <img src="" alt="" class="mobile__logo">
-            <img src="" alt="" class="mobile__close">
-        </div>
-        <div class="close">
-            <img src="assets/img/close.svg" alt="Мобильное меню">
+            <img src="assets/img/mobileLogo.svg" alt="" class="mobile__logo">
+            <img src="assets/img/close.svg" alt="" class="mobile__close">
         </div>
         <nav class="mobile__nav">
             <a href="">
@@ -64,99 +61,173 @@
               </a>
         </nav>
         <div class="mobile__profile">
-            <a href=""
-              ><img src="assets/img/iconProfile.svg" alt="" class="mobile__profile_img"
-            /></a>
+            <div  class="mobile__profile_img">
+                <a href=""
+                ><img src="assets/img/mobileIconProfile.svg" alt=""
+              /></a>
+            </div>
             <span>ПРОФИЛЬ</span>
         </div>
         <div class="mobile__phone">
-            <a class="contacts__a" href="tel:+78129362292"><span class="contacts__span">ДОСТАВКА  </span>+7 812 936 22 92</a>
-            <a class="contacts__a" href="tel:+78129362292"><span class="contacts__span">РЕСТОРАН  </span>+7 812 936 22 92</a>
-        </div>
-        <div class="mobile__">
-            <div>
-
-            </div>
-            <span>
-
-            </span>
+            <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">ДОСТАВКА </span><span>+7 812 936 22 92 </span></a>
+            <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">РЕСТОРАН </span><span>+7 812 936 22 92 </span></a>
         </div>
         <address class="mobile__contacts">
-            <span class="mobile__address">
-                г.Мурино, пр.Авиаторов Балтики, д.11/1
-            </span>
-            <button class="Menu__button_route" type="button">
-                ПРОЛОЖИТЬ МАРШРУТ
-            </button>
+                <div class="address__wrapper">
+                    <div class="mobileWorkTime">
+                            <div class="mobile__indicator"></div>
+                            <span class="mobileWorkTime__span_now">
+                                Сейчас работаем 
+                            </span>
+                            <span class="mobileWorkTime__span">
+                                Пн-Вс:  11:00-24:00
+                            </span>
+                    </div>
+                    <span class="mobile__address">
+                        г.Мурино, пр.Авиаторов Балтики, д.11/1
+                    </span>
+                </div>
+                <div class="button__wrapper">  
+                    <button class="mobile__button_route" type="button">
+                    ПРОЛОЖИТЬ МАРШРУТ
+                    </button> 
+                </div>
+            
         </address>
-        </aside>
+    </aside>
+    
+ 
 
-
-    <main>
-        <h1 class="visually-hidden"></h1>
-        <aside class="asideNavMenu">
-            <ul>
-                <a href="">
-                    <li class="asideNavMenu__item"></li>
-                </a><a href="">
-                    <li class="asideNavMenu__item"></li>
-                </a><a href="">
-                    <li class="asideNavMenu__item"></li>
-                </a><a href="">
-                    <li class="asideNavMenu__item"></li>
-                </a><a href="">
-                    <li class="asideNavMenu__item"></li>
-                </a><a href="">
-                    <li class="asideNavMenu__item"></li>
+    <main class="main">
+        <aside class="asideMenu">
+            <div class="asideMenu__first"></div>
+            <ul class="asideMenu__ul">
+                <a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">1</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">2</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">2</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">3</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">4</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">5</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">6</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">6</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">7</li>
+                </a><a href="" class="asideMenu__item">
+                    <li class="asideMenu__li">8</li>
                 </a>
             </ul>
+            <h1 class="visually-hidden"></h1>
         </aside>
 
-        <section class="wrapper menu__mobile_nav">
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="tab0" value="0" id="tab_0" checked="">
-                <label class="nav__label nav__label_active" for="tab_0">Блюда на углях</label>
-            </li>
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="inset" value="" id="tab_1" checked="">
-                <label class="nav__label" for="tab_1">Хачапури</label>
-            </li>
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="inset" value="" id="tab_2" checked="">
-                <label class="nav__label" for="tab_2">Салаты</label>
-            </li>
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="inset" value="" id="tab_3" checked="">
-                <label class="nav__label" for="tab_3">Закуски</label>
-            </li>
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="inset" value="" id="tab_4" checked="">
-                <label class="nav__label" for="tab_4">Десерты</label>
-            </li>
-            <li class = "nav__li">
-                <input class ="nav__input" type="radio" name="inset" value="" id="tab_5" checked="">
-                <label class="nav__label" for="tab_5">Напитки</label>
-            </li>
-        </section>
-
-        <div class="menu wrapper">
-            <h2 class="menu__h2">
-                Блюда на углях
-            </h2>
-            <div class="menu__list">
+        <!--<div class="container">-->
+            <section class="wrapper menu__mobile_nav">
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="tab0" value="0" id="tab_0" checked="">
+                    <label class="nav__label nav__label_active" for="tab_0">Блюда на углях</label>
+                </li>
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="inset" value="" id="tab_1" checked="">
+                    <label class="nav__label" for="tab_1">Хачапури</label>
+                </li>
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="inset" value="" id="tab_2" checked="">
+                    <label class="nav__label" for="tab_2">Салаты</label>
+                </li>
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="inset" value="" id="tab_3" checked="">
+                    <label class="nav__label" for="tab_3">Закуски</label>
+                </li>
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="inset" value="" id="tab_4" checked="">
+                    <label class="nav__label" for="tab_4">Десерты</label>
+                </li>
+                <li class = "nav__li">
+                    <input class ="nav__input" type="radio" name="inset" value="" id="tab_5" checked="">
+                    <label class="nav__label" for="tab_5">Напитки</label>
+                </li>
+            </section>
+            <section class="mainGallery wrapper">
+                <img class="mainGallery__item" src="assets/img/bigImg.jpg" alt="">
+            </section>
+            <div class="menu wrapper">
+                <div class="menu__list">
+                    <h2 class="menu__h2">
+                        Блюда на углях
+                    </h2>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Стейк из лосося с цукини на гриле
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>                            
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                        
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Свиные рёбра с ткемали
+                                    </p>
+                                </div>                     
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card__text">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Пеновани из слоёного теста с беконом, сыром сулугуни и зеленью Подается со сметаной
+                                        </p>
+                                    </div>                     
+                                    <span class="card__desc_weight">
+                                            280 г.
+                                    </span>
+                                </div>                        
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
                     <a class="menu__card">
                         <img class="card__img" src="assets/img/bigImg.jpg" alt="">
                         <div class="card_desc">
                             <div class="card">
                                 <p class="card__desc_name">
-                                    Стейк из лосося с цукини на гриле
-                                   </p>
+                                    Каре ягненка  
+                                </p>
                             </div>
                             <span class="card__desc_weight">
                                 280 г.
-                            </span>                            
+                            </span>
                             <div class="card__desc_price">670 &#8381</div>
-                        </div>                        
+                        </div>
                         <button class="card__button" type="button">
                             + добавить
                         </button>
@@ -166,7 +237,7 @@
                         <div class="card_desc">
                             <div class="card">
                                 <p class="card__desc_name">
-                                    Свиные рёбра с ткемали
+                                    Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
                                 </p>
                             </div>                     
                             <span class="card__desc_weight">
@@ -178,94 +249,222 @@
                             + добавить
                         </button>
                     </a>
-                    <a class="menu__card">
-                        <img class="card__img" src="assets/img/kare.jpg" alt="">
-                        <div class="card_desc">
-                            <div class="card__text">
+                </div>
+                <div class="basketDesk">
+
+                </div>
+            </div>
+            <section class="aboutUs wrapper">
+                <div class="aboutUs__div">
+                    <div class="workTime">
+                        <div class="indicator"></div>
+                        <span class="workTime__span_now">
+                            Сейчас работаем
+                        </span>
+                        <span class="workTime__span">
+                            Пн-Вс:  11:00-24:00
+                        </span>
+                    </div>
+                    <h2 class="aboutUs__h2">Как нас найти</h2>
+                    <address class="address">
+                        г. Мурино, пр. Авиаторов Балтики, д.11/1
+                    </address>
+                    <div class="aboutUs__buttons">
+                        <a class="aboutUs__button" href="tel:+78129362292"><span class="aboutUs__span">ДОСТАВКА  </span><span class="aboutUs__span">+7 812 936 22 92</span></a>
+                        <a class="aboutUs__button" href="tel:+78129362292"><span class="aboutUs__span">РЕСТОРАН  </span><span class="aboutUs__span">+7 812 936 22 92</span></a>
+                    </div>
+                </div>
+                <div class="aboutUs__map">
+                    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Affd2000337055fb8c5c3ae85a2a7413ce4c1bb6ce43361d102f771cd2b35edc8&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+                </div>
+                    
+            </section>
+            <section class="wrapper gallery">
+                <div class="gallery__div">
+                    <h2 class="gallery__h2">ТОП-10</h2>
+                    <div class="gallery__list">
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
                                 <div class="card">
                                     <p class="card__desc_name">
-                                        Пеновани из слоёного теста с беконом, сыром сулугуни и зеленью Подается со сметаной
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
                                     </p>
                                 </div>                     
                                 <span class="card__desc_weight">
-                                        280 г.
+                                    280 г.
                                 </span>
-                            </div>                        
-                            <div class="card__desc_price">670 &#8381</div>
-                        </div>                    
-                        <button class="card__button" type="button">
-                            + добавить
-                        </button>
-                    </a>
-                <a class="menu__card">
-                    <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                    <div class="card_desc">
-                        <div class="card">
-                            <p class="card__desc_name">
-                                Каре ягненка  
-                            </p>
-                        </div>
-                        <span class="card__desc_weight">
-                            280 г.
-                        </span>
-                        <div class="card__desc_price">670 &#8381</div>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                    </p>
+                                </div>                     
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                    </p>
+                                </div>                     
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/kare.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                    </p>
+                                </div>                     
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>                    
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
                     </div>
-                    <button class="card__button" type="button">
-                        + добавить
-                    </button>
-                </a>
-                <a class="menu__card">
-                    <img class="card__img" src="assets/img/kare.jpg" alt="">
-                    <div class="card_desc">
-                        <div class="card">
-                            <p class="card__desc_name">
-                                Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
-                            </p>
-                        </div>                     
-                        <span class="card__desc_weight">
-                            280 г.
-                        </span>
-                        <div class="card__desc_price">670 &#8381</div>
-                    </div>                    
-                    <button class="card__button" type="button">
-                        + добавить
-                    </button>
-                </a>
-            </div>
-        </div>
-        <section class="aboutUs wrapper">
-            <div class="aboutUs__div">
-                <div class="workTime">
-                    <div class="indicator"></div>
-                    <span class="workTime__span_now">
-                        Сейчас работаем
-                    </span>
-                    <span class="workTime__span">
-                        Пн-Вс:  11:00-24:00
-                    </span>
                 </div>
-                <h2 class="aboutUs__h2">Как нас найти</h2>
-                <address class="address">
-                    г. Мурино, пр. Авиаторов Балтики, д.11/1
-                </address>
-                <div class="aboutUs__buttons">
-                    <a class="aboutUs__button" href="tel:+78129362292"><span class="aboutUs__span">ДОСТАВКА  </span><span class="aboutUs__span">+7 812 936 22 92</span></a>
-                    <a class="aboutUs__button" href="tel:+78129362292"><span class="aboutUs__span">РЕСТОРАН  </span><span class="aboutUs__span">+7 812 936 22 92</span></a>
-                </div>
-            </div>
-            <div class="aboutUs__map">
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Affd2000337055fb8c5c3ae85a2a7413ce4c1bb6ce43361d102f771cd2b35edc8&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
-            </div>
-                
-        </section>
-
+            </section>
+       <!--</div>--> 
+          
     </main>
 
 
 
-    <footer class="footer ">
-        <div class="footer__color1">
-            <div class="wrapper footer__main ">
+    <footer class="footer">
+        <div class="footer__color1 wrapper">
+            <div class="footer__main ">
                 <div class="footer__logo">
                     <img src="assets/img/logoFooterMobile.svg" alt="" class="footer__img">
                     <div class="footer__favicon">
@@ -302,7 +501,7 @@
         </div>
         <div class="footer__copyright">
             <span class="copyright__item">&copy Все права защищены. Grill Vino &AMP; Хачапури 2022</span>
-            <span class="copyright__item">Разработка и продвижение сайта ODINN</span>
+            <span class="copyright__item copyright__close">Разработка и продвижение сайта ODINN</span>
         </div>
     </footer>
     <script src="index.js"></script>
