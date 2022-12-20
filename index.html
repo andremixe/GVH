@@ -5,6 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/style/style.css" />
+    <link rel="stylesheet" href="assets/swiper/swiper-bundle.min.css"/>
+    <style>
+        .swiper {
+        width: 100%;
+        height: 100%;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
     <title>GRILL VINO &AMP; ХАЧАПУРИ</title>
   </head>
   <body>
@@ -280,6 +314,99 @@
                     
             </section>
             <section class="wrapper gallery">
+                <div>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                    </div>
+                          <div class="swiper-slide"><a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                    </div>
+                          <div class="swiper-slide"><a class="menu__card">
+                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                            <div class="card_desc">
+                                <div class="card">
+                                    <p class="card__desc_name">
+                                        Каре ягненка  
+                                    </p>
+                                </div>
+                                <span class="card__desc_weight">
+                                    280 г.
+                                </span>
+                                <div class="card__desc_price">670 &#8381</div>
+                            </div>
+                            <button class="card__button" type="button">
+                                + добавить
+                            </button>
+                        </a>
+                    </div>
+                          <div class="swiper-slide">Slide 5</div>
+                          <div class="swiper-slide">Slide 6</div>
+                          <div class="swiper-slide">Slide 7</div>
+                          <div class="swiper-slide">Slide 8</div>
+                          <div class="swiper-slide">Slide 9</div>
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-pagination"></div>
+                      </div>
+                </div>
+                
+
+
+
+
                 <div class="gallery__div">
                     <h2 class="gallery__h2">ТОП-10</h2>
                     <div class="gallery__list">
@@ -505,5 +632,24 @@
         </div>
     </footer>
     <script src="index.js"></script>
+    <script src="assets/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+         var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+      </script>
   </body>
 </html>
