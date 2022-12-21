@@ -97,7 +97,8 @@ a:active {
 .auxiliary,
 .mainGallery,
 .basketDesk,
-.asideMenu {
+.asideMenu,
+.mobileBasket__img {
     display: none;
 }
 .logo {
@@ -545,7 +546,7 @@ address {
     display: flex;
     flex-direction: column;
     top: 0;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     z-index: 100500;
     background-color: var(--text-color-white);
@@ -750,6 +751,9 @@ input[type="number"]:focus {
         display: grid;
         grid-template-columns: 195px 1fr;
         flex-wrap: nowrap;*/
+    }
+    .mobileBasket__img {
+        display: block;
     }
     .container {
     }
