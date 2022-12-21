@@ -1,8 +1,13 @@
 
    
-window.addEventListener(" load resize",()=> {
+window.addEventListener("load",()=> {
+  console.log(window.innerHeight);
   document.querySelector(".mobileBasket").style.height = (window.innerHeight-5) +"px"; })
-
+  window.onresize = ()=> {
+    console.log(window.innerHeight+"px");
+    document.querySelector(".mobileBasket").style.height = (window.innerHeight) +"px";
+    console.log(window.innerHeight-357);
+  document.querySelector(".mobileBasket__menu").style.height = (window.innerHeight-360) + "px" };
 let menu = document.querySelector(".menu");
 
 menu.addEventListener('scroll', function(e) {
