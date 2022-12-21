@@ -617,7 +617,7 @@ address {
     display: flex;
     flex-direction: column;
     row-gap: 25px;
-    /*height: calc(100vh - 357px);*/
+    height: calc(100vh - 420px);
     overflow-y: auto;
 }
 .mobileBasket__card {
