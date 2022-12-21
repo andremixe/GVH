@@ -1,3 +1,8 @@
+
+   
+window.addEventListener(" load resize",()=> {
+  document.querySelector(".mobileBasket").style.height = (window.innerHeight-5) +"px"; })
+
 let menu = document.querySelector(".menu");
 
 menu.addEventListener('scroll', function(e) {

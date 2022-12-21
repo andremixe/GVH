@@ -546,7 +546,6 @@ address {
     display: flex;
     flex-direction: column;
     top: 0;
-    height: 100%;
     width: 100%;
     z-index: 100500;
     background-color: var(--text-color-white);
@@ -752,8 +751,38 @@ input[type="number"]:focus {
         grid-template-columns: 195px 1fr;
         flex-wrap: nowrap;*/
     }
+    .mobileBasket {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .mobileBasket__header {
+        border: 2px solid #FFFFFF;
+        border-radius: 0px 10px 0px 0px;
+        border-left: none;
+        border-bottom: none;
+    }
+    .mobileBasket__header_img {
+        padding: 20px;
+        height: 60px;
+        color: var(--text-color-white);
+        background-color: var(--color-bluish-gray);
+        border: 2px solid #FFFFFF;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 10px 0px 0px 0px;
+    }
     .mobileBasket__img {
         display: block;
+        flex-basis: 50%;
+    }
+    .mobileBasket__img_main {
+        width: 100%;
+        height: calc(100vh - 60px);
+        object-fit: cover;
+    }
+    .mobileBasket__wrapper {
+       flex-basis: 50%;
     }
     .container {
     }
