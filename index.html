@@ -15,7 +15,6 @@
       .swiper-slide {
         text-align: center;
         font-size: 18px;
-        background: #fff;
 
         /* Center slide text vertically */
         display: -webkit-box;
@@ -35,7 +34,6 @@
       .swiper-slide img {
         display: block;
         width: 100%;
-        height: 100%;
         object-fit: cover;
       }
     </style>
@@ -129,7 +127,227 @@
             
         </address>
     </aside>
-    
+
+    <aside class="mobileBasket">
+        <header class="mobileBasket__header">
+            <span class="mobileBasket__header_span">Ваш заказ</span>
+            <img src="assets/img/close.svg" alt="" class="mobileBasket__close">
+        </header>
+        <main class="mobileBasket__main">
+            <section class="mobileBasket__delivery">
+                <div class="mobileBasket__delivery__wrapper">
+                    <li class = "mobileBasket__delivery__item">
+                        <input class ="mobileBasket__delivery_input" type="radio" name="delivery" value="0" id="delivery" checked="true">
+                        <label class="mobileBasket__delivery_label mobileBasket__delivery_active" for="delivery">Доставка</label>
+                    </li>
+                    <li class = "mobileBasket__delivery__item">
+                        <input class ="mobileBasket__delivery_input" type="radio" name="delivery" value="" id="takeaway" checked="">
+                        <label class="mobileBasket__delivery_label" for="takeaway">На вынос</label>
+                    </li>
+                </div>
+            </section>
+            <section class="mobileBasket__menu">
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobileBasket__card">
+                    <div class="mobileBasket__card_pict">
+                        <img class="mobileBasket__card_img" src="assets/img/kebab.jpg" alt="">
+                    </div>
+                    <div class="mobileBasket__desc">
+                        <h3 class="mobileBasket__h3">
+                            Кебаб из ягненка с салатом из свежих овощей
+                        </h3>
+                        <div class="mobileBasket__desc_main">
+                            <div class="mobileBasket__weightPrice">
+                                <span class="mobileBasket__weight">
+                                    360 г.
+                                </span>
+                                <span class="mobileBasket__price">
+                                    670 &#8381
+                                </span>
+                            </div>
+                            <div class="mobileBasket__count">
+                                <div class="count_minus" id="left">-</div>
+                                <div class="count__wrapper">
+                                    <input type="text" class="input_text"
+                                    size = 6
+                                    value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                </div>
+                                <div class="count_plus" id="right">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="mobileBasket__footer">
+            <div class="mobileBasket__footer_item">
+                <button class="mobileBasket__button_clear" type="button">
+                    Убрать все
+                </button> 
+                <div class="mobileBasket_priceDelivery">
+                    <span class="mobileBasket__footer_span">Доставка</span>
+                    <span id="mobileBasket_priceDelivery">250</span>
+                    <span class="mobileBasket__ruble"> &nbsp;&#8381</span>
+                </div>
+                <p class="mobileBasket_forFreeDelivery">Закажите ещё на 
+                    <span id="mobileBasket_forFreeDelivery">105</span> 
+                    &#8381 для бесплатной доставки!
+                </p>
+                
+            </div>
+            <button class="mobileBasket__button_order">
+                    <span>Верно, далее</span>
+                    <div>
+                        <span id="mobileBasket_totalCheck">1895</span>
+                        <span> &#8381</span>
+                    </div>
+            </button>
+        </footer>
+    </aside>
  
 
     <main class="main">
@@ -314,272 +532,177 @@
                     
             </section>
             <section class="wrapper gallery">
-                <div>
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                          <div class="swiper-slide">
-                            <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
-                                </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
-                                </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                    </div>
-                          <div class="swiper-slide"><a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
-                                </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                    </div>
-                          <div class="swiper-slide"><a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
-                                </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                    </div>
-                          <div class="swiper-slide">Slide 5</div>
-                          <div class="swiper-slide">Slide 6</div>
-                          <div class="swiper-slide">Slide 7</div>
-                          <div class="swiper-slide">Slide 8</div>
-                          <div class="swiper-slide">Slide 9</div>
-                        </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
-                        <div class="swiper-pagination"></div>
-                      </div>
-                </div>
-                
-
-
-
-
                 <div class="gallery__div">
                     <h2 class="gallery__h2">ТОП-10</h2>
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
                     <div class="gallery__list">
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                              <div class="swiper-slide">
+                                <a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a>
+                        </div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/kare.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
-                                    </p>
-                                </div>                     
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>                    
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a>
+                        </div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/kare.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
-                                    </p>
-                                </div>                     
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>                    
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a>
+                        </div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/kare.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
-                                    </p>
-                                </div>                     
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>                    
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/bigImg.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Каре ягненка  
-                                    </p>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a></div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/kare.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                        </p>
+                                    </div>                     
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
+                                </div>                    
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a></div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/kare.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                        </p>
+                                    </div>                     
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
+                                </div>                    
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a></div>
+                              <div class="swiper-slide"><a class="menu__card">
+                                <img class="card__img" src="assets/img/bigImg.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Каре ягненка  
+                                        </p>
+                                    </div>
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
                                 </div>
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a></div>
+                              <div class="swiper-slide"><a href="" class="menu__card">
+                                <img class="card__img" src="assets/img/kare.jpg" alt="">
+                                <div class="card_desc">
+                                    <div class="card">
+                                        <p class="card__desc_name">
+                                            Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
+                                        </p>
+                                    </div>                     
+                                    <span class="card__desc_weight">
+                                        280 г.
+                                    </span>
+                                    <div class="card__desc_price">670 &#8381</div>
+                                </div>                    
+                                <button class="card__button" type="button">
+                                    + добавить
+                                </button>
+                            </a></div>
                             </div>
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
-                        <a class="menu__card">
-                            <img class="card__img" src="assets/img/kare.jpg" alt="">
-                            <div class="card_desc">
-                                <div class="card">
-                                    <p class="card__desc_name">
-                                        Пеновани из слоёного теста с беконом, сыром сулугуни ,зеленью
-                                    </p>
-                                </div>                     
-                                <span class="card__desc_weight">
-                                    280 г.
-                                </span>
-                                <div class="card__desc_price">670 &#8381</div>
-                            </div>                    
-                            <button class="card__button" type="button">
-                                + добавить
-                            </button>
-                        </a>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                          </div>
                     </div>
                 </div>
             </section>
@@ -638,7 +761,7 @@
          var swiper = new Swiper(".mySwiper", {
         slidesPerView: 3,
         spaceBetween: 30,
-        slidesPerGroup: 3,
+        slidesPerGroup: 1,
         loop: true,
         loopFillGroupWithBlank: true,
         pagination: {
