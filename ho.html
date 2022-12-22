@@ -32,6 +32,7 @@
         let t = document.getElementById("myText");
         let text = document.getElementById("myText_text").innerHTML;
         let initialValue = t.getAttribute("data-initial_value");
+        
         if (!initialValue) {
             t.setAttribute("data-initial_value", text);
         } else {

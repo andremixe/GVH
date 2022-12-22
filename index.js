@@ -20,9 +20,7 @@
   //--------------Добавление/снятие прозрачности у мобильного меню-------------------//
 
 menu.addEventListener('scroll', function(e) {
-    console.log(e.target);
-    const h2top = menu__h2.getBoundingClientRect().top
-    console.log(h2top);
+    const h2top = menu__h2.getBoundingClientRect().top;
     if (h2top>=149) {
       document.querySelector('.menu__mobile_nav').style.backgroundColor = "white";
     }
@@ -40,7 +38,6 @@ console.log(count);
 let minus = document.getElementById("left");
 let plus = document.getElementById("right");
 minus.addEventListener("click", () => {
-  console.log(count.value);
   if (count.value > 1) {count.value--};
 });
 plus.addEventListener("click", () => {
@@ -52,3 +49,35 @@ plus.addEventListener("click", () => {
   console.log("here");
   document.querySelector(".mobile").classList.toggle("hidden");
 })*/
+
+/*----------------------------многоточие в конце строки-----------------*/
+
+
+        function truncateNames() {
+            let t = document.querySelectorAll(".card");
+            for (let n = 0; n < t.length; n++) {
+              let text = document.querySelectorAll(".card__desc_name");
+              text = text[n].innerHTML;
+            let initialValue = t[n].getAttribute("data-initial_value");
+            if (!initialValue) {
+                t[n].setAttribute("data-initial_value", text);
+            } else {
+                text = initialValue;
+                document.querySelectorAll(".card__desc_name")[n].innerHTML = text;
+               
+            }
+            let maxI = 1000;
+            let i = 0;
+            while (t[n].scrollHeight > t[n].offsetHeight) {
+                if (i > maxI) { //на всякий случай
+                    break
+                }
+                i++;
+                text = text.substr(0, text.length - 1);
+                document.querySelectorAll(".card__desc_name")[n].innerHTML = text + "...";
+            }
+          }
+        }
+        addEventListener('DOMContentLoaded', truncateNames);
+        addEventListener('resize', truncateNames);
+    

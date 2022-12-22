@@ -161,8 +161,8 @@ a:active {
     display: flex;
     width: 100%;
     justify-content: space-between;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    min-height: 75px;
+    align-items: center;
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding-left: 25px;
     padding-right: 35px;
@@ -184,10 +184,13 @@ a:active {
 }
 .mobile__phone {
     font-size: 13px;
+    row-gap: 20px;
+    justify-content: center;
 }
 .mobile__nav {
     flex-basis: 50%;
     padding-top: 25px;
+    align-items: end;
 }
 .nav__item {
     list-style: none;
@@ -230,12 +233,18 @@ a:active {
 .mobile__address {
 }
 .mobile__contacts {
-    justify-content: unset;
+    font-family: "FF Good Pro";
+    font-size: 15px;
+    font-weight: 450;
+    
+}
+.mobileWorkTime__span_now,
+.mobileWorkTime__span,
+.mobile__address {
     font-family: "FF Good Pro";
     font-size: 15px;
     font-weight: 450;
     font-style: normal;
-    justify-content: flex-end;
 }
 .mobileContacts__a {
     display: flex;
@@ -353,10 +362,19 @@ a:active {
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
+.img__plus {
+    width: 17px !important; 
+    height: 17px;
+}
+.card__text {
+    display: flex;
+    align-items: center;
+}
 .card_desc {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
+    align-items: center;
     column-gap: 4px;
     padding-bottom: 15px;
     padding-top: 15px;
@@ -364,16 +382,13 @@ a:active {
     padding-left: 10px;
 }
 .card {
-    display: flex;
-    column-gap: 3px;
-    align-self: flex-end;
-}
-.card__desc_name {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;  
+    max-height: 40px;
     overflow: hidden;
     align-self: flex-end;
+    padding-right: 10px;
+}
+.card__desc_name {
+    overflow: hidden;
     font-size: 15px;
     font-weight: 500;
     color: #000000;
@@ -404,11 +419,17 @@ a:active {
     cursor: pointer;
     background-color: var(--color-bordeaux-light);
     border-radius: 0 0 10px 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.card__button_add {
     color: var(--text-color-white);
     font-size: 15px;
     font-weight: 700;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    display: flex;
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 .aboutUs {
     padding-top: 40px;
@@ -553,11 +574,13 @@ address {
     text-align: right;
     font-weight: 450;
     font-size: 14px;
+    line-height: 19px;
 }
 .loyalty {
     font-family: "Muller";
     font-weight: 700;
     font-size: 16px;
+    letter-spacing: 0.06em;
 }
 .footer__copyright {
     height: 95px;
