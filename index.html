@@ -89,7 +89,7 @@
                                 <img class="modal__close" src="assets/img/close.svg" alt="">
                             </div>                            
                             <h2 class="modal__h2">Каре ягненка</h2>
-                            <div class="swiper mySwiper">
+                            <div class="swiper mySwiperModal">
                                 <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <a class="modal__img">
@@ -259,56 +259,64 @@
         </div>
     </aside>
 
-    <aside id="menu" class="mobile">
-        <div class="mobile__header">
-            <img src="assets/img/mobileLogo.svg" alt="" class="mobile__logo">
-            <img id="closeMenu" src="assets/img/close.svg" alt="" class="mobile__close">
-        </div>
-        <nav class="mobile__nav">
-            <a href="">
-                <li class="nav__item">МЕНЮ</li> </a
-              ><a href="">
-                <li class="nav__item">АКЦИИ</li> </a
-              ><a href="">
-                <li class="nav__item">О НАС</li> </a
-              ><a href="">
-                <li class="nav__item">КОНТАКТЫ</li>
-              </a>
-        </nav>
-        <div class="mobile__profile">
-            <div  class="mobile__profile_img">
-                <a href=""
-                ><img src="assets/img/mobileIconProfile.svg" alt=""
-              /></a>
+    <aside id="menu" class="mobile_wr">
+        <div class="mobileWr__img">
+            <div class="mobileWr__header_img">
+                <img src="assets/img/mobileLogo.svg" alt="" class="mobile__logo">
             </div>
-            <span>ПРОФИЛЬ</span>
+            <img src="assets/img/image_for_basket.jpg" alt="" class="mobileBasket__img_main">
         </div>
-        <div class="mobile__phone">
-            <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">РЕСТОРАН </span><span>+7 812 936 22 92 </span></a>
-            <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">ДОСТАВКА </span><span>+7 812 936 22 92 </span></a>
-        </div>
-        <address class="mobile__contacts">
-                <div class="address__wrapper">
-                    <div class="mobileWorkTime">
-                            <div class="mobile__indicator"></div>
-                            <span class="mobileWorkTime__span_now">
-                                Сейчас работаем 
-                            </span>
-                            <span class="mobileWorkTime__span">
-                                Пн-Вс:  11:00-24:00
-                            </span>
+        <div class="mobile">
+            <div class="mobile__header">
+                <img src="assets/img/mobileLogo.svg" alt="" class="mobile__logo logo_close">
+                <img id="closeMenu" src="assets/img/close.svg" alt="" class="mobile__close">
+            </div>
+            <nav class="mobile__nav">
+                <a href="">
+                    <li class="nav__item">МЕНЮ</li> </a
+                  ><a href="">
+                    <li class="nav__item">АКЦИИ</li> </a
+                  ><a href="">
+                    <li class="nav__item">О НАС</li> </a
+                  ><a href="">
+                    <li class="nav__item">КОНТАКТЫ</li>
+                  </a>
+            </nav>
+            <div class="mobile__profile">
+                <div  class="mobile__profile_img">
+                    <a href=""
+                    ><img src="assets/img/mobileIconProfile.svg" alt=""
+                  /></a>
+                </div>
+                <span>ПРОФИЛЬ</span>
+            </div>
+            <div class="mobile__phone">
+                <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">РЕСТОРАН </span><span>+7 812 936 22 92 </span></a>
+                <a class="mobileContacts__a" href="tel:+78129362292"><span class="mobileContacts__span">ДОСТАВКА </span><span>+7 812 936 22 92 </span></a>
+            </div>
+            <address class="mobile__contacts">
+                    <div class="address__wrapper">
+                        <div class="mobileWorkTime">
+                                <div class="mobile__indicator"></div>
+                                <span class="mobileWorkTime__span_now">
+                                    Сейчас работаем 
+                                </span>
+                                <span class="mobileWorkTime__span">
+                                    Пн-Вс:  11:00-24:00
+                                </span>
+                        </div>
+                        <span class="mobile__address">
+                            г.Мурино, пр.Авиаторов Балтики, д.11/1
+                        </span>
                     </div>
-                    <span class="mobile__address">
-                        г.Мурино, пр.Авиаторов Балтики, д.11/1
-                    </span>
-                </div>
-                <div class="button__wrapper">  
-                    <button class="mobile__button_route" type="button">
-                    ПРОЛОЖИТЬ МАРШРУТ
-                    </button> 
-                </div>
-            
-        </address>
+                    <div class="button__wrapper">  
+                        <button class="mobile__button_route" type="button">
+                        ПРОЛОЖИТЬ МАРШРУТ
+                        </button> 
+                    </div>                
+            </address>
+        </div>
+        
     </aside>
 
     <aside class="mobileBasket">
@@ -353,7 +361,7 @@
                                         </span>
                                     </div>
                                     <div class="mobileBasket__count">
-                                        <div class="count_minus" id="left">-</div>
+                                        <div class="count_minus">-</div>
                                         <div class="count__wrapper">
                                             <input type="text" class="input_text"
                                             size = 6
@@ -572,29 +580,16 @@
         <div class="wrapper__main_big">
             <aside class="asideMenu">
                 <ul class="asideMenu__ul">
-                    <input type="radio" id="">
-                    <label for=""></label>
-                    <a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">1</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">2</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">2</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">3</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">4</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">5</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">6</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">6</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">7</li>
-                    </a><a href="" class="asideMenu__item">
-                        <li class="asideMenu__li">8</li>
-                    </a>
+                    <input class="asideMenu__input" type="radio" id="best">
+                    <label class="asideMenu__label" for="best">Популярные блюда</label>
+                    <input class="asideMenu__input" type="radio" id="best">
+                    <label class="asideMenu__label" for="best">Блюда на углях></label>
+                    <input class="asideMenu__input" type="radio" id="best">
+                    <label class="asideMenu__label" for="best">Хачапури</label>
+                    <input class="asideMenu__input" class="asideMenu__input" type="radio" id="best">
+                    <label class="asideMenu__label" for="best">Салаты</label>
+                    <input class="asideMenu__input" type="radio" id="best">
+                    <label class="asideMenu__label" for="best">Супы</label>
                 </ul>
                 <h1 class="visually-hidden"></h1>
             </aside>
@@ -622,6 +617,15 @@
                                         <span>добавить</span>
                                     </div>
                                 </button>
+                                <div class="card__button_count button__count">
+                                    <div class="card__count_minus" id="left">-</div>
+                                    <div class=" card__count_wrapper">
+                                        <input type="text" class="input_text"
+                                        size = 6
+                                        value="1" pattern="[0-9]{,3}" inputmode="numeric">
+                                    </div>
+                                    <div class="card__count_plus" id="right">+</div>
+                                </div>
                             </a>
                         <a class="menu__card">
                             <img class="card__img" src="assets/img/bigImg.jpg" alt="">
@@ -880,8 +884,17 @@
                                 </button>
                             </div>
                          </div>
-                    </div>
+                    </div>                    
                 </div>
+                <button class="add__order">
+                    <div class="add__order_desc">
+                        <span class="add__order_text">Ваш заказ</span>
+                        <div class="add__order_total">
+                            <span class="add__order_price">1800</span>
+                            <span class="add__order_letter">&#8381</span>
+                        </div>
+                    </div>
+                </button>
                 <section class="gallery" loading="lazy">
                     <div class="gallery__div">
                         <h2 class="gallery__h2">ТОП-10</h2>
@@ -1080,6 +1093,16 @@
     <script src="index.js"></script>
     <script src="assets/swiper/swiper-bundle.min.js"></script>
     <!-- Initialize Swiper -->
+
+    
+    <script>
+        var swiper = new Swiper(".mySwiperModal", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      </script>
       <script>
         var swiper = new Swiper(".mySwiper", {
           slidesPerView: 1,
@@ -1131,10 +1154,17 @@
               }
           });
           document.getElementById('openMenu').addEventListener('click', function () {
-              mobileMenu.open();
+            document.getElementById("menu").style.display = "flex";
+              setTimeout(() => {
+                mobileMenu.open();
+              }, 50);
           });
           document.getElementById('closeMenu').addEventListener('click', function () {
-              mobileMenu.close();
+            mobileMenu.close();
+           setTimeout(() => {
+            document.getElementById("menu").style.display = "none";
+           }, 100);
+              
           });
           document.getElementById('toggleMenu').addEventListener('click', function () {
               mobileMenu.toggle();

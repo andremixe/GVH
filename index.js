@@ -84,23 +84,27 @@ plus.addEventListener("click", () => {
         
 
 /*---------------------Modal window-------------------------------------*/
-
+      var timerId = null;
         const imgsClick = document.querySelectorAll(".card__img");
         for (let imgClick of imgsClick) {
-          imgClick.addEventListener("click", () => {
+          imgClick.addEventListener("click", () => {            
             document.querySelector(".modal").style.display = "flex";
-            document.querySelector("header").style.filter = "blur(10px)";
-            document.querySelector(".main").style.filter = "blur(10px)";
+            document.querySelector(".modal").style.animation = "modal 3s forwards";
+            document.querySelector("header").style.filter = "blur(2px)";
+            document.querySelector(".main").style.filter = "blur(2px)";
             document.querySelector(".main").style.overflow = "hidden"; 
             document.querySelector(".menu").style.overflow = "hidden";
+            clearTimeout(timerId);
             document.body.style.overflow = "hidden";
           });          
         }
 
         const modalsCloses = document.querySelectorAll(".modal__close");
         for (let modalClose of modalsCloses) {
-          modalClose.addEventListener("click", () => {
-            document.querySelector(".modal").style.display = "none";
+          modalClose.addEventListener("click", async () => {
+            document.querySelector(".modal").style.animation = "modalBack 3s forwards";
+            timerId = setTimeout(() => {document.querySelector(".modal").style.display = "none"              
+            },3000); 
             document.querySelector("header").style.filter = "none";
             document.querySelector(".main").style.filter = "none";
             document.querySelector(".menu").style.overflow = "auto";
@@ -119,3 +123,21 @@ window.addEventListener("load",()=> {
         document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
     };
   })*/
+
+
+  /*--------------------------Toggle button Add-------------------*/
+  const buttonsAdd = document.querySelector(".card__button1");
+  const buttonCount = document.querySelector(".card__button_count")
+  //for (let buttonAdd of buttonsAdd) {
+    buttonsAdd.addEventListener("click", () => {
+      buttonsAdd.style.display = "none";
+      buttonCount.style.display = "flex";
+    });
+    
+    
+
+
+
+/*---------------All parameters------------------------
+
+totalCount  //Общее количество заказанных позиций*/
