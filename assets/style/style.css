@@ -1039,7 +1039,7 @@ input[type="number"]:focus {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
-    height: calc(100vh - 601px);
+   /* height: calc(100vh - 601px);*/
     padding-bottom: 10px;
     overflow-y: scroll
 }

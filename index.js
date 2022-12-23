@@ -3,9 +3,11 @@ window.addEventListener("load",()=> {
   console.log(window.visualViewport.height);
   console.log(window.height);
 
-  document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; })
+  document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; 
+  document.querySelector(".modal__topping").style.height = (window.innerHeight-601) +"px"; })
 window.addEventListener("resize", () => {
   document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; 
+  document.querySelector(".modal__topping").style.height = (window.innerHeight-601) +"px";
 })
 
 /*window.addEventListener("load",()=> {
