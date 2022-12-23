@@ -90,7 +90,9 @@ plus.addEventListener("click", () => {
           imgClick.addEventListener("click", () => {
             document.querySelector(".modal").style.display = "flex";
             document.querySelector("header").style.filter = "blur(10px)";
-            document.querySelector(".main").style.filter = "blur(10px)";            
+            document.querySelector(".main").style.filter = "blur(10px)";
+            document.querySelector(".main").style.overflow = "hidden"; 
+            document.querySelector(".menu").style.overflow = "hidden";
             document.body.style.overflow = "hidden";
           });          
         }
@@ -101,20 +103,19 @@ plus.addEventListener("click", () => {
             document.querySelector(".modal").style.display = "none";
             document.querySelector("header").style.filter = "none";
             document.querySelector(".main").style.filter = "none";
+            document.querySelector(".menu").style.overflow = "auto";
+            document.querySelector(".main").style.overflow = "auto";
             document.body.style.overflow = "unset";
           });          
         }
 
 /*--------------------------Resize windows------------------------------*/
-addEventListener('DOMContentLoaded', () => {
+/*addEventListener('DOMContentLoaded', () => {
   document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
-    document.querySelector(".modal__topping").style.height = (window.innerHeight-601) + "px"; 
 });
 window.addEventListener("load",()=> {
     document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
-    document.querySelector(".modal__topping").style.height = (window.innerHeight-601) + "px"; })
   window.onresize = ()=> {
-        document.querySelector(".mobileBasket").style.height = (window.innerHeight-130) +"px";
-        document.querySelector(".modal__topping").style.height = (window.innerHeight-601) + "px"
+        document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
     };
-        
+  })*/

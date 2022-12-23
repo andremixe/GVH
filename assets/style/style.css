@@ -955,9 +955,10 @@ input[type="number"]:focus {
 .modal {
     display: none;
     position: fixed;
-    top: 130px;
     left: 0;
     bottom: 0;
+    right: 0;
+    height: 640px;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
@@ -965,6 +966,11 @@ input[type="number"]:focus {
     background-color: var(--text-color-white);
     /*max-height: calc(100vh - 130px);*/
     animation: modal 3s forwards;
+}
+.modal__card {
+    background-color: var(--text-color-white);   
+    display: flex;
+    flex-direction: column;
 }
 .modal__div {
     position: relative;
@@ -975,23 +981,19 @@ input[type="number"]:focus {
   }
 
 .modal__gallery {
-    position: relative;
+    position: relative; 
 }
 .modal__close {
     cursor: pointer;
 }
 .modal__card_img {
     min-width: 100%;
+    height: 100%;
     height: 265px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
-.modal__card {
-    background-color: var(--text-color-white);
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
+
 .modal__img {
     
 }
@@ -1045,15 +1047,13 @@ input[type="number"]:focus {
     padding-left: 25px;
     padding-right: 25px;
     padding-top: 10px;
-    /*height: calc(100vh - 601px);*/
     padding-bottom: 10px;
-    overflow-y: scroll
 }
 .topping__list {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 30px;
-    
+    display: flex;
+    justify-content: space-between;
+    column-gap: 50px;
+    overflow-x: auto;
 }
 
 .topping__card {
@@ -1172,6 +1172,7 @@ input[type="number"]:focus {
     font-weight: 400;
     font-size: 24px;
     color: var(--color-bordeaux);
+    white-space: nowrap;
 }
 .modal__order_old {
     font-size: 15px;
