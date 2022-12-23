@@ -162,7 +162,6 @@ a:active {
 /*----------------------------MOBILE MENU-------------------------------*/
 .mobile {
     background-color: var(--color-bluish-gray);
-
     display: flex;
     align-items: flex-end;
     flex-direction: column;
@@ -967,6 +966,9 @@ input[type="number"]:focus {
     /*max-height: calc(100vh - 130px);*/
     animation: modal 3s forwards;
 }
+.modal__div {
+    position: relative;
+}
 @keyframes modal {
     0% {transform: translatey(100vh);}
     100% {transform: translateY(0);}
@@ -1114,6 +1116,7 @@ input[type="number"]:focus {
     padding-right: 25px;
     padding-top: 20px;
     padding-bottom: 10px;
+    background-color: var(--text-color-white);
     
 }
 .modal__total_energy,
