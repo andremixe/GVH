@@ -546,6 +546,9 @@ address {
     display: flex;
     flex-direction: column;
     top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     width: 100%;
     z-index: 100500;
     background-color: var(--text-color-white);
