@@ -83,7 +83,7 @@ plus.addEventListener("click", () => {
         addEventListener('resize', truncateNames);
         
 
-        /*---------------------Modal window-------------------------------------*/
+/*---------------------Modal window-------------------------------------*/
 
         const imgsClick = document.querySelectorAll(".card__img");
         for (let imgClick of imgsClick) {
@@ -105,5 +105,11 @@ plus.addEventListener("click", () => {
           });          
         }
 
-        
+/*--------------------------Resize windows------------------------------*/
+
+window.addEventListener("load",()=> {
+    document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; })
+  window.onresize = ()=> {
+        document.querySelector(".mobileBasket").style.height = (window.innerHeight-130) +"px";
+    };
         
