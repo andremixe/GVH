@@ -89,6 +89,7 @@ plus.addEventListener("click", () => {
         }
         addEventListener('DOMContentLoaded', truncateNames);
         addEventListener('resize', truncateNames);
+        window.addEventListener("load",truncateNames);
         
 
         /*---------------------Modal window-------------------------------------*/
