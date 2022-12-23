@@ -4,9 +4,9 @@ window.addEventListener("load",()=> {
   console.log(window.height);
 
   document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; })
-  window.onresize = ()=> {
-    document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; 
-  }
+window.addEventListener("resize", () => {
+  document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; 
+})
 
 /*window.addEventListener("load",()=> {
   console.log(window.innerHeight);

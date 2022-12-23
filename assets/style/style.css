@@ -83,7 +83,7 @@ a:active {
 
 /*-------------------HEADER----------------------------------*/
 .header {
-    position: relative;
+    /*position: relative;*/
     height: 75px;
     padding-left: 20px;
     padding-right: 20px;
@@ -952,7 +952,7 @@ input[type="number"]:focus {
 
 .modal {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 130px;
     left: 0;
     bottom: 0;
@@ -960,8 +960,7 @@ input[type="number"]:focus {
     justify-content: space-between;
     width: 100%;
     z-index: 500;
-    background-color: var(--text-color-white);
-    max-height: 100vh;
+    background-color: var(--text-color-white);    
     animation: modal 3s forwards;
 }
 @keyframes modal {
