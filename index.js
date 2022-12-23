@@ -108,8 +108,10 @@ plus.addEventListener("click", () => {
 /*--------------------------Resize windows------------------------------*/
 
 window.addEventListener("load",()=> {
-    document.querySelector(".modal").style.height = (window.innerHeight-130) +"px"; })
+    document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
+    document.querySelector(".modal__topping").style.height = (window.innerHeight-601) + "px"; })
   window.onresize = ()=> {
         document.querySelector(".mobileBasket").style.height = (window.innerHeight-130) +"px";
+        document.querySelector(".modal__topping").style.height = (window.innerHeight-601) + "px"
     };
         
