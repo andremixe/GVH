@@ -28,6 +28,7 @@ menu.addEventListener('scroll', function(e) {
       document.querySelector('.menu__mobile_nav').style.backgroundColor = "rgb(255, 255, 255, 0.7)";
     }
   });
+  
 
 
 
@@ -80,4 +81,29 @@ plus.addEventListener("click", () => {
         }
         addEventListener('DOMContentLoaded', truncateNames);
         addEventListener('resize', truncateNames);
-    
+        
+
+        /*---------------------Modal window-------------------------------------*/
+
+        const imgsClick = document.querySelectorAll(".card__img");
+        for (let imgClick of imgsClick) {
+          imgClick.addEventListener("click", () => {
+            document.querySelector(".modal").style.display = "flex";
+            document.querySelector("header").style.filter = "blur(10px)";
+            document.querySelector(".main").style.filter = "blur(10px)";            
+            document.body.style.overflow = "hidden";
+          });          
+        }
+
+        const modalsCloses = document.querySelectorAll(".modal__close");
+        for (let modalClose of modalsCloses) {
+          modalClose.addEventListener("click", () => {
+            document.querySelector(".modal").style.display = "none";
+            document.querySelector("header").style.filter = "none";
+            document.querySelector(".main").style.filter = "none";
+            document.body.style.overflow = "unset";
+          });          
+        }
+
+        
+        
