@@ -1060,7 +1060,6 @@ input[type="number"]:focus {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 10px;
 }
 .topping__img {
     width: 86px;
