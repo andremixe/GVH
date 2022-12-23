@@ -1,6 +1,6 @@
 
    
-/*window.addEventListener("load",()=> {
+window.addEventListener("load",()=> {
   console.log(window.innerHeight);
   console.log(window.visualViewport.height);
   console.log(window.height);
@@ -9,11 +9,11 @@
   window.onresize = ()=> {
     console.log(window.innerHeight+"px");
     console.log(window.visualViewport.height);
-    document.querySelector(".mobileBasket").style.height = (window.innerHeight) +"px";
+    document.querySelector(".mobileBasket").style.height = (window.innerHeight-5) +"px";
     console.log(window.innerHeight-357);
   document.querySelector(".mobileBasket__menu").style.height = (window.innerHeight-360) + "px" };
 let menu = document.querySelector(".menu");
-*/
+
 menu.addEventListener('scroll', function(e) {
     console.log(e.target);
     document.querySelector('.menu__mobile_nav').style.backgroundColor = "rgb(255, 255, 255, 0.7)";
