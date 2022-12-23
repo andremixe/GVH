@@ -56,17 +56,15 @@ plus.addEventListener("click", () => {
 
         function truncateNames() {
             let t = document.querySelectorAll(".card");
-           
             for (let n = 0; n < t.length; n++) {
-              let initialValue = [];
               let text = document.querySelectorAll(".card__desc_name");
-              text[n] = text[n].innerHTML;              
-              initialValue[n] = t[n].getAttribute("data-initial_value");
-            if (!initialValue[n]) {
-                t[n].setAttribute("data-initial_value", text[n]);
+              text = text[n].innerHTML;
+            let initialValue = t[n].getAttribute("data-initial_value");
+            if (!initialValue) {
+                t[n].setAttribute("data-initial_value", text);
             } else {
-                text[n] = initialValue[n];
-                document.querySelectorAll(".card__desc_name")[n].innerHTML = text[n];
+                text = initialValue;
+                document.querySelectorAll(".card__desc_name")[n].innerHTML = text;
                
             }
             let maxI = 1000;
@@ -76,8 +74,8 @@ plus.addEventListener("click", () => {
                     break
                 }
                 i++;
-                text[n] = text[n].substr(0, text[n].length - 1);
-                document.querySelectorAll(".card__desc_name")[n].innerHTML = text[n] + "...";
+                text = text.substr(0, text.length - 1);
+                document.querySelectorAll(".card__desc_name")[n].innerHTML = text + "...";
             }
           }
         }
