@@ -353,6 +353,7 @@ a:active {
     padding-right: 19px;
     padding-left: 19px;
     display: flex;
+    width: 100%;
    /* max-height: calc(100vh - 75px);*/
     flex-direction: column;
   /*  overflow-y: auto;
@@ -380,6 +381,8 @@ a:active {
     justify-content: space-around;
     column-gap: 15px;
     row-gap: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
 
 }
 
@@ -1301,6 +1304,12 @@ input[type="number"]:focus {
     background-color: var(--color-bordeaux);
     border-radius: 10px 0px 0px 0px;
     align-self: flex-end;
+}
+.mobileWr__img {
+    display: none;
+}
+.mobile {
+    flex-basis: 100%;
 }
 
 /*------------------------MEDIA---------------------------------------*/

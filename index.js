@@ -126,14 +126,14 @@ window.addEventListener("load",()=> {
 
 
   /*--------------------------Toggle button Add-------------------*/
-  const buttonsAdd = document.querySelector(".card__button1");
+  /*const buttonsAdd = document.querySelector(".card__button1");
   const buttonCount = document.querySelector(".card__button_count")
   //for (let buttonAdd of buttonsAdd) {
     buttonsAdd.addEventListener("click", () => {
       buttonsAdd.style.display = "none";
       buttonCount.style.display = "flex";
     });
-    
+    */
     
 
 
