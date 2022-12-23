@@ -961,7 +961,7 @@ input[type="number"]:focus {
     width: 100%;
     z-index: 500;
     background-color: var(--text-color-white);
-    max-height: calc(100vh - 130px);
+    max-height: 100vh;
     animation: modal 3s forwards;
 }
 @keyframes modal {
