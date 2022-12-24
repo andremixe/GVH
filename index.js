@@ -39,7 +39,7 @@ console.log(count);
 let minus = document.getElementById("left");
 let plus = document.getElementById("right");
 minus.addEventListener("click", () => {
-  if (count.value > 1) {count.value--};
+  if (count.value > 0) {count.value--};
 });
 plus.addEventListener("click", () => {
   if (count.value < 999) {count.value++};
@@ -99,7 +99,10 @@ plus.addEventListener("click", () => {
             document.querySelector("header").style.filter = "blur(2.5px)";
             document.querySelector(".main").style.filter = "blur(2.5px)";
             document.querySelector(".main").style.overflow = "hidden"; 
-            document.querySelector(".menu").style.overflow = "hidden";            
+            document.querySelector(".menu").style.overflow = "hidden";
+            document.querySelector(".modal__card").style.minHeight = (innerHeight-519) + "px";
+            console.log(document.querySelector(".modal__card").style.minHeight);
+            document.querySelector(".modal__card").style.overflow = "auto";
             document.body.style.overflow = "hidden";
           });          
         }
@@ -118,8 +121,8 @@ plus.addEventListener("click", () => {
             },3000); 
             document.querySelector("header").style.filter = "none";
             document.querySelector(".main").style.filter = "none";
-            document.querySelector(".menu").style.overflow = "auto";
-            document.querySelector(".main").style.overflow = "auto";
+            document.querySelector(".menu").style.overflow = "unset";
+            document.querySelector(".main").style.overflow = "unset";
             document.body.style.overflow = "unset";
           });          
         }
@@ -137,14 +140,15 @@ window.addEventListener("load",()=> {
 
 
   /*--------------------------Toggle button Add-------------------*/
-  /*const buttonsAdd = document.querySelector(".card__button1");
-  const buttonCount = document.querySelector(".card__button_count")
-  //for (let buttonAdd of buttonsAdd) {
-    buttonsAdd.addEventListener("click", () => {
-      buttonsAdd.style.display = "none";
-      buttonCount.style.display = "flex";
-    });
-    */
+  const buttonAdd = document.querySelectorAll(".card__button");
+  const buttonCount = document.querySelectorAll(".card__button_count")
+  for (let i=0; i<buttonAdd.length; i++) {
+    buttonAdd[i].addEventListener("click", (e) => {
+      buttonAdd[i].style.display = "none";
+      buttonCount[i].style.display = "flex";
+  });
+}
+    
     
 
 
