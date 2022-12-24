@@ -92,6 +92,8 @@ plus.addEventListener("click", () => {
             document.querySelector(".modal").style.display = "flex";
             if (window.innerWidth < 1400) {
               document.querySelector(".modal").style.animation = "modal 2s forwards";
+              document.querySelector(".modal__card").style.minHeight = (innerHeight-519) + "px";
+              console.log(document.querySelector(".modal__card").style.minHeight);
             }
             else {
               document.querySelector(".modal").style.animation = "zoom 2s forwards";
@@ -100,8 +102,7 @@ plus.addEventListener("click", () => {
             document.querySelector(".main").style.filter = "blur(2.5px)";
             document.querySelector(".main").style.overflow = "hidden"; 
             document.querySelector(".menu").style.overflow = "hidden";
-            document.querySelector(".modal__card").style.minHeight = (innerHeight-519) + "px";
-            console.log(document.querySelector(".modal__card").style.minHeight);
+            
             document.querySelector(".modal__card").style.overflow = "auto";
             document.body.style.overflow = "hidden";
           });          
