@@ -135,7 +135,7 @@
                 <h3 class="topping__h3">Топинги:</h3>
                 <div class="topping__list">
                     <div class="topping__card">
-                        <div class="modal__check modal__check_active"></div>
+                        <div class="modal__check"><img class="modal__check_active" src="assets/img/marker.svg" alt=""> </div>
                         <input class="topping__modal_check" type="checkbox" id="cheese">                        
                         <label for="cheese"><img class="topping__img"  src="assets/img/cheese.svg" alt=""></label>                        
                         <div class="topping_desc">
@@ -583,7 +583,7 @@
                     <input class="asideMenu__input" type="radio" id="best">
                     <label class="asideMenu__label" for="best">Популярные блюда</label>
                     <input class="asideMenu__input" type="radio" id="best">
-                    <label class="asideMenu__label" for="best">Блюда на углях></label>
+                    <label class="asideMenu__label" for="best">Блюда на углях</label>
                     <input class="asideMenu__input" type="radio" id="best">
                     <label class="asideMenu__label" for="best">Хачапури</label>
                     <input class="asideMenu__input" class="asideMenu__input" type="radio" id="best">
@@ -664,13 +664,13 @@
                         </a>
                     </div>
                     <div class="deskBasket">
-                        <div class="basketDesk__wrapper">
-                            <div class="basketDesk__header">
-                                <span class="mobileBasket__header_span">Ваш заказ</span>
-                                <img src="assets/img/close.svg" alt="" class="mobileBasket__close">
+                        <div class="deskBasket__wrapper">
+                            <div class="deskBasket__header">
+                                <span class="deskBasket__header_span">Ваш заказ</span>
+                                <button class="desk__button_clear">Очистить</button>                               
                             </div>
-                            <div class="mobileBasket__main">
-                                    <section class="mobileBasket__delivery">
+                            <div class="deskBasket__main">
+                                    <section class="deskBasket__delivery">
                                         <div class="mobileBasket__delivery__wrapper">
                                             <li class = "mobileBasket__delivery__item">
                                                 <input class ="mobileBasket__delivery_input" type="radio" name="delivery" value="0" id="delivery" checked="true">
@@ -859,7 +859,7 @@
                                         </div>
                                     </section>
                                 </div>
-                            <div class="mobileBasket__footer">
+                            <div class="deskBasket__footer">
                                 <div class="mobileBasket__footer_item">
                                     <button class="mobileBasket__button_clear" type="button">
                                         Убрать все
@@ -1155,15 +1155,16 @@
           });
           document.getElementById('openMenu').addEventListener('click', function () {
             document.getElementById("menu").style.display = "flex";
-              setTimeout(() => {
-                mobileMenu.open();
-              }, 50);
+              /*setTimeout(() => {
+                
+              }, 10);*/
+              mobileMenu.open();
           });
           document.getElementById('closeMenu').addEventListener('click', function () {
             mobileMenu.close();
-           setTimeout(() => {
-            document.getElementById("menu").style.display = "none";
-           }, 100);
+           /* setTimeout(() => {
+           document.getElementById("menu").style.display = "none";
+           }, 500);*/
               
           });
           document.getElementById('toggleMenu').addEventListener('click', function () {

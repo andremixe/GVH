@@ -87,22 +87,33 @@ plus.addEventListener("click", () => {
       var timerId = null;
         const imgsClick = document.querySelectorAll(".card__img");
         for (let imgClick of imgsClick) {
-          imgClick.addEventListener("click", () => {            
-            document.querySelector(".modal").style.display = "flex";
-            document.querySelector(".modal").style.animation = "modal 3s forwards";
-            document.querySelector("header").style.filter = "blur(2px)";
-            document.querySelector(".main").style.filter = "blur(2px)";
-            document.querySelector(".main").style.overflow = "hidden"; 
-            document.querySelector(".menu").style.overflow = "hidden";
+          imgClick.addEventListener("click", () => {
             clearTimeout(timerId);
+            document.querySelector(".modal").style.display = "flex";
+            if (window.innerWidth < 1400) {
+              document.querySelector(".modal").style.animation = "modal 2s forwards";
+            }
+            else {
+              document.querySelector(".modal").style.animation = "zoom 2s forwards";
+            }          
+            document.querySelector("header").style.filter = "blur(2.5px)";
+            document.querySelector(".main").style.filter = "blur(2.5px)";
+            document.querySelector(".main").style.overflow = "hidden"; 
+            document.querySelector(".menu").style.overflow = "hidden";            
             document.body.style.overflow = "hidden";
           });          
         }
 
         const modalsCloses = document.querySelectorAll(".modal__close");
         for (let modalClose of modalsCloses) {
-          modalClose.addEventListener("click", async () => {
-            document.querySelector(".modal").style.animation = "modalBack 3s forwards";
+          modalClose.addEventListener("click", () => {
+            console.log(window.innerWidth);
+            if (window.innerWidth < 1400) {
+              document.querySelector(".modal").style.animation = "modalBack 2s forwards";
+            }
+            else {
+              document.querySelector(".modal").style.animation = "zoomBack 2s forwards";
+            }            
             timerId = setTimeout(() => {document.querySelector(".modal").style.display = "none"              
             },3000); 
             document.querySelector("header").style.filter = "none";
