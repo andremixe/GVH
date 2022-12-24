@@ -19,7 +19,7 @@
 
   //--------------Добавление/снятие прозрачности у мобильного меню-------------------//
 
-menu.addEventListener('scroll', function(e) {
+window.addEventListener('scroll', function(e) {
     const h2top = menu__h2.getBoundingClientRect().top;
     if (h2top>=149) {
       document.querySelector('.menu__mobile_nav').style.backgroundColor = "white";

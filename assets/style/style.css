@@ -302,6 +302,8 @@ a:active {
 .menu__mobile_nav {
     height: 75px;
     position: absolute;
+    position: sticky;
+    top: 0;
     background-color: var(--text-color-white);
 }
 
@@ -353,6 +355,7 @@ a:active {
     background-color: var(--color-milky);
     padding-right: 19px;
     padding-left: 19px;
+    padding-bottom: 35px;
     display: flex;
     width: 100%;
    /* max-height: calc(100vh - 75px);*/
@@ -364,7 +367,6 @@ a:active {
 }
 
 .menu__h2 {
-    margin-top: 75px;
     padding-top: 30px;
 }
 
@@ -1337,6 +1339,9 @@ input[type="number"]:focus {
 .mobile {
     flex-basis: 100%;
 }
+.main {
+
+}
 
 /*------------------------MEDIA---------------------------------------*/
 @media screen and (min-width: 800px) {
@@ -1356,7 +1361,6 @@ input[type="number"]:focus {
 
     .wrapper__main_big {
         position: relative;
-        top: 0;
         display: flex;
         flex-wrap: nowrap;
         width: 100%;
@@ -1431,7 +1435,6 @@ input[type="number"]:focus {
         position: sticky;
         display: grid;
         grid-template-columns: repeat(2, minmax(280px, 370px));
-        grid-template-rows: 86px 1fr 1fr 1fr;
         max-width: 940px;
         padding-left: 19px;
         padding-right: 19px;
@@ -1580,6 +1583,13 @@ input[type="number"]:focus {
     }
     .mobile {
         flex-basis: 50%;
+    }
+    .gallery {
+        order: 1;
+    }
+
+    .aboutUs {
+        order: 2;
     }
 }
 

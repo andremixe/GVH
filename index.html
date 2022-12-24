@@ -1155,16 +1155,16 @@
           });
           document.getElementById('openMenu').addEventListener('click', function () {
             document.getElementById("menu").style.display = "flex";
-              /*setTimeout(() => {
-                
-              }, 10);*/
-              mobileMenu.open();
+              setTimeout(() => {
+                mobileMenu.open();
+              }, 10);
+              
           });
           document.getElementById('closeMenu').addEventListener('click', function () {
             mobileMenu.close();
-           /* setTimeout(() => {
+           setTimeout(() => {
            document.getElementById("menu").style.display = "none";
-           }, 500);*/
+           }, 500);
               
           });
           document.getElementById('toggleMenu').addEventListener('click', function () {
