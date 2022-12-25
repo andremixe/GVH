@@ -1265,7 +1265,6 @@ input[type="number"]:focus {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 124px;
 }
 .footer__BJU {
     display: flex;
