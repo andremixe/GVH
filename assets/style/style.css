@@ -86,7 +86,8 @@ a:active {
 
 /*-------------------HEADER----------------------------------*/
 .header {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 75px;
     padding-left: 20px;
     padding-right: 20px;
@@ -303,7 +304,8 @@ a:active {
     height: 75px;
     position: absolute;
     position: sticky;
-    top: 0;
+    top: 75px;
+    z-index: 20;
     background-color: var(--text-color-white);
 }
 
@@ -416,8 +418,13 @@ a:active {
     display: flex;
     align-items: center;
 }
-.add__order {
+.add__order,
+.add__order_tablet {
     display: none;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
     min-height: 61px;
     background-color: var(--color-bluish-gray);
     width: 100%;
@@ -428,9 +435,11 @@ a:active {
 .add__order_desc {
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
-    padding-left: 19px;
-    padding-right: 19px;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 25px;
     font-weight: 700;
     font-size: 16px;
 }
@@ -735,12 +744,15 @@ address {
     font-size: 14px;
     font-weight: 450;
 }
+.mobileBasket__sticky {
+    position: sticky;
+    top: calc (100vh - 60px);
+}
+
 
 .mobileBasket {
-    position: fixed;
     display: none;
     flex-direction: column;
-    top: 0;
     width: 100%;
     z-index: 100500;
     background-color: var(--text-color-white);
@@ -825,7 +837,7 @@ address {
     display: flex;
     flex-direction: column;
     row-gap: 25px;
-    height: calc(50vh - 360px);
+    height: calc(100vh - 360px);
     overflow-y: auto;
     z-index: 100;
 }
@@ -1246,6 +1258,9 @@ input[type="number"]:focus {
     display: none;
 }
 .modal__footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
     display: flex;
     flex-direction: column;
     height: 124px;
@@ -1493,12 +1508,6 @@ input[type="number"]:focus {
     .mobileBasket {
         display: none;
     }
-
-   
-    .mobileBasket {
-        display: none;
-    }
-
     .aboutUs__div_wr {
         display: flex;
         flex-direction: row;
@@ -1591,6 +1600,9 @@ input[type="number"]:focus {
     .aboutUs {
         order: 2;
     }
+    .modal__footer {
+        position: static;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -1614,6 +1626,7 @@ input[type="number"]:focus {
         height: 410px;
      }
      .modal__footer {
+        position: static;
         flex-direction: row;
         width: 100%;
     }

@@ -91,12 +91,12 @@ plus.addEventListener("click", () => {
             clearTimeout(timerId);
             document.querySelector(".modal").style.display = "flex";
             if (window.innerWidth < 1400) {
-              document.querySelector(".modal").style.animation = "modal 2s forwards";
+              document.querySelector(".modal").style.animation = "modal 0.7s forwards";
               document.querySelector(".modal__card").style.height = (innerHeight-519) + "px";
               console.log(document.querySelector(".modal__card").style.minHeight);
             }
             else {
-              document.querySelector(".modal").style.animation = "zoom 2s forwards";
+              document.querySelector(".modal").style.animation = "zoom 0.7s forwards";
             }          
             document.querySelector("header").style.filter = "blur(2.5px)";
             document.querySelector(".main").style.filter = "blur(2.5px)";
@@ -113,13 +113,13 @@ plus.addEventListener("click", () => {
           modalClose.addEventListener("click", () => {
             console.log(window.innerWidth);
             if (window.innerWidth < 1400) {
-              document.querySelector(".modal").style.animation = "modalBack 2s forwards";
+              document.querySelector(".modal").style.animation = "modalBack 0.7s forwards";
             }
             else {
-              document.querySelector(".modal").style.animation = "zoomBack 2s forwards";
+              document.querySelector(".modal").style.animation = "zoomBack 0.7s forwards";
             }            
             timerId = setTimeout(() => {document.querySelector(".modal").style.display = "none"              
-            },3000); 
+            },800); 
             document.querySelector("header").style.filter = "none";
             document.querySelector(".main").style.filter = "none";
             document.querySelector(".menu").style.overflow = "unset";
@@ -141,19 +141,41 @@ window.addEventListener("load",()=> {
 
 
   /*--------------------------Toggle button Add-------------------*/
+  const toBasket = document.querySelector(".add__order");
+  const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
+  const mobileBasket = document.querySelector(".mobileBasket");
   const buttonAdd = document.querySelectorAll(".card__button");
   const buttonCount = document.querySelectorAll(".card__button_count")
-  for (let i=0; i<buttonAdd.length; i++) {
+  for (let i=0; i<buttonAdd.length; i++) {   
     buttonAdd[i].addEventListener("click", (e) => {
+      if (window.innerWidth < 800) {
+        document.querySelector(".add__order").style.display = "block";
+        //document.querySelector(".add__order_tablet").style.display = "flex";
+        //mobileBasketSticky.style.position = "sticky";
+        mobileBasketSticky.style.display = "block";
+        //mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+        mobileBasket.style.display = "flex";
+       
+      }
+      else if (window.innerWidth < 1400) {
+        document.querySelector(".add__order_tablet").style.display = "flex";
+      }
       buttonAdd[i].style.display = "none";
       buttonCount[i].style.display = "flex";
   });
 }
+
+
+//-------------------------Open basket-----------------------------------------//
+   // const toBasket = document.querySelector(".add__order");
     
-    
+    mobileBasket.addEventListener("click", () => {
 
+      
+    })
 
-
+// document.querySelector(".add__order").style.display = "block";
+// document.querySelector(".add__order_tablet").style.display = "flex";
 /*---------------All parameters------------------------
 
 totalCount  //Общее количество заказанных позиций*/
