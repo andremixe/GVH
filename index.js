@@ -93,7 +93,6 @@ plus.addEventListener("click", () => {
             if (window.innerWidth < 1400) {
               document.querySelector(".modal").style.animation = "modal 0.7s forwards";
               document.querySelector(".modal__card").style.height = (innerHeight-519) + "px";
-              console.log(document.querySelector(".modal__card").style.minHeight);
             }
             else {
               document.querySelector(".modal").style.animation = "zoom 0.7s forwards";
@@ -129,7 +128,7 @@ plus.addEventListener("click", () => {
         }
 
 /*--------------------------Resize windows------------------------------*/
-/*addEventListener('DOMContentLoaded', () => {
+addEventListener('DOMContentLoaded', () => {
   document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
 });
 window.addEventListener("load",()=> {
@@ -137,7 +136,7 @@ window.addEventListener("load",()=> {
   window.onresize = ()=> {
         document.querySelector(".modal").style.height = (window.innerHeight-130) +"px";
     };
-  })*/
+  })
 
 
   /*--------------------------Toggle button Add-------------------*/
