@@ -14,6 +14,7 @@
 
 // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
 let vh = window.innerHeight * 0.01;
+let mobileBasketTrue = false;
 // Then we set the value in the --vh custom property to the root of the document
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
@@ -27,18 +28,10 @@ const menu = document.querySelector(".menu");
 const main = document.querySelector(".main");
 const menu__h2 = document.querySelector(".menu__h2");
 const burger = document.querySelector(".burgerMenu");
+const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
+const footer = document.querySelector(".footer__copyright");
 
-//--------------Добавление/снятие прозрачности у мобильного меню-------------------//
 
-window.addEventListener("scroll", function (e) {
-  const h2top = menu__h2.getBoundingClientRect().top;
-  if (h2top >= 149) {
-    document.querySelector(".menu__mobile_nav").style.backgroundColor = "white";
-  } else {
-    document.querySelector(".menu__mobile_nav").style.backgroundColor =
-      "rgb(255, 255, 255, 0.7)";
-  }
-});
 
 //--------------------  Плюс/минус в меню-------------------//
 let count = document.querySelector(".input_text");
@@ -100,6 +93,7 @@ for (let imgClick of imgsClick) {
   imgClick.addEventListener("click", () => {
     clearTimeout(timerId);
     document.querySelector(".modal").style.display = "flex";
+    //document.querySelector(".asideModal").style.display = "flex";
     if (window.innerWidth < 1400) {
       document.querySelector(".modal").style.animation = "modal 0.7s forwards";
      /* document.querySelector(".modal__card").style.height =
@@ -155,17 +149,21 @@ window.addEventListener("load",()=> {
 
 /*--------------------------Toggle button Add-------------------*/
 const toBasket = document.querySelector(".add__order");
-const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
 const mobileBasket = document.querySelector(".mobileBasket");
 const buttonAdd = document.querySelectorAll(".card__button");
 const buttonCount = document.querySelectorAll(".card__button_count");
 for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
     if (window.innerWidth < 800) {
-      document.querySelector(".add__order").style.display = "block";
-      //document.querySelector(".add__order_tablet").style.display = "flex";
-      //mobileBasketSticky.style.position = "sticky";
+      //document.querySelector(".add__order").style.display = "block";
+      ///document.querySelector(".add__order_tablet").style.display = "flex";
+      document.querySelector(".mobileBasket__main").style.display = "none";
+      document.querySelector(".mobileBasket__footer").style.display = "none";
+      mobileBasketSticky.style.position = "sticky";
       mobileBasketSticky.style.display = "block";
+      mobileBasket.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
+      console.log(mobileBasketSticky.getBoundingClientRect().top);
+      mobileBasketTrue = true;
       //mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
       mobileBasket.style.display = "flex";
     } else if (window.innerWidth < 1400) {
@@ -183,6 +181,30 @@ mobileBasket.addEventListener("click", () => {});
 
 // document.querySelector(".add__order").style.display = "block";
 // document.querySelector(".add__order_tablet").style.display = "flex";
+
+//--------------Добавление/снятие прозрачности у мобильного меню-------------------//
+
+window.addEventListener("scroll", function () {
+  const h2top = menu__h2.getBoundingClientRect().top;
+  const footerTop = footer.getBoundingClientRect().top;
+  const mobileBasketTop = mobileBasketSticky.getBoundingClientRect().top;
+  console.log(footerTop);
+  console.log(mobileBasketTop);
+  if (h2top >= 149) {
+    document.querySelector(".menu__mobile_nav").style.backgroundColor = "white";
+  } else {
+    document.querySelector(".menu__mobile_nav").style.backgroundColor =
+      "rgb(255, 255, 255, 0.7)";
+  }
+  /*if (mobileBasketTrue) {
+    if (footerTop < mobileBasketTop) {
+      mobileBasketSticky.style.position = "sticky";
+      mobileBasket.style.top = "calc((var(--vh, 1vh) * 100) - 120px)";
+      mobileBasketTrue = false;
+    }
+  }
+ */
+});
 /*---------------All parameters------------------------
 
 totalCount  //Общее количество заказанных позиций*/
