@@ -102,7 +102,7 @@ plus.addEventListener("click", () => {
             document.querySelector(".main").style.filter = "blur(2.5px)";
             document.querySelector(".main").style.overflow = "hidden"; 
             document.querySelector(".menu").style.overflow = "hidden";
-            document.querySelector(".modal").style.overflow = "hidden";
+            document.querySelector(".modal").style.overflow = "auto";
             document.querySelector(".modal__card").style.overflow = "auto";
             document.body.style.overflow = "hidden";
           });          
