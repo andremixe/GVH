@@ -1073,7 +1073,7 @@ input[type="number"]:focus {
     left: 0;
     bottom: 0;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 100%;
     height: calc((var(--vh, 1vh) * 100) - 130);
     z-index: 500;
@@ -1083,7 +1083,7 @@ input[type="number"]:focus {
 .modal__card {
     background-color: var(--text-color-white);   
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 .modal__div {
     position: relative;
@@ -1259,9 +1259,10 @@ input[type="number"]:focus {
     display: none;
 }
 .modal__footer {
-    /*position: fixed;
+    position: fixed;
     bottom: 0;
-    right: 0;*/
+    right: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     height: 124px;
