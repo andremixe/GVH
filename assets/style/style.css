@@ -468,7 +468,6 @@ a:active {
 }
 
 .card__desc_name {
-    overflow: hidden;
     font-size: 15px;
     font-weight: 500;
     color: #000000;
