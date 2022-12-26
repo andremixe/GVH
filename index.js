@@ -88,8 +88,6 @@ setTimeout(()=>{
   truncateNames();
 });
 addEventListener("resize", truncateNames);
-addEventListener("DOMContentLoaded", truncateNames);
-addEventListener("resize", truncateNames);
 
 /*---------------------Modal window-------------------------------------*/
 var timerId = null;
