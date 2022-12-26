@@ -32,13 +32,12 @@ const burger = document.querySelector(".burgerMenu");
 const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
 const footer = document.querySelector(".footer__copyright");
 
-
-
-//--------------------  Плюс/минус в меню-------------------//
 let count = document.querySelector(".input_text");
-console.log(count);
 let minus = document.getElementById("left");
 let plus = document.getElementById("right");
+
+//--------------------  Плюс/минус в меню-------------------//
+
 minus.addEventListener("click", () => {
   if (count.value > 0) {
     count.value--;
