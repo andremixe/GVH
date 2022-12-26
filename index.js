@@ -25,6 +25,7 @@ window.addEventListener('resize', () => {
 });
 
 const menu = document.querySelector(".menu");
+const modal = document.querySelector(".modal");
 const main = document.querySelector(".main");
 const menu__h2 = document.querySelector(".menu__h2");
 const burger = document.querySelector(".burgerMenu");
@@ -83,6 +84,10 @@ function truncateNames() {
     }
   }
 }
+setTimeout(()=>{
+  truncateNames();
+});
+addEventListener("resize", truncateNames);
 addEventListener("DOMContentLoaded", truncateNames);
 addEventListener("resize", truncateNames);
 
@@ -92,26 +97,25 @@ const imgsClick = document.querySelectorAll(".card__img");
 for (let imgClick of imgsClick) {
   imgClick.addEventListener("click", () => {
     clearTimeout(timerId);
-    document.querySelector(".modal").style.display = "flex";
+    modal.style.display = "flex";
     //document.querySelector(".asideModal").style.display = "flex";
-    if (window.innerWidth < 1400) {
-      document.querySelector(".modal").style.animation = "modal 0.7s forwards";
-     /* document.querySelector(".modal__card").style.height =
-        innerHeight - 519 + "px";*/
+    if (window.innerWidth < 800) {
+      modal.style.animation = "modal 0.7s forwards";
     } else {
-      document.querySelector(".modal").style.animation = "zoom 0.7s forwards";
+      modal.style.animation = "zoom 0.7s forwards";
     }
-    document.querySelector("header").style.filter = "blur(2.5px)";
+    document.querySelector(".modal__footer").style.display = "flex";
+    document.querySelector(".header").style.filter = "blur(2.5px)";
     main.style.filter = "blur(2.5px)";
     main.style.overflow = "hidden";
     document.querySelector(".menu").style.overflow = "hidden";
-    document.querySelector(".modal").style.overflow = "auto";
-    document.querySelector(".modal__gallery").style.overflow = "auto";
-
-//    document.querySelector(".modal__card").style.overflow = "auto";
+    modal.style.overflow = "auto";
     document.body.style.overflow = "hidden";
-  });
-}
+  });}/*
+    document.querySelector(".modal__card").style.overflow = "auto";
+    document.querySelector(".modal__gallery").style.overflow = "auto";
+    
+*/
 
 const modalsCloses = document.querySelectorAll(".modal__close");
 for (let modalClose of modalsCloses) {
@@ -129,6 +133,7 @@ for (let modalClose of modalsCloses) {
     }, 800);
     document.querySelector("header").style.filter = "none";
     document.querySelector(".main").style.filter = "none";
+    document.querySelector(".modal__footer").style.display = "none";
     document.querySelector(".menu").style.overflow = "unset";
     document.querySelector(".main").style.overflow = "unset";
     document.body.style.overflow = "unset";
