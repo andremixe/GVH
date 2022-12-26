@@ -305,11 +305,9 @@ a:active {
     height: 75px;
     position: absolute;
     position: sticky;
-    backdrop-filter: blur(2px);
     top: 75px;
     z-index: 20;
-    background-color: var(--text-color-white);
-    background-color: rgb(255, 255, 255, 0.01);
+    background-color: var(--text-color-white);    
 }
 
 .menu__mobile_nav {

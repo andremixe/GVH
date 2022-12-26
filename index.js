@@ -191,7 +191,7 @@ mobileBasket.addEventListener("click", () => {});
 // document.querySelector(".add__order_tablet").style.display = "flex";
 
 //--------------Добавление/снятие прозрачности у мобильного меню-------------------//
-/*
+
 window.addEventListener("scroll", function () {
   const menu_h2top = menu__h2.getBoundingClientRect().top;
   const footerCopTop = footerCopyright.getBoundingClientRect().top;
@@ -203,7 +203,7 @@ window.addEventListener("scroll", function () {
   } else {
     document.querySelector(".menu__mobile_nav").style.backgroundColor =
       "rgb(255, 255, 255, 0.7)";
-  }*/
+  }
   /*if (mobileBasketTrue) {
     if (footerTop < mobileBasketTop) {
       mobileBasketSticky.style.position = "sticky";
@@ -212,7 +212,7 @@ window.addEventListener("scroll", function () {
     }
   }
  */
-//});
+});
 /*---------------All parameters------------------------
 
 totalCount  //Общее количество заказанных позиций*/
