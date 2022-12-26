@@ -116,13 +116,17 @@ a:active {
 .asideNavMenu,
 .mainGallery,
 .basketDesk,
+.auxiliary,
 .asideMenu,
 .mobileBasket,
 .mobileBasket__img,
 .hidden {
     display: none;
 }
-
+.auxiliary {
+    height: 150px;
+    background-color: var(--text-color-white);
+}
 .logo {
     display: flex;
     flex-direction: column;

@@ -23,6 +23,7 @@ window.addEventListener('resize', () => {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 });
+const auxiliary = document.querySelector(".auxiliary");
 const header = document.querySelector(".header");
 const menu = document.querySelector(".menu");
 const menuMobileNav = document.querySelector(".menu__mobile_nav");
@@ -104,6 +105,7 @@ for (let imgClick of imgsClick) {
     document.querySelector(".modal__footer").style.display = "flex";
     header.style.filter = "blur(2.5px)";
     menuMobileNav.style.filter = "blur(2.5px)";
+    auxiliary.style.display = "block";
     header.style.position = "fixed";
     menuMobileNav.style.position = "fixed";
     main.style.filter = "blur(2.5px)";
@@ -133,6 +135,7 @@ for (let modalClose of modalsCloses) {
     main.style.filter = "none";
     menuMobileNav.style.filter = "none";
     document.querySelector(".modal__footer").style.display = "none";
+    auxiliary.style.display = "none";
     menu.style.overflow = "unset";
     main.style.overflow = "unset";
     document.body.style.overflow = "unset";
