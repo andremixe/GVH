@@ -16,15 +16,16 @@
 let vh = window.innerHeight * 0.01;
 let mobileBasketTrue = false;
 // Then we set the value in the --vh custom property to the root of the document
-document.documentElement.style.setProperty('--vh', `${vh}px`);
+document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
   // We execute the same script as before
   let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
 });
 const auxiliary = document.querySelector(".auxiliary");
 const header = document.querySelector(".header");
+const footer = document.querySelector(".footer");
 const menu = document.querySelector(".menu");
 const menuMobileNav = document.querySelector(".menu__mobile_nav");
 const modal = document.querySelector(".modal");
@@ -33,23 +34,37 @@ const menu__h2 = document.querySelector(".menu__h2");
 const burger = document.querySelector(".burgerMenu");
 const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
 const footerCopyright = document.querySelector(".footer__copyright");
-
-let count = document.querySelector(".input_text");
-let minus = document.getElementById("left");
-let plus = document.getElementById("right");
+const buttonsCount = document.querySelectorAll(".button__count");
+const btnCloseModal = document.querySelector(".modal__close");
+const btnCloseMobileBasket = document.querySelector(".mobileBasket__close");
+const modalFooter = document.querySelector(".modal__footer");
+const toppingLabels = document.querySelectorAll(".topping__label");
 
 //--------------------  Плюс/минус в меню-------------------//
 
-minus.addEventListener("click", () => {
-  if (count.value > 0) {
-    count.value--;
-  }
-});
-plus.addEventListener("click", () => {
-  if (count.value < 999) {
-    count.value++;
-  }
-});
+function countPlus(count) {
+  return function () {
+    if (count.value < 999) {
+      count.value++;
+    }
+  };
+}
+
+function countMinus(count) {
+  return function () {
+    if (count.value > 0) {
+      count.value--;
+    }
+  };
+}
+
+for (let buttonCount of buttonsCount) {
+  let minus = buttonCount.querySelector(".count_minus");
+  let plus = buttonCount.querySelector(".count_plus");
+  let count = buttonCount.querySelector(".input_text");
+  minus.addEventListener("click", countMinus(count));
+  plus.addEventListener("click", countPlus(count));
+}
 
 //----------------------Вызов бургер-меню-----------------//
 /*burger.addEventListener("click", () => {
@@ -85,7 +100,7 @@ function truncateNames() {
     }
   }
 }
-setTimeout(()=>{
+setTimeout(() => {
   truncateNames();
 });
 addEventListener("resize", truncateNames);
@@ -98,26 +113,23 @@ for (let imgClick of imgsClick) {
     clearTimeout(timerId);
     modal.style.display = "flex";
     if (window.innerWidth < 800) {
+      btnCloseModal.style.display = "block";
       modal.style.animation = "modal 0.7s forwards";
+      btnCloseModal.style.animation = "modal 0.7s forwards";
     } else {
       modal.style.animation = "zoom 0.7s forwards";
     }
-    document.querySelector(".modal__footer").style.display = "flex";
-    header.style.filter = "blur(2.5px)";
-    menuMobileNav.style.filter = "blur(2.5px)";
+    modalFooter.style.display = "flex";
     auxiliary.style.display = "block";
-    header.style.position = "fixed";
-    menuMobileNav.style.position = "fixed";
-    main.style.filter = "blur(2.5px)";
     main.style.overflow = "hidden";
     menu.style.overflow = "hidden";
     modal.style.overflow = "auto";
+    menuMobileNav.style.filter = "blur(2.5px)";
+    main.style.filter = "blur(2.5px)";
+    header.style.filter = "blur(2.5px)";
     document.body.style.overflow = "hidden";
-  });}/*
-    document.querySelector(".modal__card").style.overflow = "auto";
-    document.querySelector(".modal__gallery").style.overflow = "auto";
-    
-*/
+  });
+}
 /*----------------------Close modal window------------------------*/
 const modalsCloses = document.querySelectorAll(".modal__close");
 for (let modalClose of modalsCloses) {
@@ -125,6 +137,7 @@ for (let modalClose of modalsCloses) {
     console.log(window.innerWidth);
     if (window.innerWidth < 800) {
       modal.style.animation = "modalBack 0.7s forwards";
+      btnCloseModal.style.animation = "modalBack 0.7s forwards";
     } else {
       modal.style.animation = "zoomBack 0.7s forwards";
     }
@@ -132,15 +145,17 @@ for (let modalClose of modalsCloses) {
       modal.style.display = "none";
     }, 800);
     header.style.filter = "none";
+    btnCloseModal.style.display = "none";
     main.style.filter = "none";
     menuMobileNav.style.filter = "none";
-    document.querySelector(".modal__footer").style.display = "none";
+    modalFooter.style.display = "none";
     auxiliary.style.display = "none";
     menu.style.overflow = "unset";
     main.style.overflow = "unset";
     document.body.style.overflow = "unset";
     header.style.position = "sticky";
     menuMobileNav.style.position = "sticky";
+    //modalFooter.style.display = "none";
   });
 }
 
@@ -160,28 +175,35 @@ window.addEventListener("load",()=> {
 const toBasket = document.querySelector(".add__order");
 const mobileBasket = document.querySelector(".mobileBasket");
 const buttonAdd = document.querySelectorAll(".card__button");
-const buttonCount = document.querySelectorAll(".card__button_count");
+const cardCount = document.querySelectorAll(".card__button_count");
 for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
     if (window.innerWidth < 800) {
-      //document.querySelector(".add__order").style.display = "block";
-      //document.querySelector(".add__order_tablet").style.display = "flex";
-      //document.querySelector(".mobileBasket__main").style.display = "none";
-      //document.querySelector(".mobileBasket__footer").style.display = "none";
       mobileBasket.style.display = "flex";
       mobileBasketSticky.style.position = "sticky";
       mobileBasketSticky.style.display = "block";
+      btnCloseMobileBasket.style.display = "none";
       mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
-     // mobileBasket.style.top = "60px";
       console.log(mobileBasketSticky.getBoundingClientRect().top);
       mobileBasketTrue = true;
-      //mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
-      
     } else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
     }
+
     buttonAdd[i].style.display = "none";
-    buttonCount[i].style.display = "flex";
+    cardCount[i].style.display = "flex";
+  });
+}
+
+//-------------------------Выбор топингов------------------------------------//
+for (let toppingLabel of toppingLabels) {
+  toppingLabel.addEventListener("click", (e) => {
+    console.log(e.currentTarget.closest(".topping__card"));
+    let currentTopping = e.currentTarget.closest(".topping__card");
+    let currentToppingCheck = currentTopping.querySelector(
+      ".topping__check_img"
+    );
+    currentToppingCheck.classList.toggle("topping__check_active");
   });
 }
 
@@ -207,14 +229,14 @@ window.addEventListener("scroll", function () {
     document.querySelector(".menu__mobile_nav").style.backgroundColor =
       "rgb(255, 255, 255, 0.7)";
   }
-  /*if (mobileBasketTrue) {
-    if (footerTop < mobileBasketTop) {
-      mobileBasketSticky.style.position = "sticky";
-      mobileBasket.style.top = "calc((var(--vh, 1vh) * 100) - 120px)";
+  if (mobileBasketTrue) {
+    if (footerCopTop < mobileBasketTop) {
+      footer.style.marginBottom = "60px";
+      // mobileBasketSticky.style.position = "sticky";
+      //mobileBasket.style.top = "calc((var(--vh, 1vh) * 100) - 120px)";
       mobileBasketTrue = false;
     }
   }
- */
 });
 /*---------------All parameters------------------------
 
