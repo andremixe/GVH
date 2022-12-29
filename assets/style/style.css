@@ -1183,7 +1183,7 @@ input[type="number"]:focus {
     position: fixed;
     top: 145px;
     right: 20px;
-    z-index: 501;
+    z-index: 100501;
 }
 
 .modal__card_img {
@@ -1265,7 +1265,6 @@ input[type="number"]:focus {
 .topping__card {
     display: flex;
     position: relative;
-    height: 174px;
     flex-direction: column;
     align-items: center;
 }
@@ -1449,6 +1448,10 @@ input[type="number"]:focus {
     left: 0;
 }
 
+.asideModal {
+    position: relative;
+}
+
 /*------------------------MEDIA---------------------------------------*/
 @media screen and (min-width: 800px) {
 
@@ -1464,6 +1467,16 @@ input[type="number"]:focus {
 
     .menu__mobile_nav {
         display: none;
+    }
+
+    .modal__close {
+        display: none;
+        position: absolute;
+        top: 30px;
+        right: 60px;
+        z-index: 100501;
+        width: 20px;
+        height: 20px;
     }
 
     .wrapper__main_big {
@@ -1509,14 +1522,11 @@ input[type="number"]:focus {
         border-radius: 0px 10px 0px 0px;
     }
 
-
-
     .mobileBasket__header_img {
         padding: 20px;
         height: 60px;
         color: var(--text-color-white);
         background-color: var(--color-bluish-gray);
-
         border-right: none;
         border-bottom: none;
         border-radius: 10px 0px 0px 0px;
@@ -1638,29 +1648,7 @@ input[type="number"]:focus {
     .menu {
         /*height: calc(100vh - 340px);*/
     }
-
-    /*.menu_bluishGray {
-        min-width: 190px;
-        background-color: var(--color-bluish-gray);
-    }
-    .menu {
-        padding-left: 0px;
-        padding-bottom: 0px;
-    }
-    .mainGallery_bordeaux {
-        display: none;
-    }
-    .menu__list {
-        padding-bottom: 15px;
-    }
-    .aboutUs {
-        padding: 0;
-    }
-    .aboutUs__div {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    */
+   
     .mobileBasket {
         display: none;
     }
@@ -1762,7 +1750,7 @@ input[type="number"]:focus {
     .modal__header {
         flex-direction: column-reverse;
         align-items: flex-end;
-        bottom: 43px;
+        top: 323px;
     }
 
     .modal__h2 {
@@ -1770,10 +1758,7 @@ input[type="number"]:focus {
         left: 42px;
     }
 
-    .modal__close {
-        width: 20px;
-        height: 20px;
-    }
+
 
     .modal__topping {
         display: flex;

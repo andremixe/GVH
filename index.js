@@ -112,10 +112,11 @@ for (let imgClick of imgsClick) {
   imgClick.addEventListener("click", () => {
     clearTimeout(timerId);
     modal.style.display = "flex";
-    if (window.innerWidth < 800) {
-      btnCloseModal.style.display = "block";
+    btnCloseModal.style.display = "block";
+    if (window.innerWidth < 800) {      
       modal.style.animation = "modal 0.7s forwards";
       btnCloseModal.style.animation = "modal 0.7s forwards";
+      modal.style.overflow = "auto";
     } else {
       modal.style.animation = "zoom 0.7s forwards";
     }
@@ -123,11 +124,11 @@ for (let imgClick of imgsClick) {
     auxiliary.style.display = "block";
     main.style.overflow = "hidden";
     menu.style.overflow = "hidden";
-    modal.style.overflow = "auto";
+    document.body.style.overflow = "hidden";
     menuMobileNav.style.filter = "blur(2.5px)";
     main.style.filter = "blur(2.5px)";
     header.style.filter = "blur(2.5px)";
-    document.body.style.overflow = "hidden";
+    
   });
 }
 /*----------------------Close modal window------------------------*/
@@ -180,10 +181,11 @@ for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
     if (window.innerWidth < 800) {
       mobileBasket.style.display = "flex";
-      mobileBasketSticky.style.position = "sticky";
+      mobileBasketSticky.style.position = "fixed";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
-      mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
+      mobileBasketSticky.style.bottom = "60px";
+      //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       console.log(mobileBasketSticky.getBoundingClientRect().top);
       mobileBasketTrue = true;
     } else if (window.innerWidth < 1400) {
