@@ -197,7 +197,7 @@ for (let i = 0; i < buttonAdd.length; i++) {
   });
 }
 
-//-------------------------Выбор топингов------------------------------------//
+//-------------------------Choose topping------------------------------------//
 for (let toppingLabel of toppingLabels) {
   toppingLabel.addEventListener("click", (e) => {
     console.log(e.currentTarget.closest(".topping__card"));
@@ -226,14 +226,14 @@ window.addEventListener("scroll", function () {
   console.log(footerCopTop);
   console.log(mobileBasketTop);
   if (menu_h2top >= 149) {
-    document.querySelector(".menu__mobile_nav").style.backgroundColor = "white";
+    menuMobileNav.style.backgroundColor = "white";
   } else {
-    document.querySelector(".menu__mobile_nav").style.backgroundColor =
+    menuMobileNav.style.backgroundColor =
       "rgb(255, 255, 255, 0.7)";
   }
   if (mobileBasketTrue) {
     if (footerCopTop < mobileBasketTop) {
-      footer.style.marginBottom = "60px";
+      footer.style.paddingBottom = "60px";
       // mobileBasketSticky.style.position = "sticky";
       //mobileBasket.style.top = "calc((var(--vh, 1vh) * 100) - 120px)";
       mobileBasketTrue = false;
