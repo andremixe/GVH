@@ -188,6 +188,7 @@ function openMobileBasketFunc() {
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
   mobileBasketSticky.style.animation = "mobileBasket 0.7s forwards";
+  mobileBasketSticky.style.top = 0;
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
     console.log(e.target);
@@ -200,6 +201,8 @@ function closeMobileBasketFunc() {
  // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
   btnCloseMobileBasket.style.display = "none";
+  
+  mobileBasketSticky.style.top = "unset";
   mobileBasketSticky.style.animation = "closeMobileBasket 0.7s forwards";
   setTimeout(() => {
     openMobileBasket.addEventListener("click", openMobileBasketFunc)}, 710);
