@@ -33,12 +33,20 @@ const main = document.querySelector(".main");
 const menu__h2 = document.querySelector(".menu__h2");
 const burger = document.querySelector(".burgerMenu");
 const mobileBasketSticky = document.querySelector(".mobileBasket_sticky");
+const toBasket = document.querySelector(".add__order");
+const mobileBasket = document.querySelector(".mobileBasket");
+const buttonAdd = document.querySelectorAll(".card__button");
+const cardCount = document.querySelectorAll(".card__button_count");
 const footerCopyright = document.querySelector(".footer__copyright");
 const buttonsCount = document.querySelectorAll(".button__count");
 const btnCloseModal = document.querySelector(".modal__close");
 const btnCloseMobileBasket = document.querySelector(".mobileBasket__close");
 const modalFooter = document.querySelector(".modal__footer");
 const toppingLabels = document.querySelectorAll(".topping__label");
+const asideModal = document.querySelector(".asideModal");
+const mobileBasketHeaderPrice = document.querySelector(
+  ".mobileBasket__header_price"
+);
 
 //--------------------  Плюс/минус в меню-------------------//
 
@@ -104,61 +112,107 @@ setTimeout(() => {
   truncateNames();
 });
 addEventListener("resize", truncateNames);
+addEventListener("DOMContentLoaded", truncateNames);
 
 /*---------------------Modal window-------------------------------------*/
 var timerId = null;
-const imgsClick = document.querySelectorAll(".card__img");
+const imgsClick = document.querySelectorAll(".menu__card");
 for (let imgClick of imgsClick) {
+  console.log(
+    document.querySelector(".asideMenu__label").getBoundingClientRect().top
+  );
   imgClick.addEventListener("click", () => {
     clearTimeout(timerId);
     modal.style.display = "flex";
     btnCloseModal.style.display = "block";
-    if (window.innerWidth < 800) {      
+    if (window.innerWidth < 800) {
       modal.style.animation = "modal 0.7s forwards";
+      auxiliary.style.display = "block";
       btnCloseModal.style.animation = "modal 0.7s forwards";
       modal.style.overflow = "auto";
     } else {
       modal.style.animation = "zoom 0.7s forwards";
+      btnCloseModal.style.animation = "zoom 0.7s forwards";
+
+      //document.querySelector(".asideMenu__ul").style.position = "fixed";
+      //document.querySelector(".asideMenu__ul").style.top = ;
     }
     modalFooter.style.display = "flex";
-    auxiliary.style.display = "block";
     main.style.overflow = "hidden";
     menu.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
     menuMobileNav.style.filter = "blur(2.5px)";
     main.style.filter = "blur(2.5px)";
     header.style.filter = "blur(2.5px)";
-    
   });
 }
 /*----------------------Close modal window------------------------*/
-const modalsCloses = document.querySelectorAll(".modal__close");
-for (let modalClose of modalsCloses) {
-  modalClose.addEventListener("click", () => {
-    console.log(window.innerWidth);
-    if (window.innerWidth < 800) {
-      modal.style.animation = "modalBack 0.7s forwards";
-      btnCloseModal.style.animation = "modalBack 0.7s forwards";
-    } else {
-      modal.style.animation = "zoomBack 0.7s forwards";
-    }
-    timerId = setTimeout(() => {
-      modal.style.display = "none";
-    }, 800);
-    header.style.filter = "none";
-    btnCloseModal.style.display = "none";
-    main.style.filter = "none";
-    menuMobileNav.style.filter = "none";
-    modalFooter.style.display = "none";
-    auxiliary.style.display = "none";
-    menu.style.overflow = "unset";
-    main.style.overflow = "unset";
-    document.body.style.overflow = "unset";
+
+function closeModal() {
+  header.style.filter = "none";
+  btnCloseModal.style.display = "none";
+  main.style.filter = "none";
+  menuMobileNav.style.filter = "none";
+  modalFooter.style.display = "none";
+  auxiliary.style.display = "none";
+  modal.style.overflow = "unset";
+  menu.style.overflow = "unset";
+  main.style.overflow = "unset";
+  document.body.style.overflow = "unset";
+  //modalFooter.style.display = "none";
+  if (window.innerWidth < 800) {
+    modal.style.animation = "modalBack 0.7s forwards";
+    btnCloseModal.style.animation = "modalBack 0.7s forwards";
     header.style.position = "sticky";
     menuMobileNav.style.position = "sticky";
-    //modalFooter.style.display = "none";
-  });
+  } else {
+    modal.style.animation = "zoomBack 0.7s forwards";
+  }
+  timerId = setTimeout(() => {
+    modal.style.display = "none";
+  }, 800);
 }
+
+const modalsCloses = document.querySelectorAll(".modal__close");
+for (let modalClose of modalsCloses) {
+  modalClose.addEventListener("click", closeModal);
+}
+/*-----------------------Add topping---------------------------------*/
+const btnModalOrder = document.querySelector(".modal__order_button");
+btnModalOrder.addEventListener("click", closeModal);
+
+/*-------------------------Open mobile basket-------------------------------*/
+function openMobileBasketFunc() {
+  document.body.style.overflow = "hidden";
+  mobileBasket.style.display = "flex";
+  mobileBasketHeaderPrice.style.display = "none";
+  btnCloseMobileBasket.style.display = "block";
+  mobileBasketSticky.style.animation = "mobileBasket 0.7s forwards";
+  openMobileBasket.removeEventListener("click", openMobileBasketFunc);
+  btnCloseMobileBasket.addEventListener("click", (e) => {
+    console.log(e.target);
+    closeMobileBasketFunc();
+  })
+};
+
+function closeMobileBasketFunc() {  
+  document.body.style.overflow = "unset";
+ // mobileBasket.style.display = "none";
+  mobileBasketHeaderPrice.style.display = "block";
+  btnCloseMobileBasket.style.display = "none";
+  mobileBasketSticky.style.animation = "closeMobileBasket 0.7s forwards";
+  setTimeout(() => {
+    openMobileBasket.addEventListener("click", openMobileBasketFunc)}, 710);
+}
+
+const openMobileBasket = document.querySelector(".mobileBasket__header");
+openMobileBasket.addEventListener("click", openMobileBasketFunc);
+
+/*------------------------Close mobile basket----------------------------*/
+btnCloseMobileBasket.addEventListener("click", (e) => {
+  console.log(e.target);
+  closeMobileBasketFunc;
+})
 
 /*--------------------------Resize windows------------------------------*/
 /*addEventListener('DOMContentLoaded', () => {
@@ -173,15 +227,13 @@ window.addEventListener("load",()=> {
 */
 
 /*--------------------------Toggle button Add-------------------*/
-const toBasket = document.querySelector(".add__order");
-const mobileBasket = document.querySelector(".mobileBasket");
-const buttonAdd = document.querySelectorAll(".card__button");
-const cardCount = document.querySelectorAll(".card__button_count");
+
 for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
     if (window.innerWidth < 800) {
       mobileBasket.style.display = "flex";
       mobileBasketSticky.style.position = "fixed";
+      footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
       mobileBasketSticky.style.bottom = "60px";
@@ -191,7 +243,6 @@ for (let i = 0; i < buttonAdd.length; i++) {
     } else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
     }
-
     buttonAdd[i].style.display = "none";
     cardCount[i].style.display = "flex";
   });
@@ -208,6 +259,10 @@ for (let toppingLabel of toppingLabels) {
     currentToppingCheck.classList.toggle("topping__check_active");
   });
 }
+
+//--------------------------Add to basket from modal window-------------------//
+const btnAddOnModal = document.querySelector(".modal__order_button");
+btnAddOnModal.addEventListener("click", () => {});
 
 //-------------------------Open basket-----------------------------------------//
 // const toBasket = document.querySelector(".add__order");
@@ -228,8 +283,7 @@ window.addEventListener("scroll", function () {
   if (menu_h2top >= 149) {
     menuMobileNav.style.backgroundColor = "white";
   } else {
-    menuMobileNav.style.backgroundColor =
-      "rgb(255, 255, 255, 0.7)";
+    menuMobileNav.style.backgroundColor = "rgb(255, 255, 255, 0.7)";
   }
   if (mobileBasketTrue) {
     if (footerCopTop < mobileBasketTop) {
