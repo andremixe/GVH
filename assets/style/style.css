@@ -818,6 +818,9 @@ address {
     border-color: var(--color-bordeaux);
     border-radius: 10px;
     cursor: pointer;
+}
+
+.mobileBasket__delivery_active > .mobileBasket__delivery_label {
     color: var(--text-color-dark-grey);
 }
 

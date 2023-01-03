@@ -314,23 +314,19 @@ window.addEventListener("scroll", function () {
 
 /*--------------------------Choose delivery/takeaway--------------------------*/
 const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
-for (let t = 0;  t < (btnDelivery.length-1); t++) {
+for (let t = 0; t < btnDelivery.length; t++) {
   btnDelivery[t].addEventListener("click", (e) => {
-    let currentDelivery= e.currentTarget.closest(".mobileBasket__delivery__item");
-    currentDelivery.classList.toggle("mobileBasket__delivery_active");
-    console.log(e.target);
-    console.log(btnDelivery.length);
-    btnDelivery[t].classList.toggle("mobileBasket__delivery_active");
-    if (t === (btnDelivery.length-1)) {
-      btnDelivery[t-1].classList.toggle("mobileBasket__delivery_active");
+    let currentDelivery = e.currentTarget.closest(
+      ".mobileBasket__delivery__item"
+    );
+    currentDelivery.classList.add("mobileBasket__delivery_active");
+    if (t === btnDelivery.length - 1) {
+      btnDelivery[t - 1].classList.remove("mobileBasket__delivery_active");
+    } else {
+      btnDelivery[t + 1].classList.remove("mobileBasket__delivery_active");
     }
-    else {
-      btnDelivery[t+1].classList.toggle("mobileBasket__delivery_active");
-    }
-  })
+  });
 }
-
-
 
 /*---------------All parameters------------------------
 
