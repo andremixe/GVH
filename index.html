@@ -1825,7 +1825,7 @@
       document
         .getElementById("openMenu")
         .addEventListener("click", function () {
-          document.getElementById("menu").style.display = "flex";
+          document.getElementById("burgerMenu").style.display = "flex";
           document.querySelector(".mobileBasket_sticky").style.zIndex = 0;
           setTimeout(() => {
             mobileMenu.open();
@@ -1836,7 +1836,7 @@
         .addEventListener("click", function () {
           mobileMenu.close();
           setTimeout(() => {
-            document.getElementById("menu").style.display = "none";
+            document.getElementById("burgerMenu").style.display = "none";
             document.querySelector(".mobileBasket_sticky").style.zIndex = 100500;
           }, 500);
         });
