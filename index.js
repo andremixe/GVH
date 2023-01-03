@@ -211,8 +211,9 @@ function closeMobileBasketFunc() {
   mobileBasketHeaderPrice.style.display = "block";
   btnCloseMobileBasket.style.display = "none";
   mobileBasketSticky.style.position = "fixed";
-  mobileBasketOpen.style.animation = "closeMobileBasket 0.7s";
-  mobileBasketFooter.style.animation = "closeMobileBasket 0.7s";
+  mobileBasketOpen.style.top = "unset";
+  mobileBasketOpen.style.animation = "closeMobileBasket 0.7s linear";
+  mobileBasketFooter.style.animation = "closeMobileBasketFooter 0.7s";
   mobileBasketSticky.style.top = "unset";
   setTimeout(() => {
     mobileBasketOpen.style.position = "unset";

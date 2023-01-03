@@ -1125,13 +1125,25 @@ input[type="number"]:focus {
     }
 }
 
-@keyframes closeMobileBasket {
+@keyframes closeMobileBasketFooter {
     0% {
-        transform: translateY(0);
+        bottom: 0;
     }
 
     100% {
-        transform: translatey(calc(100vh - 60px));
+        bottom: -100vh;
+    }
+}
+
+@keyframes closeMobileBasket {
+    0% {
+        top: 0;
+       /* transform: translateY(0);*/
+    }
+
+    100% {
+        top: calc(100vh - 60px);
+        /*transform: translatey(calc(100vh - 60px));*/
     }
 }
 
