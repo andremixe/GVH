@@ -79,7 +79,7 @@
       </div>
     </header>
 
-    <aside id="menu" class="mobile_wr">
+    <aside id="burgerMenu" class="mobile_wr">
       <div class="mobileWr__img">
         <div class="mobileWr__header_img">
           <img src="assets/img/mobileLogo.svg" alt="" class="mobile__logo" />
@@ -87,7 +87,7 @@
         <img
           src="assets/img/image_for_basket.jpg"
           alt=""
-          class="mobileBasket__img_main"
+          class="tablet__img_main"
         />
       </div>
       <div class="mobile">
@@ -226,264 +226,268 @@
           <img
             src="assets/img/image_for_basket.jpg"
             alt=""
-            class="mobileBasket__img_main"
+            class="tablet__img_main"
           />
         </div>
         <div class="mobileBasket__wrapper">
-          <header class="mobileBasket__header">
-            <span class="mobileBasket__header_span">Ваш заказ</span>
-            <img
-              class="mobileBasket__close"
-              src="assets/img/close.svg"
-              alt=""
-            />
-            <span class="mobileBasket__header_price">1890</span>
-          </header>
-          <main class="mobileBasket__main">
-            <section class="mobileBasket__delivery">
-              <div class="mobileBasket__delivery__wrapper">
-                <li
-                  class="mobileBasket__delivery__item mobileBasket__delivery_active"
-                >
-                  <input
-                    class="mobileBasket__delivery_input"
-                    type="radio"
-                    name="delivery"
-                    value="0"
-                    id="delivery"
-                    checked="true"
-                  />
-                  <label class="mobileBasket__delivery_label" for="delivery"
-                    >Доставка</label
+          <div class="mobileBasket_open">
+            <header class="mobileBasket__header">
+              <span class="mobileBasket__header_span">Ваш заказ</span>
+              <img
+                class="mobileBasket__close"
+                src="assets/img/close.svg"
+                alt=""
+              />
+              <span class="mobileBasket__header_price">1890</span>
+            </header>
+            <main class="mobileBasket__main">
+              <section class="mobileBasket__delivery">
+                <div class="mobileBasket__delivery__wrapper">
+                  <li
+                    class="mobileBasket__delivery__item mobileBasket__delivery_active"
                   >
-                </li>
-                <li class="mobileBasket__delivery__item">
-                  <input
-                    class="mobileBasket__delivery_input"
-                    type="radio"
-                    name="delivery"
-                    value=""
-                    id="takeaway"
-                    checked=""
-                  />
-                  <label class="mobileBasket__delivery_label" for="takeaway"
-                    >На вынос</label
-                  >
-                </li>
-              </div>
-            </section>
-            <section class="mobileBasket__menu">
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
+                    <input
+                      class="mobileBasket__delivery_input"
+                      type="radio"
+                      name="delivery"
+                      value="0"
+                      id="delivery"
+                      checked="true"
+                    />
+                    <label class="mobileBasket__delivery_label" for="delivery"
+                      >Доставка</label
+                    >
+                  </li>
+                  <li class="mobileBasket__delivery__item">
+                    <input
+                      class="mobileBasket__delivery_input"
+                      type="radio"
+                      name="delivery"
+                      value=""
+                      id="takeaway"
+                      checked=""
+                    />
+                    <label class="mobileBasket__delivery_label" for="takeaway"
+                      >На вынос</label
+                    >
+                  </li>
                 </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+              </section>
+              <section class="mobileBasket__menu">
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus" id="left">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus" id="left">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus" id="left">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus" id="left">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus" id="left">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus" id="left">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus" id="left">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus" id="left">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="mobileBasket__card">
-                <div class="mobileBasket__card_pict">
-                  <img
-                    class="mobileBasket__card_img"
-                    src="assets/img/kebab.jpg"
-                    alt=""
-                  />
-                </div>
-                <div class="mobileBasket__desc">
-                  <h3 class="mobileBasket__h3">
-                    Кебаб из ягненка с салатом из свежих овощей
-                  </h3>
-                  <div class="mobileBasket__desc_main">
-                    <div class="mobileBasket__weightPrice">
-                      <span class="mobileBasket__weight"> 360 г. </span>
-                      <span class="mobileBasket__price"> 670 ₽ </span>
-                    </div>
-                    <div class="mobileBasket__count">
-                      <div class="count_minus" id="left">-</div>
-                      <div class="count__wrapper">
-                        <input
-                          type="text"
-                          class="input_text"
-                          size="6"
-                          value="1"
-                          pattern="[0-9]{,3}"
-                          inputmode="numeric"
-                        />
+                <div class="mobileBasket__card">
+                  <div class="mobileBasket__card_pict">
+                    <img
+                      class="mobileBasket__card_img"
+                      src="assets/img/kebab.jpg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="mobileBasket__desc">
+                    <h3 class="mobileBasket__h3">
+                      Кебаб из ягненка с салатом из свежих овощей
+                    </h3>
+                    <div class="mobileBasket__desc_main">
+                      <div class="mobileBasket__weightPrice">
+                        <span class="mobileBasket__weight"> 360 г. </span>
+                        <span class="mobileBasket__price"> 670 ₽ </span>
                       </div>
-                      <div class="count_plus" id="right">+</div>
+                      <div class="mobileBasket__count">
+                        <div class="count_minus" id="left">-</div>
+                        <div class="count__wrapper">
+                          <input
+                            type="text"
+                            class="input_text"
+                            size="6"
+                            value="1"
+                            pattern="[0-9]{,3}"
+                            inputmode="numeric"
+                          />
+                        </div>
+                        <div class="count_plus" id="right">+</div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </section>
-          </main>
-          <footer class="mobileBasket__footer">
-            <div class="mobileBasket__footer_item">
+              </section>
               <button class="mobileBasket__button_clear" type="button">
                 Убрать все
               </button>
+            </main>
+          </div>
+          
+
+          <footer class="mobileBasket__footer">
+            <div class="mobileBasket__footer_item">              
               <div class="mobileBasket_priceDelivery">
                 <span class="mobileBasket__footer_span">Доставка</span>
                 <span id="mobileBasket_priceDelivery">250</span>
@@ -1802,7 +1806,7 @@
     </script>
     <script src="assets/swiper/mobile-swipe-menu.min.js"></script>
     <script>
-      var mobileMenu = new MobileSwipeMenu("#menu", {
+      var mobileMenu = new MobileSwipeMenu("#burgerMenu", {
         mode: "right",
         width: window.innerWidth,
         hookWidth: 15,

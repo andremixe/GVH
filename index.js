@@ -47,6 +47,9 @@ const asideModal = document.querySelector(".asideModal");
 const mobileBasketHeaderPrice = document.querySelector(
   ".mobileBasket__header_price"
 );
+const mobileBasketHeader = document.querySelector(".mobileBasket__header");
+const mobileBasketFooter = document.querySelector(".mobileBasket__footer");
+const mobileBasketOpen = document.querySelector(".mobileBasket_open");
 
 //--------------------  Плюс/минус в меню-------------------//
 
@@ -188,7 +191,11 @@ function openMobileBasketFunc() {
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
   mobileBasketSticky.style.animation = "mobileBasket 0.7s forwards";
-  mobileBasketSticky.style.top = 0;
+  //mobileBasketSticky.style.top = 0;
+  mobileBasketOpen.style.position = "fixed";
+  mobileBasketFooter.style.position = "fixed";
+  mobileBasketFooter.style.bottom = 0;
+  mobileBasketOpen.style.top = "-100vh";
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
     console.log(e.target);
