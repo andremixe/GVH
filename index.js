@@ -190,29 +190,35 @@ function openMobileBasketFunc() {
   mobileBasket.style.display = "flex";
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
-  mobileBasketSticky.style.animation = "mobileBasket 0.7s forwards";
+  mobileBasketSticky.style.position = "unset";
+  mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
+  mobileBasketFooter.style.animation = "mobileBasket 0.7s forwards";
   //mobileBasketSticky.style.top = 0;
   mobileBasketOpen.style.position = "fixed";
   mobileBasketFooter.style.position = "fixed";
   mobileBasketFooter.style.bottom = 0;
-  mobileBasketOpen.style.top = "-100vh";
+  mobileBasketOpen.style.top = 0;
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
     console.log(e.target);
     closeMobileBasketFunc();
-  })
-};
+  });
+}
 
-function closeMobileBasketFunc() {  
+function closeMobileBasketFunc() {
   document.body.style.overflow = "unset";
- // mobileBasket.style.display = "none";
+  // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
   btnCloseMobileBasket.style.display = "none";
-  
+  mobileBasketSticky.style.position = "fixed";
+  mobileBasketOpen.style.animation = "closeMobileBasket 0.7s";
+  mobileBasketFooter.style.animation = "closeMobileBasket 0.7s";
   mobileBasketSticky.style.top = "unset";
-  mobileBasketSticky.style.animation = "closeMobileBasket 0.7s forwards";
   setTimeout(() => {
-    openMobileBasket.addEventListener("click", openMobileBasketFunc)}, 710);
+    mobileBasketOpen.style.position = "unset";
+    mobileBasketFooter.style.position = "unset";
+    openMobileBasket.addEventListener("click", openMobileBasketFunc);
+  }, 700);
 }
 
 const openMobileBasket = document.querySelector(".mobileBasket__header");
@@ -222,7 +228,7 @@ openMobileBasket.addEventListener("click", openMobileBasketFunc);
 btnCloseMobileBasket.addEventListener("click", (e) => {
   console.log(e.target);
   closeMobileBasketFunc;
-})
+});
 
 /*--------------------------Resize windows------------------------------*/
 /*addEventListener('DOMContentLoaded', () => {
