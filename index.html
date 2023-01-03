@@ -243,7 +243,7 @@
             <main class="mobileBasket__main">
               <section class="mobileBasket__delivery">
                 <div class="mobileBasket__delivery__wrapper">
-                  <li class="mobileBasket__delivery__item mobileBasket__delivery_active">
+                  <li class="mobileBasket__delivery__item basket__delivery_active">
                     <input
                       class="mobileBasket__delivery_input"
                       type="radio"
@@ -1801,6 +1801,10 @@
     </script>
     <script src="assets/swiper/mobile-swipe-menu.min.js"></script>
     <script>
+      window.addEventListener("load", openMobileMenu);
+      window.addEventListener("resize",openMobileMenu);
+      
+      function openMobileMenu() {     
       var mobileMenu = new MobileSwipeMenu("#burgerMenu", {
         mode: "right",
         width: window.innerWidth,
@@ -1839,6 +1843,7 @@
             ).style.zIndex = 100500;
           }, 500);
         });
+      }
     </script>
   </body>
 </html>

@@ -168,7 +168,12 @@ function closeModal() {
     btnCloseModal.style.animation = "modalBack 0.7s forwards";
     header.style.position = "sticky";
     menuMobileNav.style.position = "sticky";
-  } else {
+  } else if (window.innerWidth < 1400){
+    header.style.top = 0;
+    header.style.position = "sticky";
+    modal.style.animation = "zoomBack 0.7s forwards";
+  }
+  else {
     modal.style.animation = "zoomBack 0.7s forwards";
   }
   timerId = setTimeout(() => {
@@ -182,7 +187,9 @@ for (let modalClose of modalsCloses) {
 }
 /*-----------------------Add topping---------------------------------*/
 const btnModalOrder = document.querySelector(".modal__order_button");
-btnModalOrder.addEventListener("click", closeModal);
+btnModalOrder.addEventListener("click", () => {
+    closeModal();
+});
 
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
@@ -319,11 +326,11 @@ for (let t = 0; t < btnDelivery.length; t++) {
     let currentDelivery = e.currentTarget.closest(
       ".mobileBasket__delivery__item"
     );
-    currentDelivery.classList.add("mobileBasket__delivery_active");
+    currentDelivery.classList.add("basket__delivery_active");
     if (t === btnDelivery.length - 1) {
-      btnDelivery[t - 1].classList.remove("mobileBasket__delivery_active");
+      btnDelivery[t - 1].classList.remove("basket__delivery_active");
     } else {
-      btnDelivery[t + 1].classList.remove("mobileBasket__delivery_active");
+      btnDelivery[t + 1].classList.remove("basket__delivery_active");
     }
   });
 }

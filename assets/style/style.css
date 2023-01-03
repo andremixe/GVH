@@ -195,7 +195,7 @@ a:active {
     justify-content: space-between;
     min-height: 75px;
     align-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     padding-left: 25px;
     padding-right: 35px;
 }
@@ -790,7 +790,8 @@ address {
     border-radius: 10px;
 }
 
-.mobileBasket__delivery__item {
+.mobileBasket__delivery__item,
+.desktopBasket__delivery__item {
     display: flex;
     list-style-type: none;
     flex-grow: 1;
@@ -814,13 +815,13 @@ address {
 }
 
 .mobileBasket__delivery__item:hover,
-.mobileBasket__delivery_active {
+.basket__delivery_active {
     border-color: var(--color-bordeaux);
     border-radius: 10px;
     cursor: pointer;
 }
 
-.mobileBasket__delivery_active > .mobileBasket__delivery_label {
+.basket__delivery_active > .mobileBasket__delivery_label {
     color: var(--text-color-dark-grey);
 }
 
@@ -1046,7 +1047,7 @@ input[type="number"]:focus {
     display: flex;
     flex-direction: column;
     position: sticky;
-    top: 0px;
+    top: 75px;
     z-index: 100;
 }
 
@@ -1726,10 +1727,10 @@ input[type="number"]:focus {
         position: static;
     }
 
-    .header {
+   /* .header {
         position: relative;
     }
-
+*/
     .modal {
         position: fixed;
         width: 784px;
@@ -1806,7 +1807,9 @@ input[type="number"]:focus {
 @media screen and (min-width: 1400px) {
 
 
-
+    .asideMenu__ul {
+        top: 0;
+    }
     .topping__list {}
 
     .modal__fav {}
