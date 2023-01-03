@@ -839,6 +839,7 @@ address {
     overflow-y: auto;
     z-index: 100;
 }
+
 .mobileBasket__button_clear {
     margin-left: 30px;
 }
@@ -977,9 +978,11 @@ address {
 .count_plus {
     border-radius: 0px 10px 10px 0px;
 }
+
 .card__count_minus {
     border-radius: 0px 0px 0px 10px;
 }
+
 .card__count_plus {
     border-radius: 0px 0px 10px 0px;
 }
@@ -1137,13 +1140,15 @@ input[type="number"]:focus {
 
 @keyframes closeMobileBasket {
     0% {
-        top: 0;
-       /* transform: translateY(0);*/
+        bottom: 0;
+    }
+
+    50% {
+        bottom: -50vh;
     }
 
     100% {
-        top: calc(100vh - 60px);
-        /*transform: translatey(calc(100vh - 60px));*/
+        bottom: calc(-100vh + 60px);
     }
 }
 
