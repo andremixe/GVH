@@ -45,12 +45,16 @@ const modalFooter = document.querySelector(".modal__footer");
 const toppingLabels = document.querySelectorAll(".topping__label");
 const asideModal = document.querySelector(".asideModal");
 const mobileBasketHeaderPrice = document.querySelector(
-  ".mobileBasket__header_price"
+  ".mobileBasket__header_totalPrice"
 );
 const mobileBasketHeader = document.querySelector(".mobileBasket__header");
 const mobileBasketFooter = document.querySelector(".mobileBasket__footer");
 const mobileBasketOpen = document.querySelector(".mobileBasket_open");
-
+const asideMenuUl = document.querySelector(".asideMenu__ul");
+const mobileBasketHeaderImg = document.querySelector(
+  ".mobileBasket__header_img"
+);
+const mobileBasketHeaderWr = document.querySelector(".mobileBasket__header_wr");
 //--------------------  Плюс/минус в меню-------------------//
 
 function countPlus(count) {
@@ -121,38 +125,65 @@ addEventListener("DOMContentLoaded", truncateNames);
 var timerId = null;
 const imgsClick = document.querySelectorAll(".menu__card");
 for (let imgClick of imgsClick) {
-  console.log(
-    document.querySelector(".asideMenu__label").getBoundingClientRect().top
-  );
-  imgClick.addEventListener("click", () => {
+  imgClick.addEventListener("click", (e) => {
     clearTimeout(timerId);
+    let currentCard = e.currentTarget.closest(".menu__list_item");
+    let currentBtnAdd = currentCard.querySelector(".card__button");
+    let currentBtnCount = currentCard.querySelector(".card__button_count");
+    currentBtnAdd.style.display = "none";
+    currentBtnCount.style.display = "flex";
     modal.style.display = "flex";
-    btnCloseModal.style.display = "block";
+    if (window.innerWidth < 1400) {
+      mobileBasket.style.display = "flex";
+      mobileBasketSticky.style.position = "fixed";
+      footer.style.paddingBottom = "60px";
+      mobileBasketSticky.style.display = "block";
+      btnCloseMobileBasket.style.display = "none";
+      mobileBasketSticky.style.bottom = "60px";
+      //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
+      mobileBasketHeaderWr.style.width = "100%";
+      mobileBasketHeaderImg.style.display = "none";
+      console.log(mobileBasketSticky.getBoundingClientRect().top);
+      mobileBasketTrue = true;
+    }
     if (window.innerWidth < 800) {
+      btnCloseModal.style.display = "block";
       modal.style.animation = "modal 0.7s forwards";
       auxiliary.style.display = "block";
       btnCloseModal.style.animation = "modal 0.7s forwards";
       modal.style.overflow = "auto";
+      modalFooter.style.display = "flex";
     } else {
       modal.style.animation = "zoom 0.7s forwards";
-      btnCloseModal.style.animation = "zoom 0.7s forwards";
+      //btnCloseModal.style.animationDelay = "0.7s";
+      setTimeout(() => {
+        btnCloseModal.style.display = "block";
+        modalFooter.style.display = "flex";
+        btnCloseModal.style.animation = "zoom 0.3s forwards";
+        modalFooter.style.animation = "zoom 0.3s forwards";
+      }, 400);
+      //
 
       //document.querySelector(".asideMenu__ul").style.position = "fixed";
       //document.querySelector(".asideMenu__ul").style.top = ;
     }
-    modalFooter.style.display = "flex";
+
     main.style.overflow = "hidden";
     menu.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
     menuMobileNav.style.filter = "blur(2.5px)";
     main.style.filter = "blur(2.5px)";
+    footer.style.filter = "blur(2.5px)";
     header.style.filter = "blur(2.5px)";
+    mobileBasketHeader.style.filter = "blur(2.5px)";
   });
 }
 /*----------------------Close modal window------------------------*/
 
 function closeModal() {
   header.style.filter = "none";
+  footer.style.filter = "none";
+  mobileBasketHeader.style.filter = "none";
   btnCloseModal.style.display = "none";
   main.style.filter = "none";
   menuMobileNav.style.filter = "none";
@@ -168,13 +199,14 @@ function closeModal() {
     btnCloseModal.style.animation = "modalBack 0.7s forwards";
     header.style.position = "sticky";
     menuMobileNav.style.position = "sticky";
-  } else if (window.innerWidth < 1400){
+  } else if (window.innerWidth < 1400) {
+    asideMenuUl.style.position = "sticky";
     header.style.top = 0;
     header.style.position = "sticky";
     modal.style.animation = "zoomBack 0.7s forwards";
-  }
-  else {
+  } else {
     modal.style.animation = "zoomBack 0.7s forwards";
+    asideMenuUl.style.position = "sticky";
   }
   timerId = setTimeout(() => {
     modal.style.display = "none";
@@ -183,12 +215,14 @@ function closeModal() {
 
 const modalsCloses = document.querySelectorAll(".modal__close");
 for (let modalClose of modalsCloses) {
-  modalClose.addEventListener("click", closeModal);
+  modalClose.addEventListener("click", () => {
+    closeModal(0);
+  });
 }
 /*-----------------------Add topping---------------------------------*/
 const btnModalOrder = document.querySelector(".modal__order_button");
 btnModalOrder.addEventListener("click", () => {
-    closeModal();
+  closeModal(1);
 });
 
 /*-------------------------Open mobile basket-------------------------------*/
@@ -201,9 +235,11 @@ function openMobileBasketFunc() {
   mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
   mobileBasketFooter.style.animation = "mobileBasket 0.7s forwards";
   //mobileBasketSticky.style.top = 0;
-  mobileBasketOpen.style.position = "fixed";
+  mobileBasketHeaderImg.style.display = "block";
   mobileBasketFooter.style.position = "fixed";
   mobileBasketFooter.style.bottom = 0;
+  mobileBasketHeaderWr.style.width = "50%";
+  mobileBasketOpen.style.position = "fixed";
   mobileBasketOpen.style.top = 0;
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
@@ -216,6 +252,8 @@ function closeMobileBasketFunc() {
   document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
+  mobileBasketHeaderImg.style.display = "none";
+  mobileBasketHeaderWr.style.width = "100%";
   btnCloseMobileBasket.style.display = "none";
   mobileBasketSticky.style.position = "fixed";
   mobileBasketOpen.style.top = "unset";
@@ -251,10 +289,10 @@ window.addEventListener("load",()=> {
 */
 
 /*--------------------------Toggle button Add-------------------*/
-
+/*
 for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
-    if (window.innerWidth < 800) {
+    if (window.innerWidth < 1400) {
       mobileBasket.style.display = "flex";
       mobileBasketSticky.style.position = "fixed";
       footer.style.paddingBottom = "60px";
@@ -262,16 +300,18 @@ for (let i = 0; i < buttonAdd.length; i++) {
       btnCloseMobileBasket.style.display = "none";
       mobileBasketSticky.style.bottom = "60px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
+      mobileBasketHeaderWr.style.width = "100%";
+      mobileBasketHeaderImg.style.display = "none";
       console.log(mobileBasketSticky.getBoundingClientRect().top);
       mobileBasketTrue = true;
-    } else if (window.innerWidth < 1400) {
+    } /*else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
-    }
+    }*//*
     buttonAdd[i].style.display = "none";
     cardCount[i].style.display = "flex";
   });
 }
-
+*/
 //-------------------------Choose topping------------------------------------//
 for (let toppingLabel of toppingLabels) {
   toppingLabel.addEventListener("click", (e) => {
@@ -331,6 +371,22 @@ for (let t = 0; t < btnDelivery.length; t++) {
       btnDelivery[t - 1].classList.remove("basket__delivery_active");
     } else {
       btnDelivery[t + 1].classList.remove("basket__delivery_active");
+    }
+  });
+}
+const btnDeliverys = document.querySelectorAll(
+  ".desktopBasket__delivery__item"
+);
+for (let t = 0; t < btnDeliverys.length; t++) {
+  btnDeliverys[t].addEventListener("click", (e) => {
+    let currentDeliverys = e.currentTarget.closest(
+      ".desktopBasket__delivery__item"
+    );
+    currentDeliverys.classList.add("basket__delivery_active");
+    if (t === btnDeliverys.length - 1) {
+      btnDeliverys[t - 1].classList.remove("basket__delivery_active");
+    } else {
+      btnDeliverys[t + 1].classList.remove("basket__delivery_active");
     }
   });
 }
