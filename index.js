@@ -217,13 +217,13 @@ function closeModal() {
 const modalsCloses = document.querySelectorAll(".modal__close");
 for (let modalClose of modalsCloses) {
   modalClose.addEventListener("click", () => {
-    closeModal(0);
+    closeModal();
   });
 }
 /*-----------------------Add topping---------------------------------*/
 const btnModalOrder = document.querySelector(".modal__order_button");
 btnModalOrder.addEventListener("click", () => {
-  closeModal(1);
+  closeModal();
 });
 
 /*-------------------------Open mobile basket-------------------------------*/
