@@ -2019,7 +2019,7 @@
           .getElementById("openMenu")
           .addEventListener("click", function () {
             document.getElementById("burgerMenu").style.display = "flex";
-            document.querySelector(".mobileBasket_sticky").style.zIndex = 0;
+            document.querySelector(".mobileBasket_sticky").style.zIndex = 10;
             document.body.style.overflow = "hidden";
             setTimeout(() => {
               mobileMenu.open();
@@ -2035,7 +2035,7 @@
               document.querySelector(
                 ".mobileBasket_sticky"
               ).style.zIndex = 100500;
-            }, 500);
+            }, 400);
           });
       }
     </script>

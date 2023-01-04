@@ -1907,6 +1907,7 @@ input[type="number"]:focus {
         grid-template-columns: 270px 1fr 1fr;
         column-gap: 60px;
         padding-right: 0px;
+        padding-left: 175px;
     }
 
     .copyright__close {

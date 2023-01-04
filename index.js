@@ -264,13 +264,13 @@ function closeMobileBasketFunc() {
   mobileBasketSticky.style.position = "fixed";
   mobileBasketOpen.style.top = "unset";
   mobileBasketOpen.style.animation = "closeMobileBasket 0.7s linear";
-  mobileBasketFooter.style.animation = "closeMobileBasketFooter 0.7s";
+  mobileBasketFooter.style.animation = "closeMobileBasketFooter 0.7s linear";
   mobileBasketSticky.style.top = "unset";
   setTimeout(() => {
     mobileBasketOpen.style.position = "unset";
     mobileBasketFooter.style.position = "unset";
     openMobileBasket.addEventListener("click", openMobileBasketFunc);
-  }, 700);
+  }, 690);
 }
 
 const openMobileBasket = document.querySelector(".mobileBasket__header");
@@ -278,7 +278,6 @@ openMobileBasket.addEventListener("click", openMobileBasketFunc);
 
 /*------------------------Close mobile basket----------------------------*/
 btnCloseMobileBasket.addEventListener("click", (e) => {
-  console.log(e.target);
   closeMobileBasketFunc;
 });
 
