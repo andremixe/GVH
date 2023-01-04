@@ -238,7 +238,10 @@ function openMobileBasketFunc() {
   mobileBasketHeaderImg.style.display = "block";
   mobileBasketFooter.style.position = "fixed";
   mobileBasketFooter.style.bottom = 0;
-  mobileBasketHeaderWr.style.width = "50%";
+  if (window.innerWidth > 1400) {
+
+    mobileBasketHeaderWr.style.width = "50%";
+  }
   mobileBasketOpen.style.position = "fixed";
   mobileBasketOpen.style.top = 0;
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
