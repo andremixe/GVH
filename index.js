@@ -127,7 +127,8 @@ const imgsClick = document.querySelectorAll(".menu__card");
 for (let imgClick of imgsClick) {
   imgClick.addEventListener("click", (e) => {
     clearTimeout(timerId);
-    let currentCard = e.currentTarget.closest(".menu__list_item");
+    let currentCard = e.currentTarget.closest(".list_item");
+    console.log(currentCard);
     let currentBtnAdd = currentCard.querySelector(".card__button");
     let currentBtnCount = currentCard.querySelector(".card__button_count");
     currentBtnAdd.style.display = "none";
@@ -368,7 +369,7 @@ for (let t = 0; t < btnDelivery.length; t++) {
   btnDelivery[t].addEventListener("click", (e) => {
     let currentDelivery = e.currentTarget.closest(
       ".mobileBasket__delivery__item"
-    );
+    );   
     currentDelivery.classList.add("basket__delivery_active");
     if (t === btnDelivery.length - 1) {
       btnDelivery[t - 1].classList.remove("basket__delivery_active");
