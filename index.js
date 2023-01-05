@@ -173,23 +173,13 @@ for (let imgClick of imgsClick) {
     main.style.overflow = "hidden";
     menu.style.overflow = "hidden";
     document.body.style.overflow = "hidden";
-    menuMobileNav.style.filter = "blur(2.5px)";
-    main.style.filter = "blur(2.5px)";
-    footer.style.filter = "blur(2.5px)";
-    header.style.filter = "blur(2.5px)";
-    mobileBasketHeader.style.filter = "blur(2.5px)";
   });
 }
 /*----------------------Close modal window------------------------*/
 
 function closeModal() {
-  header.style.filter = "none";
   divBlock.style.display = "none";
-  footer.style.filter = "none";
-  mobileBasketHeader.style.filter = "none";
   btnCloseModal.style.display = "none";
-  main.style.filter = "none";
-  menuMobileNav.style.filter = "none";
   modalFooter.style.display = "none";
   auxiliary.style.display = "none";
   modal.style.overflow = "unset";

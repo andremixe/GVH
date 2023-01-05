@@ -83,6 +83,7 @@ a:active {
     left: 0;
     width: 100vw;
     height: 100vh;
+    backdrop-filter: blur(2.5px);
 }
 
 .menu__h2,
