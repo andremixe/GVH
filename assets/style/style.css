@@ -467,6 +467,7 @@ a:active {
     flex-direction: row;
     align-items: center;
     column-gap: 4px;
+    height: 63px;
     padding-bottom: 15px;
     padding-top: 15px;
     padding-right: 10px;
@@ -474,7 +475,7 @@ a:active {
 }
 
 .card {
-    height: 40px;
+    max-height: 33px;
     overflow: hidden;
     align-self: flex-end;
     padding-right: 10px;
@@ -1529,7 +1530,9 @@ input[type="number"]:focus {
         grid-template-columns: 195px 1fr;
         flex-wrap: nowrap;*/
     }
-    
+    .top10__card {
+        width: 280px;
+    }
     .aux {
         display: none;
     }
