@@ -120,7 +120,7 @@ setTimeout(() => {
 });
 addEventListener("resize", truncateNames);
 addEventListener("DOMContentLoaded", truncateNames);
-
+const divBlock = document.querySelector(".block");
 /*---------------------Modal window-------------------------------------*/
 var timerId = null;
 const imgsClick = document.querySelectorAll(".menu__card");
@@ -133,7 +133,8 @@ for (let imgClick of imgsClick) {
     let currentBtnCount = currentCard.querySelector(".card__button_count");
     currentBtnAdd.style.display = "none";
     currentBtnCount.style.display = "flex";
-    modal.style.display = "flex";
+    modal.style.display = "flex";    
+    divBlock.style.display = "block";
     if (window.innerWidth < 1400) {
       mobileBasket.style.display = "flex";
       mobileBasketSticky.style.position = "fixed";
@@ -183,6 +184,7 @@ for (let imgClick of imgsClick) {
 
 function closeModal() {
   header.style.filter = "none";
+  divBlock.style.display = "none";
   footer.style.filter = "none";
   mobileBasketHeader.style.filter = "none";
   btnCloseModal.style.display = "none";
