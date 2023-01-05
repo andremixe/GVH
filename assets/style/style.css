@@ -382,7 +382,7 @@ a:active {
 }
 
 .menu__white {
-    height: 75px;
+    height: 75px; 
     background-color: var(--text-color-white);
 }
 
@@ -405,7 +405,7 @@ a:active {
     flex-direction: column;
     justify-self: center;
     width: 100%;
-    /*height: 280px;*/
+    height: 290px;
     border-radius: 10px;
     background-color: var(--text-color-white);
     justify-content: space-between;
@@ -467,7 +467,7 @@ a:active {
     flex-direction: row;
     align-items: center;
     column-gap: 4px;
-    height: 63px;
+    height: 70px;
     padding-bottom: 15px;
     padding-top: 15px;
     padding-right: 10px;
@@ -1530,9 +1530,7 @@ input[type="number"]:focus {
         grid-template-columns: 195px 1fr;
         flex-wrap: nowrap;*/
     }
-    .top10__card {
-        width: 280px;
-    }
+    
     .aux {
         display: none;
     }
@@ -1877,7 +1875,9 @@ input[type="number"]:focus {
     .mobileBasket__button_clear {
         display: none;
     }
-
+    .top10__card {
+        width: 280px;
+    }
     .asideMenu__ul {
         top: 0;
     }
