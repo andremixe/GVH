@@ -1536,7 +1536,7 @@ input[type="number"]:focus {
         flex-wrap: nowrap;*/
     }
 
-    .swiper-slide {
+    .gallery__list .swiper-slide {
         max-width: 280px;
     }
     .aux {
