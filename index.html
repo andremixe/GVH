@@ -15,7 +15,7 @@
       .swiper-slide {
         text-align: center;
         font-size: 18px;
-
+        width: 100%;
         /* Center slide text vertically */
         display: -webkit-box;
         display: -ms-flexbox;
@@ -1264,8 +1264,8 @@
                                 <div class="card__text">
                                   <div class="card">
                                     <span class="card__desc_name"
-                                      >Пеновани </span
-                                    >
+                                      >Пеновани
+                                    </span>
                                     <span class="card__desc_weight"
                                       >280 г.</span
                                     >
@@ -1841,38 +1841,29 @@
       });
     </script>
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          "@0.00": {
-            slidesPerView: 1,
-            spaceBetween: 10,
+      function galleryFunc() {
+        var slidesView;
+        if (window.innerWidth < 800) {
+          slidesView = 1;
+        } else if (window.innerWidth < 1400) {
+          slidesView = 2;
+        } else {
+          slidesView = "auto";
+        }
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: slidesView,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
           },
-          "@0.75": {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          "@1.00": {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          "@1.50": {
-            slidesPerView: 4,
-            spaceBetween: 50,
-          },
-        },
-      });
+        });
+      }
+      window.addEventListener("DOMContentLoaded", galleryFunc);
+      window.addEventListener("resize", galleryFunc);
     </script>
     <script src="assets/swiper/mobile-swipe-menu.min.js"></script>
     <script>
-      window.addEventListener("load", openMobileMenu);
-      window.addEventListener("resize", openMobileMenu);
-
       function openMobileMenu() {
         var mobileMenu = new MobileSwipeMenu("#burgerMenu", {
           mode: "right",
@@ -1913,6 +1904,8 @@
             }, 400);
           });
       }
+      window.addEventListener("DOMContentLoaded", openMobileMenu);
+      window.addEventListener("resize", openMobileMenu);
     </script>
   </body>
 </html>

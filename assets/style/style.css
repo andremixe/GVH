@@ -382,7 +382,7 @@ a:active {
 }
 
 .menu__white {
-    height: 75px; 
+    height: 75px;
     background-color: var(--text-color-white);
 }
 
@@ -835,7 +835,7 @@ address {
     cursor: pointer;
 }
 
-.basket__delivery_active > .deskBasket__delivery_label {
+.basket__delivery_active>.deskBasket__delivery_label {
     color: var(--text-color-dark-grey);
 }
 
@@ -1028,9 +1028,14 @@ input[type="number"]:focus {
 
 .gallery__list {
     display: flex;
+    width: 100%;
     overflow-x: auto;
     column-gap: 25px;
     justify-content: space-between;
+}
+
+.top10__card {
+    width: 100%;
 }
 
 .gallery {
@@ -1530,7 +1535,10 @@ input[type="number"]:focus {
         grid-template-columns: 195px 1fr;
         flex-wrap: nowrap;*/
     }
-    
+
+    .swiper-slide {
+        max-width: 280px;
+    }
     .aux {
         display: none;
     }
@@ -1607,7 +1615,7 @@ input[type="number"]:focus {
         background-color: var(--color-bluish-gray);
         border-right: none;
         border-bottom: none;
-        
+
     }
     .mobileBasket__main_wr {
         width: 50%;
@@ -1621,7 +1629,7 @@ input[type="number"]:focus {
 
     .tablet__img_main {
         width: 100%;
-        height: 100%; 
+        height: 100%;
         /*calc(100vh - 60px);*/
         object-fit: cover;
     }
@@ -1630,7 +1638,7 @@ input[type="number"]:focus {
         height: unset;
         max-height: calc(100vh - 420px);
     }
-  
+
     .mobileBasket__wrapper {
         display: flex;
         height: 100%;
@@ -1781,7 +1789,7 @@ input[type="number"]:focus {
         order: 2;
     }
 
-   /* .header {
+    /* .header {
         position: relative;
     }
 */
@@ -1874,10 +1882,7 @@ input[type="number"]:focus {
     }
     .mobileBasket__button_clear {
         display: none;
-    }/*
-    .top10__card {
-        width: 280px;
-    }*/
+    }
     .asideMenu__ul {
         top: 0;
     }
