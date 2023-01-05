@@ -1549,6 +1549,7 @@ input[type="number"]:focus {
     .gallery__list .swiper-slide {
         max-width: 280px;
     }
+    
     .aux {
         display: none;
     }
@@ -1890,6 +1891,31 @@ input[type="number"]:focus {
         padding-left: 195px;
         padding-right: 147px;
     }
+    .gallery .swiper_new {        
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .gallery .swiper-button-next,
+    .gallery .swiper-button-prev {
+        color: #9D9D9D !important;
+    }
+    .swiper-button-next {
+        right: 0 !important;
+    }
+    .swiper-button-prev {
+        left: 0 !important; 
+    }
+    .aboutUs {
+        padding-left: 147px;
+        padding-right: 147px;
+    }
+    .gallery__h2 {
+        padding-left: 50px;
+    }
+    .gallery {
+        padding-left: 97px;
+        padding-right: 97px;
+    }
     .mobileBasket__button_clear {
         display: none;
     }
@@ -2093,12 +2119,12 @@ input[type="number"]:focus {
         padding-left: 0px;
     }
 
-    .aboutUs,
-    .gallery {
+    .aboutUs {
         padding-left: 147px;
         padding-right: 147px;
     }
-
+    
+    
     .menu__list {
         max-width: 890px;
         display: grid;

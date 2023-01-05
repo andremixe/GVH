@@ -133,7 +133,7 @@ for (let imgClick of imgsClick) {
     let currentBtnCount = currentCard.querySelector(".card__button_count");
     currentBtnAdd.style.display = "none";
     currentBtnCount.style.display = "flex";
-    modal.style.display = "flex";    
+    modal.style.display = "flex";
     divBlock.style.display = "block";
     if (window.innerWidth < 1400) {
       mobileBasket.style.display = "flex";
@@ -233,7 +233,6 @@ function openMobileBasketFunc() {
   mobileBasketFooter.style.bottom = 0;
   mobileBasketFooter.style.right = 0;
   if (window.innerWidth > 800) {
-
     mobileBasketHeaderWr.style.width = "50%";
   }
   mobileBasketOpen.style.position = "fixed";
@@ -303,7 +302,7 @@ for (let i = 0; i < buttonAdd.length; i++) {
       mobileBasketTrue = true;
     } /*else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
-    }*//*
+    }*/ /*
     buttonAdd[i].style.display = "none";
     cardCount[i].style.display = "flex";
   });
@@ -362,7 +361,7 @@ for (let t = 0; t < btnDelivery.length; t++) {
   btnDelivery[t].addEventListener("click", (e) => {
     let currentDelivery = e.currentTarget.closest(
       ".mobileBasket__delivery__item"
-    );   
+    );
     currentDelivery.classList.add("basket__delivery_active");
     if (t === btnDelivery.length - 1) {
       btnDelivery[t - 1].classList.remove("basket__delivery_active");
