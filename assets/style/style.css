@@ -31,6 +31,10 @@
         url('../fonts/rouble.ttf') format('truetype');
 }
 
+* { 
+    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
 /*------------------------------COLOR----------------------------------*/
 :root {
     --color-bordeaux-light: #B06D81;
@@ -432,6 +436,7 @@ a:active {
 .menu__list {
     margin-right: auto;
     margin-left: auto;
+    overflow-y: auto;
 }
 
 .menu__cat {

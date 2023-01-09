@@ -56,8 +56,9 @@ const mobileBasketHeaderImg = document.querySelector(
 );
 const mobileBasketHeaderWr = document.querySelector(".mobileBasket__header_wr");
 const divBlock = document.querySelector(".block");
-let modalTrue = "false";
-let basketTrue = "false";
+let modalTrue = false;
+let basketTrue = false;
+let scrollTrue = true;
 //--------------------  Плюс/минус в меню-------------------//
 
 function countPlus(count) {
@@ -262,7 +263,6 @@ function openMobileBasketFunc() {
 
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
-    console.log(e.target);
     closeMobileBasketFunc();
   });
 }
@@ -320,7 +320,6 @@ for (let i = 0; i < buttonAdd.length; i++) {
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
       mobileBasketHeaderImg.style.display = "none";
-      console.log(mobileBasketSticky.getBoundingClientRect().top);
       mobileBasketTrue = true;
     } /*else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
@@ -338,7 +337,6 @@ for (let i = 0; i < buttonAdd.length; i++) {
 //-------------------------Choose topping------------------------------------//
 for (let toppingLabel of toppingLabels) {
   toppingLabel.addEventListener("click", (e) => {
-    console.log(e.currentTarget.closest(".topping__card"));
     let currentTopping = e.currentTarget.closest(".topping__card");
     let currentToppingCheck = currentTopping.querySelector(
       ".topping__check_img"
@@ -369,8 +367,6 @@ window.addEventListener("scroll", function () {
   const menu_h2top = menu__h2.getBoundingClientRect().top;
   const footerCopTop = footerCopyright.getBoundingClientRect().top;
   const mobileBasketTop = mobileBasketSticky.getBoundingClientRect().top;
-  console.log(footerCopTop);
-  console.log(mobileBasketTop);
   if (menu_h2top >= 149) {
     menuMobileNav.style.backgroundColor = "white";
   } else {
@@ -402,32 +398,30 @@ for (let t = 0; t < btnDelivery.length; t++) {
   });
 }*/
 //(function swipeDelivery() {})();
-  const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
-  for (let t = 0; t < btnDelivery.length; t++) {
-    btnDelivery[t].addEventListener("click", (e) => {
-      let currentDelivery = e.currentTarget.closest(
-        ".mobileBasket__delivery__item"
-      );
-      let wrapp = e.currentTarget.closest(".mobileBasket__delivery__wrapper");
-      let hoverActive = wrapp.querySelector(".hovering_active");
-      let currentTypeDelivery = currentDelivery.querySelector(
-        ".mobileBasket__delivery_input"
-      ).id;
-      if (currentTypeDelivery === "takeaway") {
-        hoverActive.classList.remove("hover__active_left");
-        hoverActive.classList.add("hover__active_right");
-      } else {
-        hoverActive.classList.remove("hover__active_right");
-        hoverActive.classList.add("hover__active_left");
-      }
-      document.querySelectorAll(".mobileBasket__delivery__item").forEach((el) => {
-        el.classList.remove("basket__delivery_active");
-      });
-      e.currentTarget.classList.add("basket__delivery_active");
+const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
+for (let t = 0; t < btnDelivery.length; t++) {
+  btnDelivery[t].addEventListener("click", (e) => {
+    let currentDelivery = e.currentTarget.closest(
+      ".mobileBasket__delivery__item"
+    );
+    let wrapp = e.currentTarget.closest(".mobileBasket__delivery__wrapper");
+    let hoverActive = wrapp.querySelector(".hovering_active");
+    let currentTypeDelivery = currentDelivery.querySelector(
+      ".mobileBasket__delivery_input"
+    ).id;
+    if (currentTypeDelivery === "takeaway") {
+      hoverActive.classList.remove("hover__active_left");
+      hoverActive.classList.add("hover__active_right");
+    } else {
+      hoverActive.classList.remove("hover__active_right");
+      hoverActive.classList.add("hover__active_left");
+    }
+    document.querySelectorAll(".mobileBasket__delivery__item").forEach((el) => {
+      el.classList.remove("basket__delivery_active");
     });
-  }
-
-
+    e.currentTarget.classList.add("basket__delivery_active");
+  });
+}
 
 const btnDeliverys = document.querySelectorAll(
   ".desktopBasket__delivery__item"
@@ -460,53 +454,56 @@ for (let t = 0; t < btnDeliverys.length; t++) {
 
 //---------------------------Scroll menu-------------------------------------------------
 
-const menuList = document.querySelector(".menu__list");
-window.addEventListener("scroll", () => {
-  const menuCat = document.querySelectorAll(".menu__cat");
-  console.log(menuCat);
+function scrollAsideMenu() {
   for (i = 0; i < menuCat.length; i++) {
-    let menuCatTop = menuCat[i].getBoundingClientRect().top;
-    let menuCatBottom = menuCat[i].getBoundingClientRect().bottom;
-    if (menuCatTop < 1) {
-      let categoryId = menuCat[i].getAttribute("data-name");
-      console.log(categoryId);
-      currentMenuCat = document.getElementById(categoryId);
-      console.log(currentMenuCat);
-      currentMenuCat.classList.add("category_active");
-      let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
-      currentLabelsAside.forEach((label) => {
-        label.classList.remove("category_active");
-      });
-      let currentLabelAside = document.querySelector(
-        "label.asideMenu__label[for=" + categoryId + "]"
-      );
-      currentLabelAside.classList.add("category_active");
-      let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
-      currentLabelsMobileNav.forEach((label) => {
-        label.classList.remove("nav__label_active");
-      });
-      let currentLabelMobileNav = document.querySelector(
-        "label.nav__label[data-name=" + categoryId + "]"
-      );
-      currentLabelMobileNav.classList.add("nav__label_active");
-      let scrollMenuRight = currentLabelMobileNav.getBoundingClientRect().left;
-      let scrollMenuLeft = currentLabelMobileNav.getBoundingClientRect().right;
-      let scrollMenuX = currentLabelMobileNav.getBoundingClientRect().x;
-      let mobileNav = document.querySelector(".menu__mobile_nav");
-      if (scrollMenuLeft > window.innerWidth) {
-        mobileNav.scrollLeft += scrollMenuLeft - window.innerWidth + 10;
-      }
-      if (scrollMenuRight < 1) {
-        mobileNav.scrollLeft = scrollMenuRight - 10;
-      }
+    
+      let menuCatTop = menuCat[i].getBoundingClientRect().top;
+      if (menuCatTop < 151) {
+        let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
+        currentLabelsAside.forEach((label) => {
+          label.classList.remove("category_active");
+        });
+        let categoryId = menuCat[i].getAttribute("data-name");
+        currentMenuCat = document.getElementById(categoryId);
+        currentMenuCat.classList.add("category_active");
+        
+        
+        let currentLabelAside = document.querySelector(
+          "label.asideMenu__label[for=" + categoryId + "]"
+        );
+        currentLabelAside.classList.add("category_active");
+        let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
+        currentLabelsMobileNav.forEach((label) => {
+          label.classList.remove("nav__label_active");
+        });
+        let currentLabelMobileNav = document.querySelector(
+          "label.nav__label[data-name=" + categoryId + "]"
+        );
+        currentLabelMobileNav.classList.add("nav__label_active");
+        let scrollMenuRight = currentLabelMobileNav.getBoundingClientRect().left;
+        let scrollMenuLeft = currentLabelMobileNav.getBoundingClientRect().right;
+        let mobileNav = document.querySelector(".menu__mobile_nav");
+        if (scrollMenuLeft > window.innerWidth) {
+          mobileNav.scrollLeft += scrollMenuLeft - window.innerWidth + 10;
+        }
+        if (scrollMenuRight < 1) {
+          mobileNav.scrollLeft = scrollMenuRight - 10;
+        }
+      
     }
+    
   }
-});
+}
+
+const menuList = document.querySelector(".menu__list");
+const menuCat = document.querySelectorAll(".menu__cat");
+window.addEventListener("scroll", scrollAsideMenu);
 
 //------------------swipe basket delivery--------------------------
 (function toggleDelivery() {
-  let hoverActiveSwipe = document.querySelector(".mobileBasket__delivery__wrapper .hovering_active");
-  console.log(hoverActiveSwipe);
+  let hoverActiveSwipe = document.querySelector(
+    ".mobileBasket__delivery__wrapper .hovering_active"
+  );
   let touch = {
     start: { x: 0, y: 0 },
     end: { x: 0, y: 0 },
@@ -537,9 +534,15 @@ window.addEventListener("scroll", () => {
       // Angle is no more than 45 degrees off of swipe left/right
       this.checked = !!(x < 0);
       let items = document.querySelectorAll(".mobileBasket__delivery__item");
-      if((x < 0 && !items[1].classList.contains("basket__delivery_active")) ||
-      (x > 0 && !items[0].classList.contains("basket__delivery_active"))){
-        document.querySelector(".mobileBasket__delivery__item:not(.basket__delivery_active)").click();
+      if (
+        (x < 0 && !items[1].classList.contains("basket__delivery_active")) ||
+        (x > 0 && !items[0].classList.contains("basket__delivery_active"))
+      ) {
+        document
+          .querySelector(
+            ".mobileBasket__delivery__item:not(.basket__delivery_active)"
+          )
+          .click();
       }
     } else if (
       !touch.moved ||
@@ -548,7 +551,7 @@ window.addEventListener("scroll", () => {
       // Simulate "click" with a "tap"
       this.checked = !this.checked;
     }
-    
+
     // Reset
     touch = {
       start: { x: 0, y: 0 },
@@ -564,6 +567,68 @@ window.addEventListener("scroll", () => {
     output.textContent = ~~e.target.checked;
   });*/
 })();
+
+//--------------------------choose category menu for mobile--------------------
+
+let currentLiMobileNav = document.querySelectorAll(".nav__li");
+let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
+currentLiMobileNav.forEach((elemLiAside) => {
+  //снимать прослушку скролла для навигации
+  let topCurrentMenuCat = 0;
+  elemLiAside.addEventListener("click", () => {
+    scrollTrue = false;
+    window.removeEventListener("scroll", scrollAsideMenu);
+    currentLabelsMobileNav.forEach((label) => {
+      label.classList.remove("nav__label_active");
+    });
+
+    let elemLabelAside = elemLiAside.querySelector(".nav__label");
+    let elemLeft = elemLabelAside.getBoundingClientRect().right + 60;
+    console.log(elemLeft);
+    let mobileNav = document.querySelector(".menu__mobile_nav");
+    mobileNav.scrollLeft = elemLeft; //прокрутка контейнера навигации
+
+    elemLabelAside.classList.add("nav__label_active");
+    let categoryId = elemLabelAside.getAttribute("data-name");
+    let currentMenuCat = document.querySelector(
+      '.menu__cat[data-name="' + categoryId + '"]'
+    );
+    topCurrentMenuCat = currentMenuCat.getBoundingClientRect().top;
+
+    window.scrollBy({
+      top: topCurrentMenuCat - 150,
+      behavior: "smooth",
+    });
+    window.addEventListener("scroll", scrollAsideMenu);
+  });
+});
+
+//--------------------------choose category menu for tablet/desktop--------------------
+let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
+currentLabelsAside.forEach((label) => {
+  label.addEventListener("click", () => {
+    currentLabelsAside.forEach((lbl) => {
+      lbl.classList.remove("category_active");
+    });
+    label.classList.add("category_active");
+    let currentId = label.getAttribute("for");
+    console.log(currentId);
+    let currentMenuCat = document.querySelector(
+      '.menu__cat[data-name="' + currentId + '"]'
+    );
+    let topCurrentMenuCat = currentMenuCat.getBoundingClientRect().top;
+    if (window.innerWidth > 1400) {
+      topCurrentMenuCat = topCurrentMenuCat;
+    }
+    else {
+      topCurrentMenuCat = topCurrentMenuCat - 75;
+    }
+    window.scrollBy({
+      top: topCurrentMenuCat,
+      behavior: "smooth",
+    });
+  });
+});
 
 /*---------------All parameters------------------------
 
