@@ -283,6 +283,7 @@
                         >На вынос</label
                       >
                     </li>
+                    <div class="hovering_active hover__active_left"></div>
                   </div>
                 </section>
                 <section class="mobileBasket__menu">
@@ -483,8 +484,10 @@
           <div class="mobileBasket__footer_item">
             <div class="mobileBasket_priceDelivery">
               <span class="mobileBasket__footer_span">Доставка</span>
-              <span id="mobileBasket_priceDelivery">250</span>
-              <span class="rouble"> ₽</span>
+              <div class="mobileBasket__price_delivery">
+                <span id="mobileBasket_priceDelivery">250</span>
+                <span class="rouble"> ₽</span>
+              </div>
             </div>
             <p class="mobileBasket_forFreeDelivery">
               Закажите ещё на
@@ -494,8 +497,8 @@
           </div>
           <button class="mobileBasket__button_order">
             <span>Верно, далее</span>
-            <div>
-              <span id="mobileBasket_totalCheck">1895</span>
+            <div class="mobileBasket_totalCheck">
+              <span>1895</span>
               <span class="rouble"> ₽</span>
             </div>
           </button>
@@ -1353,7 +1356,9 @@
                 <div class="deskBasket__main">
                   <section class="deskBasket__delivery">
                     <div class="deskBasket__delivery__wrapper">
-                      <li class="desktopBasket__delivery__item">
+                      <li
+                        class="desktopBasket__delivery__item basket__delivery_active"
+                      >
                         <input
                           class="deskBasket__delivery_input"
                           type="radio"
@@ -1662,8 +1667,8 @@
                   </div>
                   <button class="mobileBasket__button_order">
                     <span>Верно, далее</span>
-                    <div>
-                      <span id="mobileBasket_totalCheck">1895</span>
+                    <div class="deskBasket_totalCheck">
+                      <span>1895</span>
                       <span class="rouble"> ₽</span>
                     </div>
                   </button>

@@ -387,7 +387,7 @@ window.addEventListener("scroll", function () {
 });
 
 /*--------------------------Choose delivery/takeaway--------------------------*/
-const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
+/*const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
 for (let t = 0; t < btnDelivery.length; t++) {
   btnDelivery[t].addEventListener("click", (e) => {
     let currentDelivery = e.currentTarget.closest(
@@ -400,7 +400,39 @@ for (let t = 0; t < btnDelivery.length; t++) {
       btnDelivery[t + 1].classList.remove("basket__delivery_active");
     }
   });
+}*/
+
+const btnDelivery = document.querySelectorAll(
+  ".mobileBasket__delivery__item"
+);
+for (let t = 0; t < btnDelivery.length; t++) {
+  btnDelivery[t].addEventListener("click", (e) => {
+    let currentDelivery = e.currentTarget.closest(
+      ".mobileBasket__delivery__item"
+    );
+    let wrapp = e.currentTarget.closest(".mobileBasket__delivery__wrapper");
+    let currentTypeDelivery = currentDelivery.querySelector(
+      ".mobileBasket__delivery_input"
+    ).id;
+    let hoverActive = wrapp.querySelector(".hovering_active");
+    if (currentTypeDelivery === "takeaway") {
+      hoverActive.classList.remove("hover__active_left");
+      hoverActive.classList.add("hover__active_right");
+    } else {
+      hoverActive.classList.remove("hover__active_right");
+      hoverActive.classList.add("hover__active_left");
+    }
+    document
+      .querySelectorAll(".mobileBasket__delivery__item")
+      .forEach((el) => {
+        el.classList.remove("basket__delivery_active");
+      });
+    e.currentTarget.classList.add("basket__delivery_active");
+  });
 }
+
+
+
 
 const btnDeliverys = document.querySelectorAll(
   ".desktopBasket__delivery__item"
@@ -415,10 +447,6 @@ for (let t = 0; t < btnDeliverys.length; t++) {
       ".deskBasket__delivery_input"
     ).id;
     let hoverActive = wrapp.querySelector(".hovering_active");
-    //if (currentLabel === "takeaway") {
-    //currentLabel.classList.toggle("color_transition_left");
-    //currentLabel.classList.toggle("color_transition_right");
-    //}
     if (currentTypeDelivery === "takeaway") {
       hoverActive.classList.remove("hover__active_left");
       hoverActive.classList.add("hover__active_right");
@@ -426,7 +454,6 @@ for (let t = 0; t < btnDeliverys.length; t++) {
       hoverActive.classList.remove("hover__active_right");
       hoverActive.classList.add("hover__active_left");
     }
-
     document
       .querySelectorAll(".desktopBasket__delivery__item")
       .forEach((el) => {
