@@ -55,6 +55,9 @@ const mobileBasketHeaderImg = document.querySelector(
   ".mobileBasket__header_img"
 );
 const mobileBasketHeaderWr = document.querySelector(".mobileBasket__header_wr");
+const divBlock = document.querySelector(".block");
+let modalTrue = "false";
+let basketTrue = "false";
 //--------------------  Плюс/минус в меню-------------------//
 
 function countPlus(count) {
@@ -67,8 +70,21 @@ function countPlus(count) {
 
 function countMinus(count) {
   return function () {
-    if (count.value > 0) {
+    if (count.value > 1) {
       count.value--;
+    } else if (count.value === "1") {
+      let currentCard;
+      let currentBtnAdd;
+      if (modalTrue) {
+        currentCard = count.closest(".modal__order");
+        currentBtnAdd = currentCard.querySelector(".modal__order_button");
+      } else {
+        currentCard = count.closest(".list_item");
+        currentBtnAdd = currentCard.querySelector(".card__button");
+      }
+      let currentBtnCount = currentCard.querySelector(".card__button_count");
+      currentBtnCount.style.display = "none";
+      currentBtnAdd.style.display = "block";
     }
   };
 }
@@ -120,19 +136,20 @@ setTimeout(() => {
 });
 addEventListener("resize", truncateNames);
 addEventListener("DOMContentLoaded", truncateNames);
-const divBlock = document.querySelector(".block");
+
 /*---------------------Modal window-------------------------------------*/
 var timerId = null;
 const imgsClick = document.querySelectorAll(".menu__card");
 for (let imgClick of imgsClick) {
   imgClick.addEventListener("click", (e) => {
     clearTimeout(timerId);
-    let currentCard = e.currentTarget.closest(".list_item");
-    console.log(currentCard);
+    /* let currentCard = e.currentTarget.closest(".list_item");
     let currentBtnAdd = currentCard.querySelector(".card__button");
     let currentBtnCount = currentCard.querySelector(".card__button_count");
     currentBtnAdd.style.display = "none";
-    currentBtnCount.style.display = "flex";
+    currentBtnCount.style.display = "flex";*/
+
+    modalTrue = "true";
     modal.style.display = "flex";
     divBlock.style.display = "block";
     if (window.innerWidth < 1400) {
@@ -178,6 +195,7 @@ for (let imgClick of imgsClick) {
 /*----------------------Close modal window------------------------*/
 
 function closeModal() {
+  modalTrue = "false";
   divBlock.style.display = "none";
   btnCloseModal.style.display = "none";
   modalFooter.style.display = "none";
@@ -206,18 +224,22 @@ function closeModal() {
   }, 800);
 }
 
+divBlock.addEventListener("click", (e) => {
+  console.log(e.target);
+  closeModal();
+});
 const modalsCloses = document.querySelectorAll(".modal__close");
 for (let modalClose of modalsCloses) {
   modalClose.addEventListener("click", () => {
     closeModal();
   });
 }
-/*-----------------------Add topping---------------------------------*/
+/*-----------------------Add topping--------------------------------
 const btnModalOrder = document.querySelector(".modal__order_button");
 btnModalOrder.addEventListener("click", () => {
   closeModal();
 });
-
+-*/
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
   document.body.style.overflow = "hidden";
@@ -285,7 +307,7 @@ window.addEventListener("load",()=> {
 */
 
 /*--------------------------Toggle button Add-------------------*/
-/*
+
 for (let i = 0; i < buttonAdd.length; i++) {
   buttonAdd[i].addEventListener("click", (e) => {
     if (window.innerWidth < 1400) {
@@ -302,12 +324,17 @@ for (let i = 0; i < buttonAdd.length; i++) {
       mobileBasketTrue = true;
     } /*else if (window.innerWidth < 1400) {
       document.querySelector(".add__order_tablet").style.display = "flex";
-    }*/ /*
-    buttonAdd[i].style.display = "none";
-    cardCount[i].style.display = "flex";
+    }*/
+    let currentCard = e.currentTarget.closest(".list_item");
+    let currentBtnAdd = currentCard.querySelector(".card__button");
+    let currentBtnCount = currentCard.querySelector(".card__button_count");
+    currentBtnAdd.style.display = "none";
+    currentBtnCount.style.display = "flex";
+    /* buttonAdd[i].style.display = "none";
+    cardCount[i].style.display = "flex";*/
   });
 }
-*/
+
 //-------------------------Choose topping------------------------------------//
 for (let toppingLabel of toppingLabels) {
   toppingLabel.addEventListener("click", (e) => {
@@ -322,7 +349,11 @@ for (let toppingLabel of toppingLabels) {
 
 //--------------------------Add to basket from modal window-------------------//
 const btnAddOnModal = document.querySelector(".modal__order_button");
-btnAddOnModal.addEventListener("click", () => {});
+btnAddOnModal.addEventListener("click", () => {
+  btnAddOnModal.style.display = "none";
+  const btnCountModal = document.querySelector(".modal__button_count");
+  btnCountModal.style.display = "flex";
+});
 
 //-------------------------Open basket-----------------------------------------//
 // const toBasket = document.querySelector(".add__order");
@@ -370,6 +401,7 @@ for (let t = 0; t < btnDelivery.length; t++) {
     }
   });
 }
+
 const btnDeliverys = document.querySelectorAll(
   ".desktopBasket__delivery__item"
 );
@@ -378,14 +410,76 @@ for (let t = 0; t < btnDeliverys.length; t++) {
     let currentDeliverys = e.currentTarget.closest(
       ".desktopBasket__delivery__item"
     );
-    currentDeliverys.classList.add("basket__delivery_active");
-    if (t === btnDeliverys.length - 1) {
-      btnDeliverys[t - 1].classList.remove("basket__delivery_active");
+    let wrapp = e.currentTarget.closest(".deskBasket__delivery__wrapper");
+    let currentTypeDelivery = currentDeliverys.querySelector(
+      ".deskBasket__delivery_input"
+    ).id;
+    let hoverActive = wrapp.querySelector(".hovering_active");
+    //if (currentLabel === "takeaway") {
+    //currentLabel.classList.toggle("color_transition_left");
+    //currentLabel.classList.toggle("color_transition_right");
+    //}
+    if (currentTypeDelivery === "takeaway") {
+      hoverActive.classList.remove("hover__active_left");
+      hoverActive.classList.add("hover__active_right");
     } else {
-      btnDeliverys[t + 1].classList.remove("basket__delivery_active");
+      hoverActive.classList.remove("hover__active_right");
+      hoverActive.classList.add("hover__active_left");
     }
+
+    document
+      .querySelectorAll(".desktopBasket__delivery__item")
+      .forEach((el) => {
+        el.classList.remove("basket__delivery_active");
+      });
+    e.currentTarget.classList.add("basket__delivery_active");
   });
 }
+
+//---------------------------Scroll menu-------------------------------------------------
+
+const menuList = document.querySelector(".menu__list");
+window.addEventListener("scroll", () => {
+  const menuCat = document.querySelectorAll(".menu__cat");
+  console.log(menuCat);
+  for (i = 0; i < menuCat.length; i++) {
+    let menuCatTop = menuCat[i].getBoundingClientRect().top;
+    let menuCatBottom = menuCat[i].getBoundingClientRect().bottom;
+    if (menuCatTop < 1) {
+      let categoryId = menuCat[i].getAttribute("data-name");
+      console.log(categoryId);
+      currentMenuCat = document.getElementById(categoryId);
+      console.log(currentMenuCat);
+      currentMenuCat.classList.add("category_active");
+      let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
+      currentLabelsAside.forEach((label) => {
+        label.classList.remove("category_active");
+      });
+      let currentLabelAside = document.querySelector(
+        "label.asideMenu__label[for=" + categoryId + "]"
+      );
+      currentLabelAside.classList.add("category_active");
+      let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
+      currentLabelsMobileNav.forEach((label) => {
+        label.classList.remove("nav__label_active");
+      });
+      let currentLabelMobileNav = document.querySelector(
+        "label.nav__label[data-name=" + categoryId + "]"
+      );
+      currentLabelMobileNav.classList.add("nav__label_active");
+      let scrollMenuRight = currentLabelMobileNav.getBoundingClientRect().left;
+      let scrollMenuLeft = currentLabelMobileNav.getBoundingClientRect().right;
+      let scrollMenuX = currentLabelMobileNav.getBoundingClientRect().x;
+      let mobileNav = document.querySelector(".menu__mobile_nav");
+      if (scrollMenuLeft > window.innerWidth) {
+        mobileNav.scrollLeft += scrollMenuLeft - window.innerWidth + 10;
+      }
+      if (scrollMenuRight < 1) {
+        mobileNav.scrollLeft = scrollMenuRight - 10;
+      }
+    }
+  }
+});
 
 /*---------------All parameters------------------------
 
