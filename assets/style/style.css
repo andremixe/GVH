@@ -888,6 +888,7 @@ address {
     font-size: 15px;
     color: var(--text-color-basket-grey);
     cursor: pointer;
+    user-select: none;
 }
 
 .deskBasket__delivery__wrapper,

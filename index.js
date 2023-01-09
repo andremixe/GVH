@@ -401,36 +401,31 @@ for (let t = 0; t < btnDelivery.length; t++) {
     }
   });
 }*/
-
-const btnDelivery = document.querySelectorAll(
-  ".mobileBasket__delivery__item"
-);
-for (let t = 0; t < btnDelivery.length; t++) {
-  btnDelivery[t].addEventListener("click", (e) => {
-    let currentDelivery = e.currentTarget.closest(
-      ".mobileBasket__delivery__item"
-    );
-    let wrapp = e.currentTarget.closest(".mobileBasket__delivery__wrapper");
-    let currentTypeDelivery = currentDelivery.querySelector(
-      ".mobileBasket__delivery_input"
-    ).id;
-    let hoverActive = wrapp.querySelector(".hovering_active");
-    if (currentTypeDelivery === "takeaway") {
-      hoverActive.classList.remove("hover__active_left");
-      hoverActive.classList.add("hover__active_right");
-    } else {
-      hoverActive.classList.remove("hover__active_right");
-      hoverActive.classList.add("hover__active_left");
-    }
-    document
-      .querySelectorAll(".mobileBasket__delivery__item")
-      .forEach((el) => {
+//(function swipeDelivery() {})();
+  const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
+  for (let t = 0; t < btnDelivery.length; t++) {
+    btnDelivery[t].addEventListener("click", (e) => {
+      let currentDelivery = e.currentTarget.closest(
+        ".mobileBasket__delivery__item"
+      );
+      let wrapp = e.currentTarget.closest(".mobileBasket__delivery__wrapper");
+      let hoverActive = wrapp.querySelector(".hovering_active");
+      let currentTypeDelivery = currentDelivery.querySelector(
+        ".mobileBasket__delivery_input"
+      ).id;
+      if (currentTypeDelivery === "takeaway") {
+        hoverActive.classList.remove("hover__active_left");
+        hoverActive.classList.add("hover__active_right");
+      } else {
+        hoverActive.classList.remove("hover__active_right");
+        hoverActive.classList.add("hover__active_left");
+      }
+      document.querySelectorAll(".mobileBasket__delivery__item").forEach((el) => {
         el.classList.remove("basket__delivery_active");
       });
-    e.currentTarget.classList.add("basket__delivery_active");
-  });
-}
-
+      e.currentTarget.classList.add("basket__delivery_active");
+    });
+  }
 
 
 
@@ -507,6 +502,68 @@ window.addEventListener("scroll", () => {
     }
   }
 });
+
+//------------------swipe basket delivery--------------------------
+(function toggleDelivery() {
+  let hoverActiveSwipe = document.querySelector(".mobileBasket__delivery__wrapper .hovering_active");
+  console.log(hoverActiveSwipe);
+  let touch = {
+    start: { x: 0, y: 0 },
+    end: { x: 0, y: 0 },
+    moved: false,
+  };
+
+  hoverActiveSwipe.addEventListener("touchstart", (e) => {
+    e.stopImmediatePropagation(); // Resolves error: [Intervention] Ignored attempt to cancel a touchend event with cancelable=false, for example because scrolling is in progress and cannot be interrupted.
+    touch.start.x = e.touches[0].pageX;
+    touch.start.y = e.touches[0].pageY;
+  });
+
+  hoverActiveSwipe.addEventListener("touchmove", (e) => {
+    touch.end.x = e.touches[0].pageX;
+    touch.end.y = e.touches[0].pageY;
+    touch.moved = true;
+  });
+
+  hoverActiveSwipe.addEventListener("touchend", function (e) {
+    e.preventDefault(); // Prevent click event since e.stopImmediatePropagation() doesn't affect it
+    const x = touch.start.x - touch.end.x;
+    const y = touch.start.y - touch.end.y;
+    if (
+      touch.end.x &&
+      Math.abs(x) > this.offsetWidth / 2 &&
+      Math.abs(x) / 2 > Math.abs(y)
+    ) {
+      // Angle is no more than 45 degrees off of swipe left/right
+      this.checked = !!(x < 0);
+      let items = document.querySelectorAll(".mobileBasket__delivery__item");
+      if((x < 0 && !items[1].classList.contains("basket__delivery_active")) ||
+      (x > 0 && !items[0].classList.contains("basket__delivery_active"))){
+        document.querySelector(".mobileBasket__delivery__item:not(.basket__delivery_active)").click();
+      }
+    } else if (
+      !touch.moved ||
+      document.elementFromPoint(touch.end.x, touch.end.y) === this
+    ) {
+      // Simulate "click" with a "tap"
+      this.checked = !this.checked;
+    }
+    
+    // Reset
+    touch = {
+      start: { x: 0, y: 0 },
+      end: { x: 0, y: 0 },
+      moved: false,
+    };
+    //output.textContent = ~~this.checked;
+  });
+
+  // Click listener after touch to ensure touch and click aren't being fired;
+  // hence the `e.preventDefault` (should have been e.stopImmediatePropagation()) on the touchend listener
+  /*hoverActiveSwipe.addEventListener("click", (e) => {
+    output.textContent = ~~e.target.checked;
+  });*/
+})();
 
 /*---------------All parameters------------------------
 
