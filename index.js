@@ -397,7 +397,7 @@ for (let t = 0; t < btnDelivery.length; t++) {
     }
   });
 }*/
-//(function swipeDelivery() {})();
+
 const btnDelivery = document.querySelectorAll(".mobileBasket__delivery__item");
 for (let t = 0; t < btnDelivery.length; t++) {
   btnDelivery[t].addEventListener("click", (e) => {
@@ -456,42 +456,38 @@ for (let t = 0; t < btnDeliverys.length; t++) {
 
 function scrollAsideMenu() {
   for (i = 0; i < menuCat.length; i++) {
-    
-      let menuCatTop = menuCat[i].getBoundingClientRect().top;
-      if (menuCatTop < 151) {
-        let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
-        currentLabelsAside.forEach((label) => {
-          label.classList.remove("category_active");
-        });
-        let categoryId = menuCat[i].getAttribute("data-name");
-        currentMenuCat = document.getElementById(categoryId);
-        currentMenuCat.classList.add("category_active");
-        
-        
-        let currentLabelAside = document.querySelector(
-          "label.asideMenu__label[for=" + categoryId + "]"
-        );
-        currentLabelAside.classList.add("category_active");
-        let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
-        currentLabelsMobileNav.forEach((label) => {
-          label.classList.remove("nav__label_active");
-        });
-        let currentLabelMobileNav = document.querySelector(
-          "label.nav__label[data-name=" + categoryId + "]"
-        );
-        currentLabelMobileNav.classList.add("nav__label_active");
-        let scrollMenuRight = currentLabelMobileNav.getBoundingClientRect().left;
-        let scrollMenuLeft = currentLabelMobileNav.getBoundingClientRect().right;
-        let mobileNav = document.querySelector(".menu__mobile_nav");
-        if (scrollMenuLeft > window.innerWidth) {
-          mobileNav.scrollLeft += scrollMenuLeft - window.innerWidth + 10;
-        }
-        if (scrollMenuRight < 1) {
-          mobileNav.scrollLeft = scrollMenuRight - 10;
-        }
-      
+    let menuCatTop = menuCat[i].getBoundingClientRect().top;
+    if (menuCatTop < 151) {
+      let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
+      currentLabelsAside.forEach((label) => {
+        label.classList.remove("category_active");
+      });
+      let categoryId = menuCat[i].getAttribute("data-name");
+      currentMenuCat = document.getElementById(categoryId);
+      currentMenuCat.classList.add("category_active");
+
+      let currentLabelAside = document.querySelector(
+        "label.asideMenu__label[for=" + categoryId + "]"
+      );
+      currentLabelAside.classList.add("category_active");
+      let currentLabelsMobileNav = document.querySelectorAll(".nav__label");
+      currentLabelsMobileNav.forEach((label) => {
+        label.classList.remove("nav__label_active");
+      });
+      let currentLabelMobileNav = document.querySelector(
+        "label.nav__label[data-name=" + categoryId + "]"
+      );
+      currentLabelMobileNav.classList.add("nav__label_active");
+      let scrollMenuRight = currentLabelMobileNav.getBoundingClientRect().left;
+      let scrollMenuLeft = currentLabelMobileNav.getBoundingClientRect().right;
+      let mobileNav = document.querySelector(".menu__mobile_nav");
+      if (scrollMenuLeft > window.innerWidth) {
+        mobileNav.scrollLeft += scrollMenuLeft - window.innerWidth + 10;
+      }
+      if (scrollMenuRight < 1) {
+        mobileNav.scrollLeft = scrollMenuRight - 10;
+      }
     }
-    
   }
 }
 
@@ -576,7 +572,6 @@ currentLiMobileNav.forEach((elemLiAside) => {
   //снимать прослушку скролла для навигации
   let topCurrentMenuCat = 0;
   elemLiAside.addEventListener("click", () => {
-    scrollTrue = false;
     window.removeEventListener("scroll", scrollAsideMenu);
     currentLabelsMobileNav.forEach((label) => {
       label.classList.remove("nav__label_active");
@@ -599,7 +594,9 @@ currentLiMobileNav.forEach((elemLiAside) => {
       top: topCurrentMenuCat - 150,
       behavior: "smooth",
     });
-    window.addEventListener("scroll", scrollAsideMenu);
+    setTimeout(() => {
+      window.addEventListener("scroll", scrollAsideMenu);
+    }, 1000);
   });
 });
 
@@ -607,6 +604,7 @@ currentLiMobileNav.forEach((elemLiAside) => {
 let currentLabelsAside = document.querySelectorAll(".asideMenu__label");
 currentLabelsAside.forEach((label) => {
   label.addEventListener("click", () => {
+    window.removeEventListener("scroll", scrollAsideMenu);
     currentLabelsAside.forEach((lbl) => {
       lbl.classList.remove("category_active");
     });
@@ -619,14 +617,16 @@ currentLabelsAside.forEach((label) => {
     let topCurrentMenuCat = currentMenuCat.getBoundingClientRect().top;
     if (window.innerWidth > 1400) {
       topCurrentMenuCat = topCurrentMenuCat;
-    }
-    else {
+    } else {
       topCurrentMenuCat = topCurrentMenuCat - 75;
     }
     window.scrollBy({
       top: topCurrentMenuCat,
       behavior: "smooth",
     });
+    setTimeout(() => {
+      window.addEventListener("scroll", scrollAsideMenu);
+    }, 1000);
   });
 });
 

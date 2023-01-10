@@ -52,7 +52,7 @@
         </picture>
         <span class="resto"> ресторан современной грузинской кухни </span>
       </a>
-      <a id="openMenu" class="burgerMenu" href="#modal">
+      <a id="openMenu" class="burgerMenu">
         <img src="assets/img/icon_menu_burger.svg" alt="Мобильное меню" />
       </a>
       <div class="header__nav">
@@ -1633,22 +1633,22 @@
                   </section>
                 </div>
                 <div class="deskBasket__footer">
-                  <div class="mobileBasket__footer_item">
-                    <button class="mobileBasket__button_clear" type="button">
+                  <div class="deskBasket__footer_item">
+                    <button class="deskBasket__button_clear" type="button">
                       Убрать все
                     </button>
-                    <div class="mobileBasket_priceDelivery">
-                      <span class="mobileBasket__footer_span">Доставка</span>
-                      <span id="mobileBasket_priceDelivery">250</span>
+                    <div class="deskBasket_priceDelivery">
+                      <span class="deskBasket__footer_span">Доставка</span>
+                      <span id="deskBasket_priceDelivery">250</span>
                       <span class="rouble"> ₽</span>
                     </div>
-                    <p class="mobileBasket_forFreeDelivery">
+                    <p class="deskBasket_forFreeDelivery">
                       Закажите ещё на
-                      <span id="mobileBasket_forFreeDelivery">105</span>
+                      <span>105</span>
                       <span class="rouble">₽</span> для бесплатной доставки!
                     </p>
                   </div>
-                  <button class="mobileBasket__button_order">
+                  <button class="deskBasket__button_order">
                     <span>Верно, далее</span>
                     <div class="deskBasket_totalCheck">
                       <span>1895</span>
@@ -2518,7 +2518,6 @@
         document
           .getElementById("openMenu")
           .addEventListener("click", function () {
-            document.getElementById("burgerMenu").style.display = "flex";
             document.querySelector(".mobileBasket_sticky").style.zIndex = 10;
             document.body.style.overflow = "hidden";
             setTimeout(() => {
@@ -2530,7 +2529,7 @@
           .addEventListener("click", function () {
             mobileMenu.close();
             setTimeout(() => {
-              document.getElementById("burgerMenu").style.display = "none";
+              //document.getElementById("burgerMenu").style.display = "none";
               document.body.style.overflow = "unset";
               document.querySelector(
                 ".mobileBasket_sticky"
@@ -2538,8 +2537,14 @@
             }, 400);
           });
       }
-      window.addEventListener("DOMContentLoaded", openMobileMenu);
-      window.addEventListener("resize", openMobileMenu);
+      window.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("burgerMenu").style.display = "flex";
+        openMobileMenu();
+      } );
+      window.addEventListener("resize", () => {
+        document.getElementById("burgerMenu").style.display = "flex";
+        openMobileMenu();
+      });
     </script>
   </body>
 </html>

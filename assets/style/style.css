@@ -436,6 +436,7 @@ a:active {
 .menu__list {
     margin-right: auto;
     margin-left: auto;
+    width: 100%;
     overflow-y: auto;
 }
 
@@ -800,13 +801,13 @@ address {
 .mobileBasket {
     display: none;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     background-color: var(--text-color-white);
 }
 
 .mobileBasket_open {
     top: 0;
-    width: 100%;
+    width: 100vw;
     background-color: var(--text-color-white);
     height: 100vh;
     z-index: 100400;
@@ -956,7 +957,8 @@ address {
     z-index: 100;
 }
 
-.mobileBasket__button_clear {
+.mobileBasket__button_clear,
+.deskBasket__button_clear {
     margin-left: 30px;
 }
 
@@ -1032,7 +1034,8 @@ address {
     flex-grow: 1;
 }
 
-.mobileBasket__footer_item {
+.mobileBasket__footer_item, 
+.deskBasket__footer_item {
     padding-left: 30px;
     padding-right: 30px;
     display: flex;
@@ -1040,7 +1043,8 @@ address {
     row-gap: 10px;
 }
 
-.mobileBasket__button_clear {
+.mobileBasket__button_clear,
+.deskBasket__button_clear {
     background-color: var(--text-color-white);
     border: none;
     text-align: start;
@@ -1052,19 +1056,22 @@ address {
     margin-top: 20px;
 }
 
-.mobileBasket_forFreeDelivery {
+.mobileBasket_forFreeDelivery,
+.deskBasket_forFreeDelivery {
     font-weight: 500;
     font-size: 13px;
     color: var(--color-bordeaux);
     margin-bottom: 10px;
 }
 
-.mobileBasket_priceDelivery {
+.mobileBasket_priceDelivery,
+.deskBasket_priceDelivery {
     display: flex;
     align-items: center;
 }
 
-.mobileBasket__footer_span {
+.mobileBasket__footer_span,
+.deskBasket__footer_span {
     padding-right: 30px;
     font-weight: 500;
     font-size: 13px;
@@ -1074,14 +1081,15 @@ address {
     font-size: 15px;
     color: var(--text-color-grey);
 }
-#mobileBasket_priceDelivery,
+
 .mobileBasket__ruble {
     font-weight: 500;
     font-size: 15px;
     color: var(--text-color-grey);
 }
 
-.mobileBasket_forFreeDelivery {
+.mobileBasket_forFreeDelivery,
+.deskBasket_forFreeDelivery {
     display: inline-block;
 }
 
@@ -1104,6 +1112,13 @@ address {
     font-size: 15px;
     font-weight: 700;
     color: var(--text-color-white);
+    width: 100%;
+}
+.deskBasket__button_order {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-color-white);
+    width: 100%;
 }
 .deskBasket_totalCheck,
 .mobileBasket_totalCheck span {
@@ -2073,7 +2088,8 @@ input[type="number"]:focus {
         padding-right: 97px;
     }
 
-    .mobileBasket__button_clear {
+    .mobileBasket__button_clear,
+    .deskBasket__button_clear {
         display: none;
     }
 
@@ -2193,6 +2209,7 @@ input[type="number"]:focus {
     .deskBasket__wrapper {
         display: flex;
         flex-direction: column;
+        width: 360px;
     }
 
     .deskBasket__header {
