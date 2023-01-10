@@ -398,7 +398,6 @@ a:active {
     font-size: 15px;
 }
 
-.nav__label:hover,
 .nav__label_active {
     background-color: var(--color-bordeaux);
     border-radius: 10px;
@@ -806,11 +805,16 @@ address {
 }
 
 .mobileBasket_open {
-    top: 0;
     width: 100vw;
     background-color: var(--text-color-white);
     height: 100vh;
     z-index: 100400;
+    
+}
+.mobileBasket_open_open {
+    position: fixed;
+    top: 0;
+    transition: top linear 4s;
 }
 
 .mobileBasket__header_totalPrice {

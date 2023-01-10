@@ -248,6 +248,7 @@ function openMobileBasketFunc() {
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
   mobileBasketSticky.style.position = "unset";
+  //mobileBasketOpen.style.transition = ""
   mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
   mobileBasketFooter.style.animation = "mobileBasket 0.7s forwards";
   //mobileBasketSticky.style.top = 0;
@@ -279,6 +280,7 @@ function closeMobileBasketFunc() {
   mobileBasketOpen.style.animation = "closeMobileBasket 0.7s linear";
   mobileBasketFooter.style.animation = "closeMobileBasketFooter 0.7s linear";
   mobileBasketSticky.style.top = "unset";
+  mobileBasketSticky.style.bottom = "60px";
   setTimeout(() => {
     mobileBasketOpen.style.position = "unset";
     mobileBasketFooter.style.position = "unset";
@@ -578,25 +580,39 @@ currentLiMobileNav.forEach((elemLiAside) => {
     });
 
     let elemLabelAside = elemLiAside.querySelector(".nav__label");
-    let elemLeft = elemLabelAside.getBoundingClientRect().right + 60;
-    console.log(elemLeft);
-    let mobileNav = document.querySelector(".menu__mobile_nav");
-    mobileNav.scrollLeft = elemLeft; //прокрутка контейнера навигации
 
+    let elemLeft = elemLabelAside.getBoundingClientRect().right;
+    let elemRight = elemLabelAside.getBoundingClientRect().left;
+    let mobileNav = document.querySelector(".menu__mobile_nav");
+    let previousScroll = window.scrollY;
+    if (elemLeft > window.innerWidth) {
+      mobileNav.scrollLeft += elemLeft - window.innerWidth + 10;
+    }
+    if (elemRight < 1) {
+      mobileNav.scrollLeft = elemRight - 10;
+    }
     elemLabelAside.classList.add("nav__label_active");
+
     let categoryId = elemLabelAside.getAttribute("data-name");
     let currentMenuCat = document.querySelector(
       '.menu__cat[data-name="' + categoryId + '"]'
     );
     topCurrentMenuCat = currentMenuCat.getBoundingClientRect().top;
-
     window.scrollBy({
       top: topCurrentMenuCat - 150,
       behavior: "smooth",
     });
-    setTimeout(() => {
-      window.addEventListener("scroll", scrollAsideMenu);
-    }, 1000);
+
+    let timerId = setInterval(() => {
+      console.log(previousScroll);
+      let currentScroll = window.scrollY;
+      if (previousScroll === currentScroll) {
+        window.addEventListener("scroll", scrollAsideMenu);
+        clearInterval(timerId);
+      } else {
+        previousScroll = currentScroll;
+      }
+    }, 50);
   });
 });
 
@@ -630,6 +646,68 @@ currentLabelsAside.forEach((label) => {
   });
 });
 
+// обработка свайпов
+mobileBasketHeader.addEventListener("touchstart", handleTouchStart, false);
+mobileBasketHeader.addEventListener("touchmove", handleTouchMove, false);
+mobileBasketHeader.addEventListener("touchend", handleTouchEnd, false);
+let x1 = null;
+let y1 = null;
+
+function hiddenOverflow() {
+  main.style.overflow = "hidden";
+  menu.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+}
+function unsetOverflow() {
+  main.style.overflow = "none";
+  menu.style.overflow = "none";
+  document.body.style.overflow = "none";
+}
+
+function handleTouchStart(event) {
+  const firstTouch = event.touches[0];
+  x1 = firstTouch.clientX;
+  y1 = firstTouch.clientY;
+  console.log(x1, y1);
+}
+
+function handleTouchMove(event) {
+  hiddenOverflow();
+  if (!x1 || !y1) {
+    return false;
+  }
+  let x2 = event.touches[0].clientX;
+  let y2 = event.touches[0].clientY;
+  console.log(x2, y2);
+  let xDiff = x2 - x1;
+  let yDiff = y2 - y1;
+  let positionBasket = mobileBasketSticky.style.bottom;
+  positionBasket = positionBasket.slice(0, -2);
+  console.log(positionBasket);
+  if (positionBasket > window.innerHeight / 2) {
+    positionBasket = window.innerHeight - positionBasket;
+    //mobileBasketSticky.style.position = "unset";
+    mobileBasketOpen.style.top = positionBasket;
+    mobileBasketOpen.classList.add("mobileBasket_open_open");
+  }
+  console.log(mobileBasketSticky.style.bottom);
+  mobileBasketSticky.style.bottom = 60 - yDiff + "px";
+  console.log(60 + yDiff);
+}
+
+function handleTouchEnd(event) {
+  unsetOverflow();
+  let positionBasket = mobileBasketSticky.style.bottom;
+  positionBasket = positionBasket.slice(0, -2);
+  console.log(positionBasket);
+  if (positionBasket > 70) {
+    //mobileBasketSticky.style.position = "unset";
+    positionBasket = window.innerHeight - positionBasket;
+    mobileBasketSticky.style.position = "unset";
+    mobileBasketOpen.style.top = positionBasket;
+    mobileBasketOpen.classList.add("mobileBasket_open_open");
+  }
+}
 /*---------------All parameters------------------------
 
 totalCount  //Общее количество заказанных позиций*/
