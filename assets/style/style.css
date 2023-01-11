@@ -1252,7 +1252,7 @@ address {
     z-index: 100401;
     position: fixed;
     right: 0;
-    bottom: -130px;
+    bottom: -100vh;
     transition: bottom linear 700ms;
 }
 
@@ -1272,9 +1272,9 @@ address {
     row-gap: 10px;
 }
 
-.mobileBasket__footer_item {
+/*.mobileBasket__footer_item {
     display: none;
-}
+}*/
 
 .mobileBasket_sticky.opened .mobileBasket__footer_item {
     display: flex;

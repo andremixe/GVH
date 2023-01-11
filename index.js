@@ -253,7 +253,6 @@ function unsetOverflow() {
 }
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
- 
   /*document.body.style.overflow = "hidden";
   mobileBasket.style.display = "flex";*/
   mobileBasketHeaderPrice.style.display = "none";
@@ -284,11 +283,11 @@ function openMobileBasketFunc() {
 }
 
 function closeMobileBasketFunc() {
- 
+
   //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   console.log(mobileBasketSticky.style.top);
-  mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+  mobileBasketSticky.style.top = window.innerHeight - 60 + "px";
   console.log(mobileBasketSticky.style.top);
   mobileBasketHeaderPrice.style.display = "block";
   //mobileBasketHeaderImg.style.display = "none";
@@ -303,16 +302,15 @@ function closeMobileBasketFunc() {
   //setTimeout(() => {
   //mobileBasketOpen.style.position = "unset";
   // mobileBasketFooter.style.position = "unset";
-
   //}, 700);
-  
+
   mobileBasketSticky.classList.add("transition");
-  
   mobileBasketSticky.classList.remove("opened");
   unsetOverflow();
-  setTimeout(() => {   
+  setTimeout(() => {
     openMobileBasket.addEventListener("click", openMobileBasketFunc);
     mobileBasketSticky.classList.remove("transition");
+    mobileBasketSticky.style.top = "unset";
     mobileBasketSticky.style.bottom = "60px";
   }, 700);
 }
@@ -695,14 +693,14 @@ let full = 0;
 mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
 function handleTouchStart(event) {
   hiddenOverflow();
- 
+
   const firstTouch = event.touches[0];
   x1 = firstTouch.clientX;
   y1 = firstTouch.clientY;
 
 }
 
-function handleTouchMove(event) { 
+function handleTouchMove(event) {
   if (!x1 || !y1) {
     return false;
   }
@@ -720,7 +718,7 @@ function handleTouchMove(event) {
     mobileBasketSticky.classList.remove("opened");
   }
   let newPosition =  parseInt(mobileBasketSticky.style.top) - yDiff;
-console.log(newPosition);
+  console.log(newPosition);
   if ((window.innerHeight-60) > newPosition && newPosition > 0) {
     console.log(menu.style.overflow);
     console.log("here");
