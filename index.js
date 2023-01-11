@@ -159,7 +159,7 @@ for (let imgClick of imgsClick) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
-      mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+      mobileBasketSticky.style.bottom = "60px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
       mobileBasketHeaderImg.style.display = "none";
@@ -287,6 +287,9 @@ function closeMobileBasketFunc() {
  
   //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
+  console.log(mobileBasketSticky.style.top);
+  mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+  console.log(mobileBasketSticky.style.top);
   mobileBasketHeaderPrice.style.display = "block";
   //mobileBasketHeaderImg.style.display = "none";
   //mobileBasketHeaderWr.style.width = "100%";
@@ -302,14 +305,15 @@ function closeMobileBasketFunc() {
   // mobileBasketFooter.style.position = "unset";
 
   //}, 700);
-
+  
   mobileBasketSticky.classList.add("transition");
-  mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+  
   mobileBasketSticky.classList.remove("opened");
-  setTimeout(() => {
-    unsetOverflow();
+  unsetOverflow();
+  setTimeout(() => {   
     openMobileBasket.addEventListener("click", openMobileBasketFunc);
     mobileBasketSticky.classList.remove("transition");
+    mobileBasketSticky.style.bottom = "60px";
   }, 700);
 }
 
@@ -351,7 +355,7 @@ for (let i = 0; i < buttonAdd.length; i++) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
-      mobileBasketSticky.style.top = window.innerHeight - 60 + "px";
+      mobileBasketSticky.style.bottom = "60px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
       mobileBasketHeaderImg.style.display = "none";
@@ -688,15 +692,17 @@ let y1 = null;
 let xDiff = 0;
 let yDiff = 0;
 let full = 0;
-
+mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
 function handleTouchStart(event) {
+  hiddenOverflow();
+ 
   const firstTouch = event.touches[0];
   x1 = firstTouch.clientX;
   y1 = firstTouch.clientY;
+
 }
 
-function handleTouchMove(event) {
-  hiddenOverflow();
+function handleTouchMove(event) { 
   if (!x1 || !y1) {
     return false;
   }
@@ -710,12 +716,13 @@ function handleTouchMove(event) {
   let positionBasket = mobileBasketFooter.style.bottom;
   positionBasket = positionBasket.slice(0, -2);
 
-  /*if (full > 10) {
+  if (full > 10) {
     mobileBasketSticky.classList.remove("opened");
-  }*/
+  }
   let newPosition =  parseInt(mobileBasketSticky.style.top) - yDiff;
 console.log(newPosition);
   if ((window.innerHeight-60) > newPosition && newPosition > 0) {
+    console.log(menu.style.overflow);
     console.log("here");
     mobileBasketSticky.style.top = newPosition + "px";
   }
