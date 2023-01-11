@@ -243,15 +243,15 @@ btnModalOrder.addEventListener("click", () => {
 -*/
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
-  document.body.style.overflow = "hidden";
-  mobileBasket.style.display = "flex";
+  /*document.body.style.overflow = "hidden";
+  mobileBasket.style.display = "flex";*/
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
-  mobileBasketSticky.style.position = "unset";
+  //mobileBasketSticky.style.position = "unset";
   //mobileBasketOpen.style.transition = ""
-  mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
+  /*mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
   mobileBasketFooter.style.animation = "mobileBasket 0.7s forwards";
-  //mobileBasketSticky.style.top = 0;
+  mobileBasketSticky.style.top = 0;
   mobileBasketHeaderImg.style.display = "block";
   mobileBasketFooter.style.position = "fixed";
   mobileBasketFooter.style.bottom = 0;
@@ -260,41 +260,62 @@ function openMobileBasketFunc() {
     mobileBasketHeaderWr.style.width = "50%";
   }
   mobileBasketOpen.style.position = "fixed";
-  mobileBasketOpen.style.top = 0;
-
+  mobileBasketOpen.style.top = 0;*/
   openMobileBasket.removeEventListener("click", openMobileBasketFunc);
   btnCloseMobileBasket.addEventListener("click", (e) => {
     closeMobileBasketFunc();
   });
+  mobileBasketSticky.classList.add("transition");
+  mobileBasketSticky.classList.add("opened");
+  mobileBasketSticky.style.bottom = window.innerHeight + "px";
+  setTimeout(() => {
+    mobileBasketSticky.classList.remove("transition");
+  }, 700);
 }
 
 function closeMobileBasketFunc() {
-  document.body.style.overflow = "unset";
+  //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
-  mobileBasketHeaderImg.style.display = "none";
-  mobileBasketHeaderWr.style.width = "100%";
+  //mobileBasketHeaderImg.style.display = "none";
+  //mobileBasketHeaderWr.style.width = "100%";
   btnCloseMobileBasket.style.display = "none";
-  mobileBasketSticky.style.position = "fixed";
+  /*mobileBasketSticky.style.position = "fixed";
   mobileBasketOpen.style.top = "unset";
   mobileBasketOpen.style.animation = "closeMobileBasket 0.7s linear";
   mobileBasketFooter.style.animation = "closeMobileBasketFooter 0.7s linear";
   mobileBasketSticky.style.top = "unset";
-  mobileBasketSticky.style.bottom = "60px";
+  mobileBasketSticky.style.bottom = "60px";*/
+  //setTimeout(() => {
+  //mobileBasketOpen.style.position = "unset";
+  // mobileBasketFooter.style.position = "unset";
+
+  //}, 700);
+
+  mobileBasketSticky.classList.add("transition");
+  mobileBasketSticky.style.bottom = 60 + "px";
+  mobileBasketSticky.classList.remove("opened");
   setTimeout(() => {
-    mobileBasketOpen.style.position = "unset";
-    mobileBasketFooter.style.position = "unset";
     openMobileBasket.addEventListener("click", openMobileBasketFunc);
-  }, 690);
+    mobileBasketSticky.classList.remove("transition");
+  }, 700);
 }
 
 const openMobileBasket = document.querySelector(".mobileBasket__header");
-openMobileBasket.addEventListener("click", openMobileBasketFunc);
+openMobileBasket.addEventListener("click", openMobileBasketFunc); /*
+()=>{
+  /*if(mobileBasketSticky.classList.contains("opened")){
+    closeMobileBasketFunc();
+
+  } else {
+*/
+//openMobileBasketFunc();
+/*
+  }*/
+//});
 
 /*------------------------Close mobile basket----------------------------*/
-btnCloseMobileBasket.addEventListener("click", (e) => {
-  closeMobileBasketFunc;
-});
+btnCloseMobileBasket.addEventListener("click", closeMobileBasketFunc);
 
 /*--------------------------Resize windows------------------------------*/
 /*addEventListener('DOMContentLoaded', () => {
@@ -358,7 +379,7 @@ btnAddOnModal.addEventListener("click", () => {
 //-------------------------Open basket-----------------------------------------//
 // const toBasket = document.querySelector(".add__order");
 
-mobileBasket.addEventListener("click", () => {});
+//mobileBasket.addEventListener("click", () => {});
 
 // document.querySelector(".add__order").style.display = "block";
 // document.querySelector(".add__order_tablet").style.display = "flex";
@@ -652,6 +673,9 @@ mobileBasketHeader.addEventListener("touchmove", handleTouchMove, false);
 mobileBasketHeader.addEventListener("touchend", handleTouchEnd, false);
 let x1 = null;
 let y1 = null;
+let xDiff = 0;
+let yDiff = 0;
+let full = 0;
 
 function hiddenOverflow() {
   main.style.overflow = "hidden";
@@ -668,7 +692,6 @@ function handleTouchStart(event) {
   const firstTouch = event.touches[0];
   x1 = firstTouch.clientX;
   y1 = firstTouch.clientY;
-  console.log(x1, y1);
 }
 
 function handleTouchMove(event) {
@@ -678,36 +701,105 @@ function handleTouchMove(event) {
   }
   let x2 = event.touches[0].clientX;
   let y2 = event.touches[0].clientY;
-  console.log(x2, y2);
-  let xDiff = x2 - x1;
-  let yDiff = y2 - y1;
+  xDiff = x1 - x2;
+  yDiff = y1 - y2;
+  x1 = x2;
+  y1 = y2;
+  full += yDiff;
   let positionBasket = mobileBasketSticky.style.bottom;
   positionBasket = positionBasket.slice(0, -2);
-  console.log(positionBasket);
-  if (positionBasket > window.innerHeight / 2) {
-    positionBasket = window.innerHeight - positionBasket;
-    //mobileBasketSticky.style.position = "unset";
-    mobileBasketOpen.style.top = positionBasket;
-    mobileBasketOpen.classList.add("mobileBasket_open_open");
+  if (full > 10) {
+    mobileBasketSticky.classList.remove("opened");
   }
+  let newPosition = parseInt(mobileBasketSticky.style.bottom) + yDiff;
+
+  if (window.innerHeight > newPosition && newPosition > 60) {
+    mobileBasketSticky.style.bottom = newPosition + "px";
+  }
+  console.log(mobileBasketSticky.style.bottom);
+}
+/*console.log(positionBasket);
+  var currentBottom = -window.innerHeight + (60 - yDiff) + "px";
+  if (positionBasket > window.innerHeight / 2) {
+    var animation = mobileBasketOpen.animate(
+      [
+        {
+          transform: "translateY(0)", //positionBasket - bottom open
+        },
+
+        {
+          transform: `translateY(${currentBottom})`,
+        },
+      ],
+      {
+        duration: 1000,
+      }
+    );
+    animation.addEventListener("finish", function () {
+      mobileBasketOpen.style.transform = `translateY(${currentBottom})`;
+    });*/
+/* positionBasket = window.innerHeight - positionBasket;
+    mobileBasketSticky.style.position = "unset";
+    mobileBasketOpen.style.position = "fixed";
+    mobileBasketOpen.style.bottom = positionBasket;
+
+    mobileBasketOpen.classList.add("mobileBasket_open_open");*/
+/*}
   console.log(mobileBasketSticky.style.bottom);
   mobileBasketSticky.style.bottom = 60 - yDiff + "px";
   console.log(60 + yDiff);
-}
+}*/
 
 function handleTouchEnd(event) {
   unsetOverflow();
+  if (Math.abs(full) < 10) {
+    return;
+  }
+
+  /* mobileBasketSticky.classList.add("transition");
+  setTimeout(()=>{
+    mobileBasketSticky.classList.remove("transition");
+  }, 700);
+*/
+  if (yDiff > 0) {
+    openMobileBasketFunc();
+    /*  mobileBasketSticky.style.bottom = window.innerHeight + "px";
+    mobileBasketSticky.classList.add("opened");*/
+  } else {
+    closeMobileBasketFunc();
+    /*
+    mobileBasketSticky.style.bottom = 60 + "px";
+    mobileBasketSticky.classList.remove("opened");*/
+  }
+  /*let current = currentBottom;
   let positionBasket = mobileBasketSticky.style.bottom;
   positionBasket = positionBasket.slice(0, -2);
   console.log(positionBasket);
   if (positionBasket > 70) {
+    var animation1 = mobileBasketOpen.animate(
+      [
+        {
+          transform: "translateY(0)", //positionBasket - bottom open
+        },
+
+        {
+          transform: `translateY(${current})`,
+        },
+      ],
+      {
+        duration: 1000,
+      }
+    );
+    animation1.addEventListener("finish", function () {
+      mobileBasketOpen.style.transform = `translateY(${currentBottom})`;
+    });
     //mobileBasketSticky.style.position = "unset";
-    positionBasket = window.innerHeight - positionBasket;
+    /*positionBasket = window.innerHeight - positionBasket;
     mobileBasketSticky.style.position = "unset";
     mobileBasketOpen.style.top = positionBasket;
-    mobileBasketOpen.classList.add("mobileBasket_open_open");
-  }
+    mobileBasketOpen.classList.add("mobileBasket_open_open");*/
 }
+
 /*---------------All parameters------------------------
 
 totalCount  //Общее количество заказанных позиций*/
