@@ -1607,7 +1607,7 @@ input[type="number"]:focus {
 }*/
 /*
 @-webkit-keyframes zoom {
-    from {-webkit-transform:scale(0)} 
+    from {-webkit-transform:scale(0)}
     to {-webkit-transform:scale(1)}
   }
   */
@@ -2779,7 +2779,7 @@ input[type="number"]:focus {
 }
 
 .mobileBasket_sticky.transition {
-    transition: top linear 700ms;
+    transition: top linear 400ms;
 }
 
 .mobileBasket_sticky.opened {

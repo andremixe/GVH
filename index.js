@@ -727,7 +727,7 @@ function handleTouchMove(event) {
   }
   let newPosition =  parseInt(mobileBasketSticky.style.top) - yDiff;
   console.log(newPosition);
-  if ((window.innerHeight-60) > newPosition && newPosition > 0) {
+  if ((window.innerHeight-60) > y2 && y2 > 0) {
     console.log(menu.style.overflow);
     console.log("here");
     mobileBasketSticky.style.top = y2 + "px";
