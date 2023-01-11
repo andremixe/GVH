@@ -282,7 +282,7 @@ function openMobileBasketFunc() {
   startPosition = 0;
   setTimeout(() => {
     mobileBasketSticky.classList.remove("transition");
-  }, 700);
+  }, 400);
 }
 
 function closeMobileBasketFunc() {
@@ -317,7 +317,7 @@ function closeMobileBasketFunc() {
     mobileBasketSticky.classList.remove("transition");
     mobileBasketSticky.style.top = "unset";
     mobileBasketSticky.style.bottom = "60px";
-  }, 700);
+  }, 400);
 }
 
 const openMobileBasket = document.querySelector(".mobileBasket__header");
