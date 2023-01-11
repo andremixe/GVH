@@ -253,13 +253,12 @@ function unsetOverflow() {
 }
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
-  hiddenOverflow();
+ 
   /*document.body.style.overflow = "hidden";
   mobileBasket.style.display = "flex";*/
   mobileBasketHeaderPrice.style.display = "none";
   btnCloseMobileBasket.style.display = "block";
   //mobileBasketSticky.style.position = "unset";
-  //mobileBasketOpen.style.transition = ""
   /*mobileBasketOpen.style.animation = "mobileBasket 0.7s forwards";
   mobileBasketFooter.style.animation = "mobileBasket 0.7s forwards";
   mobileBasketSticky.style.top = 0;
@@ -285,7 +284,7 @@ function openMobileBasketFunc() {
 }
 
 function closeMobileBasketFunc() {
-  unsetOverflow();
+ 
   //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
@@ -308,6 +307,7 @@ function closeMobileBasketFunc() {
   mobileBasketSticky.style.bottom = 60 + "px";
   mobileBasketSticky.classList.remove("opened");
   setTimeout(() => {
+    unsetOverflow();
     openMobileBasket.addEventListener("click", openMobileBasketFunc);
     mobileBasketSticky.classList.remove("transition");
   }, 700);
@@ -696,6 +696,7 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
+  hiddenOverflow();
   if (!x1 || !y1) {
     return false;
   }
@@ -761,6 +762,7 @@ function handleTouchEnd(event) {
   }, 700);
 */
   if (yDiff > 0) {
+    hiddenOverflow();
     openMobileBasketFunc();
     /*  mobileBasketSticky.style.bottom = window.innerHeight + "px";
     mobileBasketSticky.classList.add("opened");*/
