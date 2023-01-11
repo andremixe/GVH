@@ -292,7 +292,7 @@ function closeMobileBasketFunc() {
   console.log(mobileBasketSticky.style.top);
   startPosition = window.innerHeight - 60 + "px"
   mobileBasketSticky.style.top = startPosition;
-  
+
   console.log(mobileBasketSticky.style.top);
   mobileBasketHeaderPrice.style.display = "block";
   //mobileBasketHeaderImg.style.display = "none";
@@ -730,7 +730,7 @@ function handleTouchMove(event) {
   if ((window.innerHeight-60) > newPosition && newPosition > 0) {
     console.log(menu.style.overflow);
     console.log("here");
-    mobileBasketSticky.style.top = newPosition + "px";
+    mobileBasketSticky.style.top = y2 + "px";
   }
   console.log(mobileBasketSticky.style.bottom);
   console.log(mobileBasketSticky.style.top);
@@ -768,7 +768,7 @@ function handleTouchMove(event) {
 }*/
 
 function handleTouchEnd(event) {
-  if (Math.abs(full) < 10) {
+  if (Math.abs(full) < 5) {
     unsetOverflow();
     return;
   }
