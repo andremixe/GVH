@@ -59,6 +59,7 @@ const divBlock = document.querySelector(".block");
 let modalTrue = false;
 let basketTrue = false;
 let scrollTrue = true;
+let startPosition = window.innerHeight - parseInt(mobileBasketSticky.style.bottom) + "px";
 //--------------------  Плюс/минус в меню-------------------//
 
 function countPlus(count) {
@@ -277,6 +278,7 @@ function openMobileBasketFunc() {
   mobileBasketSticky.classList.add("transition");
   mobileBasketSticky.classList.add("opened");
   mobileBasketSticky.style.top = 0 + "px";
+  startPosition = 0;
   setTimeout(() => {
     mobileBasketSticky.classList.remove("transition");
   }, 700);
@@ -287,7 +289,9 @@ function closeMobileBasketFunc() {
   //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   console.log(mobileBasketSticky.style.top);
-  mobileBasketSticky.style.top = window.innerHeight - 60 + "px";
+  startPosition = window.innerHeight - 60 + "px"
+  mobileBasketSticky.style.top = startPosition;
+  
   console.log(mobileBasketSticky.style.top);
   mobileBasketHeaderPrice.style.display = "block";
   //mobileBasketHeaderImg.style.display = "none";
@@ -353,6 +357,7 @@ for (let i = 0; i < buttonAdd.length; i++) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
+      startPosition = (window.innerHeight - 60) + "px";
       mobileBasketSticky.style.bottom = "60px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
@@ -690,10 +695,12 @@ let y1 = null;
 let xDiff = 0;
 let yDiff = 0;
 let full = 0;
-mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
+
 function handleTouchStart(event) {
   hiddenOverflow();
-
+  ;
+  console.log(startPosition);
+  mobileBasketSticky.style.top = startPosition;
   const firstTouch = event.touches[0];
   x1 = firstTouch.clientX;
   y1 = firstTouch.clientY;

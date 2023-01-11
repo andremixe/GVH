@@ -754,5 +754,85 @@
     </footer>
     <script src="index.js"></script>
     <script src="assets/swiper/swiper-bundle.min.js"></script>
+     <!-- Initialize Swiper -->
+
+     <script>
+      var swiper = new Swiper(".mySwiperModal", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <script>
+      function galleryFunc() {
+        var slidesView;
+        if (window.innerWidth < 800) {
+          slidesView = 1;
+        } else if (window.innerWidth < 1400) {
+          slidesView = 2;
+        } else {
+          slidesView = "auto";
+        }
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: slidesView,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+      }
+      window.addEventListener("DOMContentLoaded", galleryFunc);
+      window.addEventListener("resize", galleryFunc);
+    </script>
+    <script src="assets/swiper/mobile-swipe-menu.min.js"></script>
+    <script>
+      function openMobileMenu() {
+        var mobileMenu = new MobileSwipeMenu("#burgerMenu", {
+          mode: "right",
+          width: window.innerWidth,
+          hookWidth: 15,
+          events: {
+            opening: function () {
+              console.log(this, "Opened");
+            },
+            closing: function () {
+              console.log(this, "Closed");
+            },
+            drag: function (swipe) {
+              console.log(this, swipe);
+            },
+          },
+        });
+        document
+          .getElementById("openMenu")
+          .addEventListener("click", function () {
+            
+            document.body.style.overflow = "hidden";
+            setTimeout(() => {
+              mobileMenu.open();
+            }, 10);
+          });
+        document
+          .getElementById("closeMenu")
+          .addEventListener("click", function () {
+            mobileMenu.close();
+            setTimeout(() => {
+              //document.getElementById("burgerMenu").style.display = "none";
+              document.body.style.overflow = "unset";
+              
+            }, 400);
+          });
+      }
+      window.addEventListener("DOMContentLoaded", () => {
+        document.getElementById("burgerMenu").style.display = "flex";
+        openMobileMenu();
+      } );
+      window.addEventListener("resize", () => {
+        document.getElementById("burgerMenu").style.display = "flex";
+        openMobileMenu();
+      });
+    </script>
   </body>
 </html>

@@ -1252,7 +1252,7 @@ address {
     z-index: 100401;
     position: fixed;
     right: 0;
-    bottom: -100vh;
+    bottom: calc(-100vh + 130px);
     transition: bottom linear 700ms;
 }
 
