@@ -753,6 +753,7 @@ function handleTouchMove(event) {
 
 function handleTouchEnd(event) {
   if (Math.abs(full) < 10) {
+    unsetOverflow();
     return;
   }
 
