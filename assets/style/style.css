@@ -1933,6 +1933,7 @@ input[type="number"]:focus {
     z-index: 100400;
     height: 1px;
     left: 0;
+    position: fixed;
 }
 
 .asideModal {
@@ -2778,7 +2779,7 @@ input[type="number"]:focus {
 }
 
 .mobileBasket_sticky.transition {
-    transition: bottom linear 700ms;
+    transition: top linear 700ms;
 }
 
 .mobileBasket_sticky.opened {

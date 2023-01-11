@@ -159,7 +159,7 @@ for (let imgClick of imgsClick) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
-      mobileBasketSticky.style.bottom = "60px";
+      mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
       mobileBasketHeaderImg.style.display = "none";
@@ -277,7 +277,7 @@ function openMobileBasketFunc() {
   });
   mobileBasketSticky.classList.add("transition");
   mobileBasketSticky.classList.add("opened");
-  mobileBasketSticky.style.bottom = window.innerHeight + "px";
+  mobileBasketSticky.style.top = 0 + "px";
   setTimeout(() => {
     mobileBasketSticky.classList.remove("transition");
   }, 700);
@@ -304,7 +304,7 @@ function closeMobileBasketFunc() {
   //}, 700);
 
   mobileBasketSticky.classList.add("transition");
-  mobileBasketSticky.style.bottom = 60 + "px";
+  mobileBasketSticky.style.top = (window.innerHeight - 60) + "px";
   mobileBasketSticky.classList.remove("opened");
   setTimeout(() => {
     unsetOverflow();
@@ -351,7 +351,7 @@ for (let i = 0; i < buttonAdd.length; i++) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
-      mobileBasketSticky.style.bottom = "60px";
+      mobileBasketSticky.style.top = window.innerHeight - 60 + "px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
       mobileBasketHeaderImg.style.display = "none";
@@ -707,17 +707,20 @@ function handleTouchMove(event) {
   x1 = x2;
   y1 = y2;
   full += yDiff;
-  let positionBasket = mobileBasketSticky.style.bottom;
+  let positionBasket = mobileBasketFooter.style.bottom;
   positionBasket = positionBasket.slice(0, -2);
-  if (full > 10) {
-    mobileBasketSticky.classList.remove("opened");
-  }
-  let newPosition = parseInt(mobileBasketSticky.style.bottom) + yDiff;
 
-  if (window.innerHeight > newPosition && newPosition > 60) {
-    mobileBasketSticky.style.bottom = newPosition + "px";
+  /*if (full > 10) {
+    mobileBasketSticky.classList.remove("opened");
+  }*/
+  let newPosition =  parseInt(mobileBasketSticky.style.top) - yDiff;
+console.log(newPosition);
+  if ((window.innerHeight-60) > newPosition && newPosition > 0) {
+    console.log("here");
+    mobileBasketSticky.style.top = newPosition + "px";
   }
   console.log(mobileBasketSticky.style.bottom);
+  console.log(mobileBasketSticky.style.top);
 }
 /*console.log(positionBasket);
   var currentBottom = -window.innerHeight + (60 - yDiff) + "px";
