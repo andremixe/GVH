@@ -241,8 +241,19 @@ btnModalOrder.addEventListener("click", () => {
   closeModal();
 });
 -*/
+function hiddenOverflow() {
+  main.style.overflow = "hidden";
+  menu.style.overflow = "hidden";
+  document.body.style.overflow = "hidden";
+}
+function unsetOverflow() {
+  main.style.overflow = "unset";
+  menu.style.overflow = "unset";
+  document.body.style.overflow = "unset";
+}
 /*-------------------------Open mobile basket-------------------------------*/
 function openMobileBasketFunc() {
+  hiddenOverflow();
   /*document.body.style.overflow = "hidden";
   mobileBasket.style.display = "flex";*/
   mobileBasketHeaderPrice.style.display = "none";
@@ -274,6 +285,7 @@ function openMobileBasketFunc() {
 }
 
 function closeMobileBasketFunc() {
+  unsetOverflow();
   //document.body.style.overflow = "unset";
   // mobileBasket.style.display = "none";
   mobileBasketHeaderPrice.style.display = "block";
@@ -677,17 +689,6 @@ let xDiff = 0;
 let yDiff = 0;
 let full = 0;
 
-function hiddenOverflow() {
-  main.style.overflow = "hidden";
-  menu.style.overflow = "hidden";
-  document.body.style.overflow = "hidden";
-}
-function unsetOverflow() {
-  main.style.overflow = "none";
-  menu.style.overflow = "none";
-  document.body.style.overflow = "none";
-}
-
 function handleTouchStart(event) {
   const firstTouch = event.touches[0];
   x1 = firstTouch.clientX;
@@ -695,7 +696,6 @@ function handleTouchStart(event) {
 }
 
 function handleTouchMove(event) {
-  hiddenOverflow();
   if (!x1 || !y1) {
     return false;
   }
@@ -751,7 +751,6 @@ function handleTouchMove(event) {
 }*/
 
 function handleTouchEnd(event) {
-  unsetOverflow();
   if (Math.abs(full) < 10) {
     return;
   }

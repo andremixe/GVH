@@ -488,8 +488,9 @@ a:active {
     margin-top: 20px;
     margin-bottom: 53px;
     padding-top: 40px;
-    padding-bottom: 26px;    
+    padding-bottom: 26px;
 }
+
 .order__basket .mobileBasket__card {
     display: grid;
     grid-template-columns: min-content 1fr auto;
@@ -503,40 +504,49 @@ a:active {
     padding-left: 20px;
     padding-right: 15px;
 }
+
 .order__basket .mobileBasket__count {
     justify-self: end;
 }
+
 .order__topping {
     padding-left: 22px;
     padding-right: 20px;
     padding-bottom: 28px;
 }
+
 .order__topping_list {
     display: flex;
     flex-direction: column;
     row-gap: 19px;
 }
+
 .order__topping_list .input_text {
     height: 47px;
 }
+
 .order__topping .order__item_h2 {
-    padding-top: 25px;    
+    padding-top: 25px;
     padding-bottom: 19px;
 }
+
 .order__topping_card .mobileBasket__h3 {
-   padding-bottom: 0px;
-   width: 100%;   
+    padding-bottom: 0px;
+    width: 100%;
 }
-.order__basket .count_minus, 
+
+.order__basket .count_minus,
 .order__basket .count_plus,
 .order__basket .input_text {
     height: 42px;
 }
+
 .card__pinck {
     background-color: var(--color-milky);
     width: 100%;
     height: 3px;
 }
+
 .order__list .mobileBasket__h3,
 .last__card .mobileBasket__h3 {
     grid-row: 1/2;
@@ -544,24 +554,29 @@ a:active {
     width: 100%;
     padding-bottom: 0px;
 }
+
 .last__card .mobileBasket__price {
     align-self: end;
 }
+
 .order__basket .last__card .mobileBasket__h3 {
     color: var(--color-bordeaux-light);
     font-weight: 700;
 }
+
 .order__list,
 .last__card {
     padding-left: 20px;
     padding-right: 15px;
 }
+
 .order__list {
     display: flex;
     flex-direction: column;
     padding-bottom: 45px;
     row-gap: 25px;
 }
+
 .order__topping_card {
     display: grid;
     max-width: 100%;
@@ -569,22 +584,28 @@ a:active {
     row-gap: 6px;
     column-gap: 12px;
 }
+
 .order__topping_desc {
     font-size: 13px;
     color: var(--text-color-grey);
 }
+
 .order__topping_card .mobileBasket__price {
     justify-self: end;
 }
+
 .last__card {
     padding-top: 3px;
 }
+
 .order__list .mobileBasket__card_img {
-    height: 68px;    
+    height: 68px;
 }
+
 .order__list .mobileBasket__card_pict,
 .last__card .mobileBasket__card_pict {
-    grid-row: 1/3;}
+    grid-row: 1/3;
+}
 
 .last__card .mobileBasket__card_pict {
     background-color: var(--color-bordeaux-light);
@@ -595,6 +616,7 @@ a:active {
     justify-content: center;
     align-items: center;
 }
+
 .last__card .mobileBasket__card_img {
     width: 27px;
     height: 35px;
@@ -1227,8 +1249,9 @@ address {
 .mobileBasket__footer {
     flex-grow: 1;
     width: 100%;
-    z-index: 100401;    
+    z-index: 100401;
     position: fixed;
+    right: 0;
     bottom: -130px;
     transition: bottom linear 700ms;
 }
@@ -1944,32 +1967,39 @@ input[type="number"]:focus {
     .onlyTabletHalf {
         grid-column: span 1;
     }
+
     .order__topping_list {
         row-gap: 33px;
     }
+
     .order__basket .mobileBasket__card.last__card {
         display: grid;
         grid-template-columns: min-content 1fr max-content auto;
         align-items: center;
     }
+
     .order__topping_card {
         grid-template-columns: 1fr auto auto;
     }
+
     .order__topping_card .mobileBasket__count {
         grid-column: 3/4;
         grid-row: 1/3;
     }
+
     .order__topping_card .mobileBasket__price {
         grid-column: 2/3;
         grid-row: 1/3;
         align-self: center;
     }
+
     .order__list .mobileBasket__h3 {
         grid-column: 2/3;
         grid-row: 1/2;
         padding-bottom: 0px;
         align-self: end;
     }
+
     .last__card .mobileBasket__h3,
     .last__card .mobileBasket__card_pict,
     .last__card .mobileBasket__count {
@@ -1977,25 +2007,31 @@ input[type="number"]:focus {
         grid-row: span 1;
         row-gap: 0;
     }
+
     .last__card .mobileBasket__price {
         justify-self: end;
         align-self: center;
     }
-    .order__basket .mobileBasket__card { 
+
+    .order__basket .mobileBasket__card {
         row-gap: 10px;
     }
+
     .order__list .mobileBasket__card_pict {
         grid-column: 1/2;
         grid-row: 1/3;
     }
+
     .order__list .mobileBasket__count {
         grid-row: 1/3;
         grid-column: 3/4;
         align-self: center;
     }
+
     .order__list .mobileBasket__weightPrice {
         flex-direction: row;
     }
+
     .order__list .count_minus,
     .order__list .count_plus,
     .order__list .input_text {
@@ -2374,15 +2410,17 @@ input[type="number"]:focus {
     .menu__main_img {
         height: 240px;
     }
+
     .order {
         display: grid;
-        grid-template-columns: 630px 361px ;
+        grid-template-columns: 630px 361px;
         column-gap: 34px;
         row-gap: 43px;
         justify-content: center;
         padding-top: 55px;
         padding-bottom: 65px;
     }
+
     .order__item {
         margin: 0;
         padding-top: 0;
@@ -2390,48 +2428,57 @@ input[type="number"]:focus {
         padding-left: 27px;
         padding-right: 30px;
     }
-    
+
     .order__list,
     .last__card,
     .card__pinck {
         padding-right: 0;
         padding-left: 0;
     }
+
     .order__topping {
         padding-left: 22px;
         padding-right: 20px;
     }
+
     .order__basket {
         padding-top: 0;
         padding-bottom: 0;
     }
+
     .order__item .order__item_h2 {
         padding-top: 25px;
         padding-bottom: 26px;
     }
+
     .order__topping_list {
         row-gap: 33px;
     }
-    
+
     .order__topping_card {
         grid-template-columns: 1fr auto;
     }
+
     .order__topping_card .mobileBasket__count {
-       grid-column: span 1;
-       grid-row: span 1;
+        grid-column: span 1;
+        grid-row: span 1;
     }
+
     .order__topping_card .mobileBasket__price {
         grid-column: span 1;
         grid-row: span 1;
         align-self: center;
     }
+
     .order__topping_card .mobileBasket__price {
         grid-column: span 1;
         grid-row: span 1;
     }
+
     .order__basket {
         margin: 0;
     }
+
     .onlyDeskHalf {
         grid-column: span 1;
     }
@@ -2729,10 +2776,12 @@ input[type="number"]:focus {
     }
 
 }
+
 .mobileBasket_sticky.transition {
     transition: bottom linear 700ms;
 }
 
 .mobileBasket_sticky.opened {
     position: fixed;
+    right: 0;
 }
