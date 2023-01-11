@@ -160,6 +160,7 @@ for (let imgClick of imgsClick) {
       footer.style.paddingBottom = "60px";
       mobileBasketSticky.style.display = "block";
       btnCloseMobileBasket.style.display = "none";
+      startPosition = (window.innerHeight - 60) + "px";
       mobileBasketSticky.style.bottom = "60px";
       //mobileBasketSticky.style.top = "calc((var(--vh, 1vh) * 100) - 60px)";
       mobileBasketHeaderWr.style.width = "100%";
